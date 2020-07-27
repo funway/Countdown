@@ -11,6 +11,9 @@ import SwiftUI
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    // 类型后面用 ! 号表示这是一个隐式解析的可选类型
+    var statusBar: StatusBarController!
+    var popover: NSPopover!
 
     var window: NSWindow!
 
@@ -28,6 +31,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.setFrameAutosaveName("Main Window")
         window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
+        // 上面这部分代码可以删除了
+        
+        
+        // 创建 NSPopover 类型实例
+        popover = NSPopover()
+        // 必须先为 NSPopover 设置视图控制器后才能添加视图
+        popover.contentViewController = PopContentViewController()
+        popover.contentSize = NSSize(width: 360, height: 360)
+        // 这里用 ? 问号表示是一个可选链式调用。如果改用 ! 的话则表示强制解包，强制解包的链式调用遇到 nil 时会报错
+        popover.contentViewController?.view = NSHostingView(rootView: PopContentView())
+        
+        // 创建状态栏图标控制器
+        statusBar = StatusBarController(popover)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

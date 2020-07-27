@@ -1,0 +1,22 @@
+{
+  "images" : [
+    {
+      "filename" : "baseline_timelapse_black_36pt_1x.png",
+      "idiom" : "mac"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "baseline_timelapse_white_36pt_1x.png",
+      "idiom" : "mac"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
