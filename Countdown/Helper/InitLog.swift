@@ -28,6 +28,7 @@ func initLog() {
     systemDestination.outputLevel = .debug
     #else
     systemDestination.outputLevel = .error
+    systemDestination.logQueue = XCGLogger.logQueue
     #endif
 
     
@@ -38,7 +39,10 @@ func initLog() {
     let logPath = logDirectory + "/\(Bundle.main.bundleIdentifier!).log"
     
     // Create a auto rotating file log destination
-    let fileDestination = AutoRotatingFileDestination(writeToFile: logPath, identifier: "advancedLogger.fileDestination", shouldAppend: true, appendMarker: "-- Relauched App --")
+    let fileDestination = AutoRotatingFileDestination(writeToFile: logPath,
+                            identifier: "advancedLogger.fileDestination",
+                            shouldAppend: true, appendMarker: "-- Relauched App --",
+                            maxFileSize: 10485760, maxTimeInterval: 0, targetMaxLogFiles: 3)
     fileDestination.showLogIdentifier = false
     fileDestination.showFunctionName = true
     fileDestination.showThreadName = true
@@ -46,8 +50,7 @@ func initLog() {
     fileDestination.showFileName = true
     fileDestination.showLineNumber = true
     fileDestination.showDate = true
-    fileDestination.targetMaxFileSize = 20971520  // in bytes
-    fileDestination.targetMaxLogFiles = 3
+    // 设置 fileDestination 为异步输出日志
     fileDestination.logQueue = XCGLogger.logQueue
     #if DEBUG
     fileDestination.outputLevel = .debug
