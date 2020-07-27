@@ -34,6 +34,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // 上面这部分代码可以删除了
         
         
+        // 初始化日志模块
+        initLog()
+        
         // 创建 NSPopover 类型实例
         popover = NSPopover()
         // 必须先为 NSPopover 设置视图控制器后才能添加视图
@@ -44,6 +47,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // 创建状态栏图标控制器
         statusBar = StatusBarController(popover)
+        
+        #if DEBUG
+            test()
+        #endif
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

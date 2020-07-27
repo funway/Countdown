@@ -15,7 +15,26 @@
 		88F5EDE524CEABFF00212DCC /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDE424CEABFF00212DCC /* StatusBarController.swift */; };
 		88F5EDE724CEB0C300212DCC /* PopContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDE624CEB0C300212DCC /* PopContentView.swift */; };
 		88F5EDEA24CEB9D700212DCC /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDE924CEB9D700212DCC /* EventMonitor.swift */; };
+		88F5EDEE24CEC29E00212DCC /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDED24CEC29E00212DCC /* Test.swift */; };
+		88F5EDF124CEC3D700212DCC /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F5EDF024CEC3D700212DCC /* XCGLogger.framework */; };
+		88F5EDF224CEC3D700212DCC /* XCGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88F5EDF024CEC3D700212DCC /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		88F5EDF624CECB8300212DCC /* InitLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDF524CECB8300212DCC /* InitLog.swift */; };
+		88F5EDF824CEEDDA00212DCC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDF724CEEDDA00212DCC /* Extension.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		88F5EDF324CEC3D700212DCC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				88F5EDF224CEC3D700212DCC /* XCGLogger.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		88F5EDCC24CE6C2500212DCC /* Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +48,10 @@
 		88F5EDE424CEABFF00212DCC /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		88F5EDE624CEB0C300212DCC /* PopContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopContentView.swift; sourceTree = "<group>"; };
 		88F5EDE924CEB9D700212DCC /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		88F5EDED24CEC29E00212DCC /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		88F5EDF024CEC3D700212DCC /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/Mac/XCGLogger.framework; sourceTree = "<group>"; };
+		88F5EDF524CECB8300212DCC /* InitLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitLog.swift; sourceTree = "<group>"; };
+		88F5EDF724CEEDDA00212DCC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88F5EDF124CEC3D700212DCC /* XCGLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +71,7 @@
 			children = (
 				88F5EDCE24CE6C2500212DCC /* Countdown */,
 				88F5EDCD24CE6C2500212DCC /* Products */,
+				88F5EDEF24CEC3D700212DCC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,8 +128,19 @@
 			isa = PBXGroup;
 			children = (
 				88F5EDE924CEB9D700212DCC /* EventMonitor.swift */,
+				88F5EDED24CEC29E00212DCC /* Test.swift */,
+				88F5EDF524CECB8300212DCC /* InitLog.swift */,
+				88F5EDF724CEEDDA00212DCC /* Extension.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		88F5EDEF24CEC3D700212DCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88F5EDF024CEC3D700212DCC /* XCGLogger.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,6 +153,8 @@
 				88F5EDC824CE6C2500212DCC /* Sources */,
 				88F5EDC924CE6C2500212DCC /* Frameworks */,
 				88F5EDCA24CE6C2500212DCC /* Resources */,
+				88F5EDF324CEC3D700212DCC /* Embed Frameworks */,
+				88F5EDF424CEC3DD00212DCC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -173,16 +211,41 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		88F5EDF424CEC3DD00212DCC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/XCGLogger.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/ObjcExceptionBridging.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		88F5EDC824CE6C2500212DCC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				88F5EDE724CEB0C300212DCC /* PopContentView.swift in Sources */,
+				88F5EDF624CECB8300212DCC /* InitLog.swift in Sources */,
 				88F5EDEA24CEB9D700212DCC /* EventMonitor.swift in Sources */,
 				88F5EDD224CE6C2500212DCC /* ContentView.swift in Sources */,
 				88F5EDE524CEABFF00212DCC /* StatusBarController.swift in Sources */,
 				88F5EDD024CE6C2500212DCC /* AppDelegate.swift in Sources */,
+				88F5EDEE24CEC29E00212DCC /* Test.swift in Sources */,
+				88F5EDF824CEEDDA00212DCC /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +387,10 @@
 				DEVELOPMENT_TEAM = 78KUS8C9YH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Countdown/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -347,6 +414,10 @@
 				DEVELOPMENT_TEAM = 78KUS8C9YH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Countdown/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
