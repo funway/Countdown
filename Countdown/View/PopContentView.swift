@@ -16,13 +16,24 @@ class PopContentViewController: NSViewController
 struct PopContentView: View {
     var body: some View {
         VStack {
+            HStack {
+                
+                Text("Countdown")
+                
+                Spacer()
+                
+                Button("+") {
+                    log.debug("点击 + 按钮")
+                }
+            }
+            
             Text("Hello, World!")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             Button("Quit"){
                 NSApplication.shared.terminate(self)
             }
-        }
+        }.frame(width: 360, height: 360)
     }
 }
 

@@ -9,8 +9,9 @@
 import XCGLogger
 import Foundation
 
-// 定义一个全局的 log 对象
+/// 全局的 log 对象
 let log = XCGLogger(identifier: "advancedLogger", includeDefaultDestinations: false)
+
 
 func initLog() {
     
@@ -18,14 +19,14 @@ func initLog() {
     let systemDestination = AppleSystemLogDestination(identifier: "advancedLogger.systemDestination")
     // Optionally set some configuration options
     systemDestination.showLogIdentifier = false
-    systemDestination.showFunctionName = false
+    systemDestination.showFunctionName = true
     systemDestination.showThreadName = false
     systemDestination.showLevel = true
     systemDestination.showFileName = true
     systemDestination.showLineNumber = true
     systemDestination.showDate = true
     #if DEBUG
-    systemDestination.outputLevel = .debug
+    systemDestination.outputLevel = .verbose
     #else
     systemDestination.outputLevel = .error
     systemDestination.logQueue = XCGLogger.logQueue
@@ -36,10 +37,10 @@ func initLog() {
     if !FileManager.default.directoryExists(logDirectory) {
         logDirectory = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first!
     }
-    let logPath = logDirectory + "/\(Bundle.main.bundleIdentifier!).log"
+    let logFile = logDirectory + "/\(Bundle.main.bundleIdentifier!).log"
     
     // Create a auto rotating file log destination
-    let fileDestination = AutoRotatingFileDestination(writeToFile: logPath,
+    let fileDestination = AutoRotatingFileDestination(writeToFile: logFile,
                             identifier: "advancedLogger.fileDestination",
                             shouldAppend: true, appendMarker: "-- Relauched App --",
                             maxFileSize: 10485760, maxTimeInterval: 0, targetMaxLogFiles: 3)
@@ -62,4 +63,40 @@ func initLog() {
     // Add the destination to the logger
     log.add(destination: systemDestination)
     log.add(destination: fileDestination)
+    
+    
+    // You can also change the labels for each log level, most useful for alternate languages, French, German etc, but Emoji's are more fun
+    log.levelDescriptions[.verbose] = "📘Verbose"
+    log.levelDescriptions[.debug] = "✏️Debug"
+    log.levelDescriptions[.info] = "ℹ️Info"
+    log.levelDescriptions[.notice] = "✳️Notice"
+    log.levelDescriptions[.warning] = "⚠️Warning"
+    log.levelDescriptions[.error] = "‼️Error"
+    log.levelDescriptions[.severe] = "💣Severe"
+    log.levelDescriptions[.alert] = "🛑Alert"
+    log.levelDescriptions[.emergency] = "🚨Emergency"
+    
+    // Alternatively, you can use emoji to highlight log levels (you probably just want to use one of these methods at a time).
+    //    let emojiLogFormatter = PrePostFixLogFormatter()
+    //    emojiLogFormatter.apply(prefix: "🗯🗯🗯 ", postfix: " 🗯🗯🗯", to: .verbose)
+    //    emojiLogFormatter.apply(prefix: "🔹🔹🔹 ", postfix: " 🔹🔹🔹", to: .debug)
+    //    emojiLogFormatter.apply(prefix: "ℹ️ℹ️ℹ️ ", postfix: " ℹ️ℹ️ℹ️", to: .info)
+    //    emojiLogFormatter.apply(prefix: "✳️✳️✳️ ", postfix: " ✳️✳️✳️", to: .notice)
+    //    emojiLogFormatter.apply(prefix: "⚠️⚠️⚠️ ", postfix: " ⚠️⚠️⚠️", to: .warning)
+    //    emojiLogFormatter.apply(prefix: "‼️‼️‼️ ", postfix: " ‼️‼️‼️", to: .error)
+    //    emojiLogFormatter.apply(prefix: "💣💣💣 ", postfix: " 💣💣💣", to: .severe)
+    //    emojiLogFormatter.apply(prefix: "🛑🛑🛑 ", postfix: " 🛑🛑🛑", to: .alert)
+    //    emojiLogFormatter.apply(prefix: "🚨🚨🚨 ", postfix: " 🚨🚨🚨", to: .emergency)
+    //    log.formatters = [emojiLogFormatter]
+    
+    // Test log
+    //    log.verbose("A verbose message, usually useful when working on a specific problem")
+    //    log.debug("A debug message")
+    //    log.info("An info message, probably useful to power users looking in console.app")
+    //    log.notice("A notice message")
+    //    log.warning("A warning message, may indicate a possible error")
+    //    log.error("An error occurred, but it's recoverable, just info about what happened")
+    //    log.severe("A severe error occurred, we are likely about to crash now")
+    //    log.alert("An alert error occurred, a log destination could be made to email someone")
+    //    log.emergency("An emergency error occurred, a log destination could be made to text someone")
 }

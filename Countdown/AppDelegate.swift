@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        let contentView = TestView()
 
         // Create the window and set the content view. 
         window = NSWindow(
@@ -36,6 +36,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // 初始化日志模块
         initLog()
+        
+        // 初始化 SQLite 数据库模块
+        initSQLite()
         
         // 创建 NSPopover 类型实例
         popover = NSPopover()
