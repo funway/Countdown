@@ -13,27 +13,28 @@ class PopContentViewController: NSViewController
     // 内容为空即可
 }
 
+enum PopContainedViewType {
+    case list
+    case add
+    case edit
+    case detail
+}
+
 struct PopContentView: View {
+    
+    @State var containedViewType: PopContainedViewType = .list
+    
     var body: some View {
-        VStack {
-            HStack {
-                
-                Text("Countdown")
-                
-                Spacer()
-                
-                Button("+") {
-                    log.debug("点击 + 按钮")
-                }
+        ZStack {
+            if .list == self.containedViewType {
+                PopEventListView(currentPopContainedViewType: $containedViewType)
             }
             
-            Text("Hello, World!")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
-            Button("Quit"){
-                NSApplication.shared.terminate(self)
+            else if .add == self.containedViewType {
+                PopEventAddView(currentPopContainedViewType: $containedViewType)
+                    .transition(.move(edge: .trailing))
             }
-        }.frame(width: 360, height: 360)
+        }
     }
 }
 

@@ -10,13 +10,28 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Text("Hello, World!")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        VStack{
+            Circle()
+                .fill(Color.blue)
+                .overlay(Circle().strokeBorder(Color.white).padding(3))
+                .overlay(Text("Start").foregroundColor(.white))
+                .frame(width:75,height:75)
+               
             
-            Button("Quit"){
-                NSApplication.shared.terminate(self)
-            }
+            Divider()
+            
+            Text("我爱北京天安门")
+                .foregroundColor(.white)
+            .padding(10)
+            .background(
+                GeometryReader { proxy in
+                    Circle()
+                        .fill(Color.blue)
+                        .frame(width:proxy.size.width,height:proxy.size.width)
+                    
+                }
+            
+            )
         }
     }
 }

@@ -25,6 +25,9 @@
 		88F5EDFE24CF2B3300212DCC /* InitSQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDFD24CF2B3300212DCC /* InitSQLite.swift */; };
 		88F5EE0124CFB8EE00212DCC /* CountdownEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0024CFB8EE00212DCC /* CountdownEvent.swift */; };
 		88F5EE0324D163A100212DCC /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0224D163A100212DCC /* TestView.swift */; };
+		88F5EE0B24D2AA6000212DCC /* PopEventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0A24D2AA6000212DCC /* PopEventDetailView.swift */; };
+		88F5EE0D24D2AA7700212DCC /* PopEventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0C24D2AA7700212DCC /* PopEventListView.swift */; };
+		88F5EE0F24D2AAA800212DCC /* PopEventAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0E24D2AAA800212DCC /* PopEventAddView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +65,9 @@
 		88F5EDFD24CF2B3300212DCC /* InitSQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitSQLite.swift; sourceTree = "<group>"; };
 		88F5EE0024CFB8EE00212DCC /* CountdownEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownEvent.swift; sourceTree = "<group>"; };
 		88F5EE0224D163A100212DCC /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		88F5EE0A24D2AA6000212DCC /* PopEventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEventDetailView.swift; sourceTree = "<group>"; };
+		88F5EE0C24D2AA7700212DCC /* PopEventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEventListView.swift; sourceTree = "<group>"; };
+		88F5EE0E24D2AAA800212DCC /* PopEventAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEventAddView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +130,11 @@
 			isa = PBXGroup;
 			children = (
 				88F5EDD124CE6C2500212DCC /* ContentView.swift */,
-				88F5EDE624CEB0C300212DCC /* PopContentView.swift */,
 				88F5EE0224D163A100212DCC /* TestView.swift */,
+				88F5EDE624CEB0C300212DCC /* PopContentView.swift */,
+				88F5EE0A24D2AA6000212DCC /* PopEventDetailView.swift */,
+				88F5EE0C24D2AA7700212DCC /* PopEventListView.swift */,
+				88F5EE0E24D2AAA800212DCC /* PopEventAddView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,11 +284,14 @@
 				88F5EDFE24CF2B3300212DCC /* InitSQLite.swift in Sources */,
 				88F5EE0324D163A100212DCC /* TestView.swift in Sources */,
 				88F5EDF624CECB8300212DCC /* InitLog.swift in Sources */,
+				88F5EE0D24D2AA7700212DCC /* PopEventListView.swift in Sources */,
 				88F5EDEA24CEB9D700212DCC /* EventMonitor.swift in Sources */,
+				88F5EE0B24D2AA6000212DCC /* PopEventDetailView.swift in Sources */,
 				88F5EDD224CE6C2500212DCC /* ContentView.swift in Sources */,
 				88F5EDE524CEABFF00212DCC /* StatusBarController.swift in Sources */,
 				88F5EE0124CFB8EE00212DCC /* CountdownEvent.swift in Sources */,
 				88F5EDD024CE6C2500212DCC /* AppDelegate.swift in Sources */,
+				88F5EE0F24D2AAA800212DCC /* PopEventAddView.swift in Sources */,
 				88F5EDEE24CEC29E00212DCC /* Test.swift in Sources */,
 				88F5EDF824CEEDDA00212DCC /* Extension.swift in Sources */,
 			);

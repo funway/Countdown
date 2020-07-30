@@ -66,15 +66,15 @@ func initLog() {
     
     
     // You can also change the labels for each log level, most useful for alternate languages, French, German etc, but Emoji's are more fun
-    log.levelDescriptions[.verbose] = "📘Verbose"
-    log.levelDescriptions[.debug] = "✏️Debug"
-    log.levelDescriptions[.info] = "ℹ️Info"
-    log.levelDescriptions[.notice] = "✳️Notice"
-    log.levelDescriptions[.warning] = "⚠️Warning"
-    log.levelDescriptions[.error] = "‼️Error"
-    log.levelDescriptions[.severe] = "💣Severe"
-    log.levelDescriptions[.alert] = "🛑Alert"
-    log.levelDescriptions[.emergency] = "🚨Emergency"
+    log.levelDescriptions[.verbose] = "📘 Verbose"
+    log.levelDescriptions[.debug] = "✏️ Debug"
+    log.levelDescriptions[.info] = "ℹ️ Info"
+    log.levelDescriptions[.notice] = "✳️ Notice"
+    log.levelDescriptions[.warning] = "⚠️ Warning"
+    log.levelDescriptions[.error] = "‼️ Error"
+    log.levelDescriptions[.severe] = "💣 Severe"
+    log.levelDescriptions[.alert] = "🛑 Alert"
+    log.levelDescriptions[.emergency] = "🚨 Emergency"
     
     // Alternatively, you can use emoji to highlight log levels (you probably just want to use one of these methods at a time).
     //    let emojiLogFormatter = PrePostFixLogFormatter()

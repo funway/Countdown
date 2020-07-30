@@ -44,7 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover = NSPopover()
         // 必须先为 NSPopover 设置视图控制器后才能添加视图
         popover.contentViewController = PopContentViewController()
-        popover.contentSize = NSSize(width: 360, height: 360)
+        popover.contentSize = NSSize(width: 320, height: 320)
         // 这里用 ? 问号表示是一个可选链式调用。如果改用 ! 的话则表示强制解包，强制解包的链式调用遇到 nil 时会报错
         popover.contentViewController?.view = NSHostingView(rootView: PopContentView())
         
