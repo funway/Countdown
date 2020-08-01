@@ -1,16 +1,33 @@
 //
-//  InitLog.swift
+//  Initializer.swift
 //  Countdown
 //
-//  Created by funway on 2020/7/27.
+//  Created by funway on 2020/7/30.
 //  Copyright © 2020 funwaywang. All rights reserved.
 //
 
-import XCGLogger
 import Foundation
+import XCGLogger
+import SQLite
 
-/// 全局的 log 对象
-let log = XCGLogger(identifier: "advancedLogger", includeDefaultDestinations: false)
+
+func initSQLite() {
+    let dbPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory,
+                    .userDomainMask, true).first! + "/" + Bundle.main.bundleIdentifier!
+    // 创建目录，如果该目录不存在的话
+    try! FileManager.default.createDirectory(atPath: dbPath, withIntermediateDirectories: true)
+    
+    // 连接数据库（如果不存在数据库文件则自动创建）
+    db = try! Connection("\(dbPath)/db.sqlite")
+    
+    #if DEBUG
+    db.trace { log.verbose("Execute SQL: \($0)") }
+    #endif
+    
+    // 创建 CountdownEvent 的数据库表结构，如果不存在的话
+    try! CountdownEvent.createTable(at: db)
+    
+}
 
 
 func initLog() {
@@ -99,4 +116,15 @@ func initLog() {
     //    log.severe("A severe error occurred, we are likely about to crash now")
     //    log.alert("An alert error occurred, a log destination could be made to email someone")
     //    log.emergency("An emergency error occurred, a log destination could be made to text someone")
+}
+
+
+func loadData() {
+    log.debug("Load data")
+    
+    let table = Table(CountdownEvent.typeName)
+    
+    for row in try! db.prepare(table) {
+        cdEvents.append( CountdownEvent(row: row) )
+    }
 }

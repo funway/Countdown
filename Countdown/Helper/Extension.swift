@@ -8,8 +8,47 @@
 
 import Foundation
 import SQLite
+import SwiftUI
+
+
+public extension SwiftUI.View {
+    
+    /// 给视图添加 tooltip 提示
+    /// - Parameter toolTip: 提示字符串
+    /// - Returns: 返回一个包含 tooltip 的视图
+    func toolTip(_ toolTip: String) -> some SwiftUI.View {
+        self.overlay(TooltipView(toolTip))
+    }
+}
+
+private struct TooltipView: NSViewRepresentable {
+    let toolTip: String
+
+    init(_ toolTip: String?) {
+        if let toolTip = toolTip {
+            self.toolTip = toolTip
+        }
+        else
+        {
+            self.toolTip = ""
+        }
+    }
+
+    func makeNSView(context: NSViewRepresentableContext<TooltipView>) -> NSView {
+        NSView()
+    }
+
+    func updateNSView(_ nsView: NSView, context: NSViewRepresentableContext<TooltipView>) {
+        nsView.toolTip = self.toolTip
+    }
+}
+
 
 extension FileManager {
+    
+    /// 判断目录是否存在
+    /// - Parameter atPath: 目标目录
+    /// - Returns: 存在返回 true，不存在返回 false
     func directoryExists(_ atPath: String) -> Bool {
         var isDirectory: ObjCBool = false
         let exists = FileManager.default.fileExists(atPath: atPath, isDirectory:&isDirectory)
@@ -66,3 +105,4 @@ extension UUID: SQLite.Value {
 //        return Datatype(bytes: bytes)
 //    }
 //}
+

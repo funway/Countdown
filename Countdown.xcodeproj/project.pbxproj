@@ -7,27 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8858AB4024D5497A00D729CA /* ArcProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858AB3C24D5497A00D729CA /* ArcProgress.swift */; };
+		8858AB4124D5497A00D729CA /* CircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858AB3D24D5497A00D729CA /* CircularProgress.swift */; };
+		8858AB4224D5497A00D729CA /* LinearProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858AB3E24D5497A00D729CA /* LinearProgress.swift */; };
+		8858AB4324D5497A00D729CA /* FilledCircleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858AB3F24D5497A00D729CA /* FilledCircleProgress.swift */; };
+		8867F35324D320FF007DE930 /* EventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867F35224D320FF007DE930 /* EventRow.swift */; };
 		88F5EDD024CE6C2500212DCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDCF24CE6C2500212DCC /* AppDelegate.swift */; };
 		88F5EDD224CE6C2500212DCC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDD124CE6C2500212DCC /* ContentView.swift */; };
 		88F5EDD424CE6C2800212DCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F5EDD324CE6C2800212DCC /* Assets.xcassets */; };
 		88F5EDD724CE6C2800212DCC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F5EDD624CE6C2800212DCC /* Preview Assets.xcassets */; };
 		88F5EDDA24CE6C2800212DCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88F5EDD824CE6C2800212DCC /* Main.storyboard */; };
 		88F5EDE524CEABFF00212DCC /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDE424CEABFF00212DCC /* StatusBarController.swift */; };
-		88F5EDE724CEB0C300212DCC /* PopContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDE624CEB0C300212DCC /* PopContentView.swift */; };
+		88F5EDE724CEB0C300212DCC /* PopRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDE624CEB0C300212DCC /* PopRootView.swift */; };
 		88F5EDEA24CEB9D700212DCC /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDE924CEB9D700212DCC /* EventMonitor.swift */; };
 		88F5EDEE24CEC29E00212DCC /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDED24CEC29E00212DCC /* Test.swift */; };
 		88F5EDF124CEC3D700212DCC /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F5EDF024CEC3D700212DCC /* XCGLogger.framework */; };
 		88F5EDF224CEC3D700212DCC /* XCGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88F5EDF024CEC3D700212DCC /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		88F5EDF624CECB8300212DCC /* InitLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDF524CECB8300212DCC /* InitLog.swift */; };
 		88F5EDF824CEEDDA00212DCC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDF724CEEDDA00212DCC /* Extension.swift */; };
 		88F5EDFB24CF2A7200212DCC /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F5EDFA24CF2A7200212DCC /* SQLite.framework */; };
 		88F5EDFC24CF2A7200212DCC /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88F5EDFA24CF2A7200212DCC /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		88F5EDFE24CF2B3300212DCC /* InitSQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDFD24CF2B3300212DCC /* InitSQLite.swift */; };
 		88F5EE0124CFB8EE00212DCC /* CountdownEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0024CFB8EE00212DCC /* CountdownEvent.swift */; };
 		88F5EE0324D163A100212DCC /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0224D163A100212DCC /* TestView.swift */; };
-		88F5EE0B24D2AA6000212DCC /* PopEventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0A24D2AA6000212DCC /* PopEventDetailView.swift */; };
-		88F5EE0D24D2AA7700212DCC /* PopEventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0C24D2AA7700212DCC /* PopEventListView.swift */; };
-		88F5EE0F24D2AAA800212DCC /* PopEventAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0E24D2AAA800212DCC /* PopEventAddView.swift */; };
+		88F5EE0B24D2AA6000212DCC /* PopEventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0A24D2AA6000212DCC /* PopEventDetail.swift */; };
+		88F5EE0D24D2AA7700212DCC /* PopEventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0C24D2AA7700212DCC /* PopEventList.swift */; };
+		88F5EE0F24D2AAA800212DCC /* PopEventAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0E24D2AAA800212DCC /* PopEventAdd.swift */; };
+		88F5EE1124D2EB1000212DCC /* Initializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE1024D2EB1000212DCC /* Initializer.swift */; };
+		88F5EE1324D2EBBD00212DCC /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE1224D2EBBD00212DCC /* Global.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +51,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8858AB3C24D5497A00D729CA /* ArcProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcProgress.swift; sourceTree = "<group>"; };
+		8858AB3D24D5497A00D729CA /* CircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgress.swift; sourceTree = "<group>"; };
+		8858AB3E24D5497A00D729CA /* LinearProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearProgress.swift; sourceTree = "<group>"; };
+		8858AB3F24D5497A00D729CA /* FilledCircleProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilledCircleProgress.swift; sourceTree = "<group>"; };
+		8867F35224D320FF007DE930 /* EventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRow.swift; sourceTree = "<group>"; };
 		88F5EDCC24CE6C2500212DCC /* Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F5EDCF24CE6C2500212DCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88F5EDD124CE6C2500212DCC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,19 +65,19 @@
 		88F5EDDB24CE6C2800212DCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88F5EDDC24CE6C2800212DCC /* Countdown.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Countdown.entitlements; sourceTree = "<group>"; };
 		88F5EDE424CEABFF00212DCC /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
-		88F5EDE624CEB0C300212DCC /* PopContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopContentView.swift; sourceTree = "<group>"; };
+		88F5EDE624CEB0C300212DCC /* PopRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopRootView.swift; sourceTree = "<group>"; };
 		88F5EDE924CEB9D700212DCC /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		88F5EDED24CEC29E00212DCC /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		88F5EDF024CEC3D700212DCC /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/Mac/XCGLogger.framework; sourceTree = "<group>"; };
-		88F5EDF524CECB8300212DCC /* InitLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitLog.swift; sourceTree = "<group>"; };
 		88F5EDF724CEEDDA00212DCC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		88F5EDFA24CF2A7200212DCC /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/Mac/SQLite.framework; sourceTree = "<group>"; };
-		88F5EDFD24CF2B3300212DCC /* InitSQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitSQLite.swift; sourceTree = "<group>"; };
 		88F5EE0024CFB8EE00212DCC /* CountdownEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownEvent.swift; sourceTree = "<group>"; };
 		88F5EE0224D163A100212DCC /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		88F5EE0A24D2AA6000212DCC /* PopEventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEventDetailView.swift; sourceTree = "<group>"; };
-		88F5EE0C24D2AA7700212DCC /* PopEventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEventListView.swift; sourceTree = "<group>"; };
-		88F5EE0E24D2AAA800212DCC /* PopEventAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEventAddView.swift; sourceTree = "<group>"; };
+		88F5EE0A24D2AA6000212DCC /* PopEventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEventDetail.swift; sourceTree = "<group>"; };
+		88F5EE0C24D2AA7700212DCC /* PopEventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEventList.swift; sourceTree = "<group>"; };
+		88F5EE0E24D2AAA800212DCC /* PopEventAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEventAdd.swift; sourceTree = "<group>"; };
+		88F5EE1024D2EB1000212DCC /* Initializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initializer.swift; sourceTree = "<group>"; };
+		88F5EE1224D2EBBD00212DCC /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +93,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88F1BE3F24D40D45004847D7 /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				8858AB3C24D5497A00D729CA /* ArcProgress.swift */,
+				8858AB3D24D5497A00D729CA /* CircularProgress.swift */,
+				8858AB3F24D5497A00D729CA /* FilledCircleProgress.swift */,
+				8858AB3E24D5497A00D729CA /* LinearProgress.swift */,
+			);
+			path = ProgressView;
+			sourceTree = "<group>";
+		};
 		88F5EDC324CE6C2500212DCC = {
 			isa = PBXGroup;
 			children = (
@@ -129,12 +150,14 @@
 		88F5EDE224CEAB0900212DCC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88F1BE3F24D40D45004847D7 /* ProgressView */,
 				88F5EDD124CE6C2500212DCC /* ContentView.swift */,
 				88F5EE0224D163A100212DCC /* TestView.swift */,
-				88F5EDE624CEB0C300212DCC /* PopContentView.swift */,
-				88F5EE0A24D2AA6000212DCC /* PopEventDetailView.swift */,
-				88F5EE0C24D2AA7700212DCC /* PopEventListView.swift */,
-				88F5EE0E24D2AAA800212DCC /* PopEventAddView.swift */,
+				88F5EDE624CEB0C300212DCC /* PopRootView.swift */,
+				88F5EE0A24D2AA6000212DCC /* PopEventDetail.swift */,
+				88F5EE0C24D2AA7700212DCC /* PopEventList.swift */,
+				88F5EE0E24D2AAA800212DCC /* PopEventAdd.swift */,
+				8867F35224D320FF007DE930 /* EventRow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -150,10 +173,10 @@
 		88F5EDE824CEB9CA00212DCC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				88F5EDE924CEB9D700212DCC /* EventMonitor.swift */,
-				88F5EDF524CECB8300212DCC /* InitLog.swift */,
-				88F5EDFD24CF2B3300212DCC /* InitSQLite.swift */,
+				88F5EE1224D2EBBD00212DCC /* Global.swift */,
+				88F5EE1024D2EB1000212DCC /* Initializer.swift */,
 				88F5EDF724CEEDDA00212DCC /* Extension.swift */,
+				88F5EDE924CEB9D700212DCC /* EventMonitor.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -280,20 +303,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88F5EDE724CEB0C300212DCC /* PopContentView.swift in Sources */,
-				88F5EDFE24CF2B3300212DCC /* InitSQLite.swift in Sources */,
+				88F5EDE724CEB0C300212DCC /* PopRootView.swift in Sources */,
 				88F5EE0324D163A100212DCC /* TestView.swift in Sources */,
-				88F5EDF624CECB8300212DCC /* InitLog.swift in Sources */,
-				88F5EE0D24D2AA7700212DCC /* PopEventListView.swift in Sources */,
+				8858AB4324D5497A00D729CA /* FilledCircleProgress.swift in Sources */,
+				88F5EE0D24D2AA7700212DCC /* PopEventList.swift in Sources */,
+				8858AB4224D5497A00D729CA /* LinearProgress.swift in Sources */,
 				88F5EDEA24CEB9D700212DCC /* EventMonitor.swift in Sources */,
-				88F5EE0B24D2AA6000212DCC /* PopEventDetailView.swift in Sources */,
+				88F5EE0B24D2AA6000212DCC /* PopEventDetail.swift in Sources */,
 				88F5EDD224CE6C2500212DCC /* ContentView.swift in Sources */,
+				88F5EE1324D2EBBD00212DCC /* Global.swift in Sources */,
+				8858AB4024D5497A00D729CA /* ArcProgress.swift in Sources */,
+				8867F35324D320FF007DE930 /* EventRow.swift in Sources */,
 				88F5EDE524CEABFF00212DCC /* StatusBarController.swift in Sources */,
 				88F5EE0124CFB8EE00212DCC /* CountdownEvent.swift in Sources */,
 				88F5EDD024CE6C2500212DCC /* AppDelegate.swift in Sources */,
-				88F5EE0F24D2AAA800212DCC /* PopEventAddView.swift in Sources */,
+				88F5EE0F24D2AAA800212DCC /* PopEventAdd.swift in Sources */,
 				88F5EDEE24CEC29E00212DCC /* Test.swift in Sources */,
+				8858AB4124D5497A00D729CA /* CircularProgress.swift in Sources */,
 				88F5EDF824CEEDDA00212DCC /* Extension.swift in Sources */,
+				88F5EE1124D2EB1000212DCC /* Initializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  PopContentView.swift
+//  PopRootView.swift
 //  Countdown
 //
 //  Created by funway on 2020/7/27.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class PopContentViewController: NSViewController
+class PopRootViewController: NSViewController
 {
     // 内容为空即可
 }
@@ -20,26 +20,26 @@ enum PopContainedViewType {
     case detail
 }
 
-struct PopContentView: View {
+struct PopRootView: View {
     
     @State var containedViewType: PopContainedViewType = .list
     
     var body: some View {
         ZStack {
             if .list == self.containedViewType {
-                PopEventListView(currentPopContainedViewType: $containedViewType)
+                PopEventList(currentPopContainedViewType: $containedViewType)
             }
             
             else if .add == self.containedViewType {
-                PopEventAddView(currentPopContainedViewType: $containedViewType)
+                PopEventAdd(currentPopContainedViewType: $containedViewType)
                     .transition(.move(edge: .trailing))
             }
         }
     }
 }
 
-struct PopContentView_Previews: PreviewProvider {
+struct PopRootView_Previews: PreviewProvider {
     static var previews: some View {
-        PopContentView()
+        PopRootView()
     }
 }

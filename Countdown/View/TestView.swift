@@ -27,7 +27,7 @@ struct TestView: View {
                        }
                        .frame(width: proxy.size.width, height: proxy.size.height)
                        .background(Color.red)
-                       .transition(.offset(x: 100, y: 200))
+                       .transition(.offset(x: 100))
                    } else {
                        VStack {
                            Text("Home View")
@@ -38,6 +38,14 @@ struct TestView: View {
                            }, label: {
                                Text("Settings")
                            })
+                        
+                        MenuButton(label: Image("SettingsIcon")) {
+                            Button("aaa") {}
+                            Button("bbb") {}
+                            Divider()
+                            Button("ccc") {}
+                        }.menuButtonStyle(BorderlessButtonMenuButtonStyle())
+                        .toolTip("helloworld")
                        }
                        .frame(width: proxy.size.width, height: proxy.size.height)
                        .background(Color.green)

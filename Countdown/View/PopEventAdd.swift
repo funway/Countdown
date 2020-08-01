@@ -1,5 +1,5 @@
 //
-//  PopEventListView.swift
+//  PopEventAdd.swift
 //  Countdown
 //
 //  Created by funway on 2020/7/30.
@@ -8,33 +8,36 @@
 
 import SwiftUI
 
-struct PopEventListView: View {
+struct PopEventAdd: View {
     @Binding var currentPopContainedViewType: PopContainedViewType
     
     var body: some View {
         VStack(spacing: 2.0) {
             HStack() {
                 Button(action: {
-                    log.debug("点击设置按钮")
+                    log.debug("点击后退按钮")
+                    withAnimation {
+                        self.currentPopContainedViewType = .list
+                    }
                 }) {
-                    Image("SettingsIcon")
+                    Image("LeftIcon")
                 }
                 .buttonStyle(BorderlessButtonStyle())
                 .padding(.horizontal)
                 
                 Spacer()
                 
-                Text("Countdown")
+                Text("Add")
                 
                 Spacer()
                 
                 Button(action: {
-                    log.debug("点击添加按钮")
+                    log.debug("点击保存按钮")
                     withAnimation {
-                        self.currentPopContainedViewType = .add
+                        self.currentPopContainedViewType = .list
                     }
                 }) {
-                    Image("PlusIcon")
+                    Image("SaveIcon")
                 }
                 .buttonStyle(BorderlessButtonStyle())
                 .padding(.horizontal)
@@ -44,7 +47,9 @@ struct PopEventListView: View {
             
             Divider()
             
-            Text("Hello, World!")
+            
+            
+            Text("Hello, Add!")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             Button("Quit"){
@@ -54,8 +59,8 @@ struct PopEventListView: View {
     }
 }
 
-struct PopEventListView_Previews: PreviewProvider {
+struct PopEventAdd_Previews: PreviewProvider {
     static var previews: some View {
-        PopEventListView(currentPopContainedViewType: .constant(PopContainedViewType.list))
+        PopEventAdd(currentPopContainedViewType: .constant(PopContainedViewType.list))
     }
 }

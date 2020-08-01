@@ -1,5 +1,5 @@
 //
-//  PopEventDetailView.swift
+//  PopEventDetail.swift
 //  Countdown
 //
 //  Created by funway on 2020/7/30.
@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-struct PopEventDetailView: View {
+struct PopEventDetail: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct PopEventDetailView_Previews: PreviewProvider {
+struct PopEventDetail_Previews: PreviewProvider {
     static var previews: some View {
-        PopEventDetailView()
+        PopEventDetail()
     }
 }
