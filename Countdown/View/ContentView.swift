@@ -8,13 +8,15 @@
 
 import SwiftUI
 import ServiceManagement
+import UserNotifications
 
 struct ContentView: View {
     @State var showAlert = false
     @State var date = Date()
     @State var launchAtLogin = false
+    @State var test = true
     
-    let helperBundleName = "me.hawu.LaunchHelper"
+    let helperBundleName = "me.hawu.Countdown.LaunchHelper"
 
     var body: some View {
         VStack {
@@ -61,11 +63,19 @@ struct ContentView: View {
                     SMLoginItemSetEnabled(self.helperBundleName as CFString, self.launchAtLogin)
                 }).onAppear(){
                     let foundHelper = NSWorkspace.shared.runningApplications.contains {
-                        $0.bundleIdentifier == self.helperBundleName
+                        return $0.bundleIdentifier == self.helperBundleName
                     }
                     
                     self.launchAtLogin = foundHelper ? true : false
                 }
+            }
+            
+            HStack {
+                Text("测试 toggle ")
+                
+                PerformableSwitch(isOn: $test, perform: { _ in
+                    log.debug("测试")
+                })
             }
             
         }

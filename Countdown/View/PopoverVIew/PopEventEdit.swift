@@ -193,7 +193,7 @@ struct PopEventEdit: View {
                             
                             // 弹出对话框，向用户请求推送通知的权限（如果已授权，则不会重复弹窗）
                             // 如果用户拒绝的话，那么后续添加到通知中心的“推送请求”都会被忽略。
-                            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+                            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, error in
                                 // do nothing
                             }
                         })
