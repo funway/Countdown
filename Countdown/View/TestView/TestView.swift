@@ -24,6 +24,8 @@ struct TestView: View {
                            }, label: {
                                Text("Back")
                            })
+                        
+                            Spacer()
                        }
                        .frame(width: proxy.size.width, height: proxy.size.height)
                        .background(Color.red)
@@ -39,16 +41,16 @@ struct TestView: View {
                                Text("Settings")
                            })
                         
-                        MenuButton(label: Image("SettingsIcon")) {
-                            Button("aaa") {}
-                            Button("bbb") {}
-                            Divider()
-                            Button("ccc") {}
-                        }.menuButtonStyle(BorderlessButtonMenuButtonStyle())
-                        .toolTip("helloworld")
-                       }
-                       .frame(width: proxy.size.width, height: proxy.size.height)
-                       .background(Color.green)
+                            MenuButton(label: Image("SettingsIcon")) {
+                                Button("aaa") {}
+                                Button("bbb") {}
+                                Divider()
+                                Button("ccc") {}
+                            }.menuButtonStyle(BorderlessButtonMenuButtonStyle())
+                            .toolTip("helloworld")
+                           }
+                           .frame(width: proxy.size.width, height: proxy.size.height)
+                           .background(Color.green)
                    }
                }
            }

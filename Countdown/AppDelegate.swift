@@ -11,18 +11,65 @@ import SwiftUI
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
     // 类型后面用 ! 号表示这是一个隐式解析的可选类型
     var statusBar: StatusBarController!
     var popover: NSPopover!
-
+    var reminderTimer: Timer!
+    
+    #if DEBUG
     var window: NSWindow!
-
+    #endif
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // 初始化日志模块
+        initLog()
+        
+        // 初始化 SQLite 数据库模块
+        initSQLite()
+        
+        // 读取倒计时事件(数组是值类型哦)
+        let cdEvents = loadCountdownEvent()
+        let userData = UserData(countdownEvents: cdEvents)
+        
+        let popover = NSPopover()
+        let popoverView = PopRootView().environmentObject(userData)
+        
+        // 必须先为 NSPopover 设置视图控制器后才能添加视图
+        popover.contentViewController = PopRootViewController()
+        popover.contentViewController?.view = NSHostingView(rootView: popoverView)
+        popover.contentSize = NSSize(width: 360, height: 360)
+        
+        // 创建状态栏图标控制器
+        statusBar = StatusBarController(popover)
+        
+        // 创建“便利贴”视图
+        for cdEvnent in cdEvents {
+            if cdEvnent.showStickyNote {
+                StickyNoteController.shared.add(for: cdEvnent)
+            }
+        }
+        
+        // 启动计时器，轮询所有倒计时事件，看看是否需要弹出倒计时结束的通知
+        reminderTimer = Timer.scheduledTimer(withTimeInterval: 1,
+                                             repeats: true,
+                                             block: { _ in
+                                                
+                                                for cdEvent in userData.countdownEvents {
+                                                    if cdEvent.remindMe && (Int(cdEvent.endAt.timeIntervalSince1970) == Int(Date().timeIntervalSince1970)) {
+                                                        Helper.sendCountdownNotification(for: cdEvent)
+                                                    }
+                                                }
+                                             }
+                        )
+        
+        
+        ////////////// 👇下面这部分代码可以删除了
+        
+        #if DEBUG
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
-
-        // Create the window and set the content view. 
+        let contentView = TestNotification()
+        // Create the window and set the content view.
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
@@ -31,37 +78,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.setFrameAutosaveName("Main Window")
         window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
-        // 上面这部分代码可以删除了
-        
-        
-        // 初始化日志模块
-        initLog()
-        
-        // 初始化 SQLite 数据库模块
-        initSQLite()
-        
-        loadData()
-        
-        // 创建 NSPopover 类型实例
-        popover = NSPopover()
-        // 必须先为 NSPopover 设置视图控制器后才能添加视图
-        popover.contentViewController = PopRootViewController()
-        popover.contentSize = NSSize(width: 320, height: 320)
-        // 这里用 ? 问号表示是一个可选链式调用。如果改用 ! 的话则表示强制解包，强制解包的链式调用遇到 nil 时会报错
-        popover.contentViewController?.view = NSHostingView(rootView: PopRootView())
-        
-        // 创建状态栏图标控制器
-        statusBar = StatusBarController(popover)
-        
-        #if DEBUG
-            test()
         #endif
+        
+        ////////////// 👆上面这部分代码可以删除了
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
 
 }
 

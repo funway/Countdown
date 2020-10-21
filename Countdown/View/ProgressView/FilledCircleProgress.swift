@@ -14,7 +14,7 @@ struct FilledCircleProgress: View {
     var foregroundColor: Color
     var animationTimeInterval: TimeInterval
     
-    public init(progress: CGFloat, backgroundColor : Color = .gray, foregroundColor: Color = .pink,
+    public init(progress: CGFloat, backgroundColor : Color = .secondary, foregroundColor: Color = .pink,
                 animationTimeInterval: TimeInterval = 0.5) {
         self.progress = progress
         self.backgroundColor = backgroundColor
@@ -27,7 +27,7 @@ struct FilledCircleProgress: View {
             GeometryReader { geometry in
                 Circle()
                     .foregroundColor(self.backgroundColor)
-                    .opacity(0.5)
+                    .opacity(0.3)
                     .shadow(radius: 1)
                 
                 FilledLoadingCircle(radius: min(geometry.size.width, geometry.size.height)/2, progress: self.progress)

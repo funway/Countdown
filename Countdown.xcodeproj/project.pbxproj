@@ -7,11 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8813C97824DE534600EEF207 /* AnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8813C97724DE534600EEF207 /* AnimationTest.swift */; };
+		8813C97C24DFAB0000EEF207 /* PopRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8813C97B24DFAB0000EEF207 /* PopRootViewController.swift */; };
+		8813C98224E182F500EEF207 /* DecimalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8813C98124E182F500EEF207 /* DecimalTextField.swift */; };
+		8813C98424E2D05900EEF207 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8813C98324E2D05900EEF207 /* DateHelper.swift */; };
+		8813C98624E2F75300EEF207 /* ViewReconstruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8813C98524E2F75300EEF207 /* ViewReconstruct.swift */; };
+		8813C98824E3D5C900EEF207 /* DragTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8813C98724E3D5C900EEF207 /* DragTest.swift */; };
+		8819A36E252EE4F30019FB7C /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8819A36D252EE4F30019FB7C /* EventList.swift */; };
+		882DB44D2524CFE1007E046A /* DeallocPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882DB44C2524CFE1007E046A /* DeallocPrinter.swift */; };
+		882DB44F25270D75007E046A /* OnHoverLeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882DB44E25270D75007E046A /* OnHoverLeak.swift */; };
+		882DB45125271732007E046A /* HoverAwareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882DB45025271732007E046A /* HoverAwareView.swift */; };
 		8858AB4024D5497A00D729CA /* ArcProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858AB3C24D5497A00D729CA /* ArcProgress.swift */; };
 		8858AB4124D5497A00D729CA /* CircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858AB3D24D5497A00D729CA /* CircularProgress.swift */; };
 		8858AB4224D5497A00D729CA /* LinearProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858AB3E24D5497A00D729CA /* LinearProgress.swift */; };
 		8858AB4324D5497A00D729CA /* FilledCircleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858AB3F24D5497A00D729CA /* FilledCircleProgress.swift */; };
+		8858AB4624D5920400D729CA /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858AB4524D5920400D729CA /* TimerView.swift */; };
+		8858AB4824D6D8EA00D729CA /* TestNewWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858AB4724D6D8EA00D729CA /* TestNewWindow.swift */; };
+		8858ABBB24DD252B00D729CA /* SystemUIGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858ABBA24DD252B00D729CA /* SystemUIGuide.swift */; };
+		885BEEA02528325800B3D61E /* TestNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885BEE9F2528325800B3D61E /* TestNotification.swift */; };
+		885BEEA22528563100B3D61E /* ShakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885BEEA12528563100B3D61E /* ShakeView.swift */; };
+		885BEEA42529C42B00B3D61E /* PopEventEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885BEEA32529C42B00B3D61E /* PopEventEdit.swift */; };
+		885BEEA62529E47600B3D61E /* TestTapAndMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885BEEA52529E47600B3D61E /* TestTapAndMove.swift */; };
+		885BEEC72529F16A00B3D61E /* ComposeGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885BEEC62529F16A00B3D61E /* ComposeGesture.swift */; };
+		885BEEC9252A0F8600B3D61E /* MouseUpDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885BEEC8252A0F8600B3D61E /* MouseUpDown.swift */; };
+		885BEECB252A19C700B3D61E /* MagnificationGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885BEECA252A19C700B3D61E /* MagnificationGestureView.swift */; };
 		8867F35324D320FF007DE930 /* EventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867F35224D320FF007DE930 /* EventRow.swift */; };
+		886D0514252D68FF00179E7F /* TestNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886D0513252D68FF00179E7F /* TestNSView.swift */; };
+		889AAF2E253AEC39005D9470 /* DynamicColorMacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889AAF2D253AEC39005D9470 /* DynamicColorMacOS.framework */; };
+		889AAF2F253AEC39005D9470 /* DynamicColorMacOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 889AAF2D253AEC39005D9470 /* DynamicColorMacOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		88B3806F24DD865E000C048A /* UITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3806E24DD865E000C048A /* UITest.swift */; };
+		88B3807124DE4022000C048A /* ProgressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3807024DE4022000C048A /* ProgressTest.swift */; };
+		88B5C2F324EF751E00AC2195 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5C2F224EF751E00AC2195 /* Theme.swift */; };
+		88B5C2F524F0B37E00AC2195 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5C2F424F0B37E00AC2195 /* Helper.swift */; };
+		88B5C2F724F101A500AC2195 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5C2F624F101A500AC2195 /* UserData.swift */; };
+		88B5C2F924F1020900AC2195 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5C2F824F1020900AC2195 /* Preference.swift */; };
+		88B5C2FB24F1404A00AC2195 /* UserDefaultTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5C2FA24F1404A00AC2195 /* UserDefaultTest.swift */; };
+		88B5C2FE24F49F6600AC2195 /* StickyNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5C2FD24F49F6600AC2195 /* StickyNoteView.swift */; };
+		88B5C30024F534BA00AC2195 /* StickyNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5C2FF24F534BA00AC2195 /* StickyNoteController.swift */; };
+		88B5C30224F7EC0A00AC2195 /* StickyNoteWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5C30124F7EC0A00AC2195 /* StickyNoteWindow.swift */; };
+		88EFE81F24FB453200554133 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EFE81E24FB453200554133 /* ColorView.swift */; };
 		88F5EDD024CE6C2500212DCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDCF24CE6C2500212DCC /* AppDelegate.swift */; };
 		88F5EDD224CE6C2500212DCC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDD124CE6C2500212DCC /* ContentView.swift */; };
 		88F5EDD424CE6C2800212DCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F5EDD324CE6C2800212DCC /* Assets.xcassets */; };
@@ -20,7 +54,6 @@
 		88F5EDE524CEABFF00212DCC /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDE424CEABFF00212DCC /* StatusBarController.swift */; };
 		88F5EDE724CEB0C300212DCC /* PopRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDE624CEB0C300212DCC /* PopRootView.swift */; };
 		88F5EDEA24CEB9D700212DCC /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDE924CEB9D700212DCC /* EventMonitor.swift */; };
-		88F5EDEE24CEC29E00212DCC /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDED24CEC29E00212DCC /* Test.swift */; };
 		88F5EDF124CEC3D700212DCC /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F5EDF024CEC3D700212DCC /* XCGLogger.framework */; };
 		88F5EDF224CEC3D700212DCC /* XCGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88F5EDF024CEC3D700212DCC /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88F5EDF824CEEDDA00212DCC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDF724CEEDDA00212DCC /* Extension.swift */; };
@@ -28,11 +61,11 @@
 		88F5EDFC24CF2A7200212DCC /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88F5EDFA24CF2A7200212DCC /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88F5EE0124CFB8EE00212DCC /* CountdownEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0024CFB8EE00212DCC /* CountdownEvent.swift */; };
 		88F5EE0324D163A100212DCC /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0224D163A100212DCC /* TestView.swift */; };
-		88F5EE0B24D2AA6000212DCC /* PopEventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0A24D2AA6000212DCC /* PopEventDetail.swift */; };
 		88F5EE0D24D2AA7700212DCC /* PopEventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0C24D2AA7700212DCC /* PopEventList.swift */; };
-		88F5EE0F24D2AAA800212DCC /* PopEventAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE0E24D2AAA800212DCC /* PopEventAdd.swift */; };
 		88F5EE1124D2EB1000212DCC /* Initializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE1024D2EB1000212DCC /* Initializer.swift */; };
 		88F5EE1324D2EBBD00212DCC /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EE1224D2EBBD00212DCC /* Global.swift */; };
+		88FDB3EA25372A3700E59256 /* ExtensionSQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDB3E925372A3700E59256 /* ExtensionSQLite.swift */; };
+		88FDB3EC2539BF3D00E59256 /* ExtensionSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDB3EB2539BF3D00E59256 /* ExtensionSwiftUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,6 +75,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				889AAF2F253AEC39005D9470 /* DynamicColorMacOS.framework in Embed Frameworks */,
 				88F5EDFC24CF2A7200212DCC /* SQLite.framework in Embed Frameworks */,
 				88F5EDF224CEC3D700212DCC /* XCGLogger.framework in Embed Frameworks */,
 			);
@@ -51,11 +85,44 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8813C97724DE534600EEF207 /* AnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTest.swift; sourceTree = "<group>"; };
+		8813C97B24DFAB0000EEF207 /* PopRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopRootViewController.swift; sourceTree = "<group>"; };
+		8813C98124E182F500EEF207 /* DecimalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalTextField.swift; sourceTree = "<group>"; };
+		8813C98324E2D05900EEF207 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		8813C98524E2F75300EEF207 /* ViewReconstruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReconstruct.swift; sourceTree = "<group>"; };
+		8813C98724E3D5C900EEF207 /* DragTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragTest.swift; sourceTree = "<group>"; };
+		8819A36D252EE4F30019FB7C /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
+		882DB44C2524CFE1007E046A /* DeallocPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeallocPrinter.swift; sourceTree = "<group>"; };
+		882DB44E25270D75007E046A /* OnHoverLeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnHoverLeak.swift; sourceTree = "<group>"; };
+		882DB45025271732007E046A /* HoverAwareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverAwareView.swift; sourceTree = "<group>"; };
 		8858AB3C24D5497A00D729CA /* ArcProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcProgress.swift; sourceTree = "<group>"; };
 		8858AB3D24D5497A00D729CA /* CircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgress.swift; sourceTree = "<group>"; };
 		8858AB3E24D5497A00D729CA /* LinearProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearProgress.swift; sourceTree = "<group>"; };
 		8858AB3F24D5497A00D729CA /* FilledCircleProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilledCircleProgress.swift; sourceTree = "<group>"; };
+		8858AB4524D5920400D729CA /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		8858AB4724D6D8EA00D729CA /* TestNewWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNewWindow.swift; sourceTree = "<group>"; };
+		8858ABBA24DD252B00D729CA /* SystemUIGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemUIGuide.swift; sourceTree = "<group>"; };
+		885BEE9F2528325800B3D61E /* TestNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNotification.swift; sourceTree = "<group>"; };
+		885BEEA12528563100B3D61E /* ShakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeView.swift; sourceTree = "<group>"; };
+		885BEEA32529C42B00B3D61E /* PopEventEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEventEdit.swift; sourceTree = "<group>"; };
+		885BEEA52529E47600B3D61E /* TestTapAndMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTapAndMove.swift; sourceTree = "<group>"; };
+		885BEEC62529F16A00B3D61E /* ComposeGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeGesture.swift; sourceTree = "<group>"; };
+		885BEEC8252A0F8600B3D61E /* MouseUpDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseUpDown.swift; sourceTree = "<group>"; };
+		885BEECA252A19C700B3D61E /* MagnificationGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnificationGestureView.swift; sourceTree = "<group>"; };
 		8867F35224D320FF007DE930 /* EventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRow.swift; sourceTree = "<group>"; };
+		886D0513252D68FF00179E7F /* TestNSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNSView.swift; sourceTree = "<group>"; };
+		889AAF2D253AEC39005D9470 /* DynamicColorMacOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DynamicColorMacOS.framework; path = Carthage/Build/Mac/DynamicColorMacOS.framework; sourceTree = "<group>"; };
+		88B3806E24DD865E000C048A /* UITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITest.swift; sourceTree = "<group>"; };
+		88B3807024DE4022000C048A /* ProgressTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTest.swift; sourceTree = "<group>"; };
+		88B5C2F224EF751E00AC2195 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		88B5C2F424F0B37E00AC2195 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		88B5C2F624F101A500AC2195 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		88B5C2F824F1020900AC2195 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		88B5C2FA24F1404A00AC2195 /* UserDefaultTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultTest.swift; sourceTree = "<group>"; };
+		88B5C2FD24F49F6600AC2195 /* StickyNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyNoteView.swift; sourceTree = "<group>"; };
+		88B5C2FF24F534BA00AC2195 /* StickyNoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyNoteController.swift; sourceTree = "<group>"; };
+		88B5C30124F7EC0A00AC2195 /* StickyNoteWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyNoteWindow.swift; sourceTree = "<group>"; };
+		88EFE81E24FB453200554133 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		88F5EDCC24CE6C2500212DCC /* Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F5EDCF24CE6C2500212DCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88F5EDD124CE6C2500212DCC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,17 +134,16 @@
 		88F5EDE424CEABFF00212DCC /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		88F5EDE624CEB0C300212DCC /* PopRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopRootView.swift; sourceTree = "<group>"; };
 		88F5EDE924CEB9D700212DCC /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
-		88F5EDED24CEC29E00212DCC /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		88F5EDF024CEC3D700212DCC /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/Mac/XCGLogger.framework; sourceTree = "<group>"; };
 		88F5EDF724CEEDDA00212DCC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		88F5EDFA24CF2A7200212DCC /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/Mac/SQLite.framework; sourceTree = "<group>"; };
 		88F5EE0024CFB8EE00212DCC /* CountdownEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownEvent.swift; sourceTree = "<group>"; };
 		88F5EE0224D163A100212DCC /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		88F5EE0A24D2AA6000212DCC /* PopEventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEventDetail.swift; sourceTree = "<group>"; };
 		88F5EE0C24D2AA7700212DCC /* PopEventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEventList.swift; sourceTree = "<group>"; };
-		88F5EE0E24D2AAA800212DCC /* PopEventAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEventAdd.swift; sourceTree = "<group>"; };
 		88F5EE1024D2EB1000212DCC /* Initializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initializer.swift; sourceTree = "<group>"; };
 		88F5EE1224D2EBBD00212DCC /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		88FDB3E925372A3700E59256 /* ExtensionSQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSQLite.swift; sourceTree = "<group>"; };
+		88FDB3EB2539BF3D00E59256 /* ExtensionSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSwiftUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				889AAF2E253AEC39005D9470 /* DynamicColorMacOS.framework in Frameworks */,
 				88F5EDFB24CF2A7200212DCC /* SQLite.framework in Frameworks */,
 				88F5EDF124CEC3D700212DCC /* XCGLogger.framework in Frameworks */,
 			);
@@ -93,6 +160,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		882DB452252758FA007E046A /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				8813C98324E2D05900EEF207 /* DateHelper.swift */,
+				882DB45025271732007E046A /* HoverAwareView.swift */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		8858AB4424D591E100D729CA /* TestView */ = {
+			isa = PBXGroup;
+			children = (
+				88F5EE0224D163A100212DCC /* TestView.swift */,
+				8858AB4524D5920400D729CA /* TimerView.swift */,
+				8858AB4724D6D8EA00D729CA /* TestNewWindow.swift */,
+				8858ABBA24DD252B00D729CA /* SystemUIGuide.swift */,
+				88B3806E24DD865E000C048A /* UITest.swift */,
+				88B3807024DE4022000C048A /* ProgressTest.swift */,
+				8813C97724DE534600EEF207 /* AnimationTest.swift */,
+				8813C98124E182F500EEF207 /* DecimalTextField.swift */,
+				8813C98524E2F75300EEF207 /* ViewReconstruct.swift */,
+				8813C98724E3D5C900EEF207 /* DragTest.swift */,
+				88B5C2FA24F1404A00AC2195 /* UserDefaultTest.swift */,
+				88EFE81E24FB453200554133 /* ColorView.swift */,
+				882DB44E25270D75007E046A /* OnHoverLeak.swift */,
+				885BEE9F2528325800B3D61E /* TestNotification.swift */,
+				885BEEA12528563100B3D61E /* ShakeView.swift */,
+				885BEEA52529E47600B3D61E /* TestTapAndMove.swift */,
+				886D0513252D68FF00179E7F /* TestNSView.swift */,
+				885BEEC8252A0F8600B3D61E /* MouseUpDown.swift */,
+				885BEEC62529F16A00B3D61E /* ComposeGesture.swift */,
+				885BEECA252A19C700B3D61E /* MagnificationGestureView.swift */,
+			);
+			path = TestView;
+			sourceTree = "<group>";
+		};
+		88B3807224DE507F000C048A /* PopoverVIew */ = {
+			isa = PBXGroup;
+			children = (
+				88F5EDE624CEB0C300212DCC /* PopRootView.swift */,
+				88F5EE0C24D2AA7700212DCC /* PopEventList.swift */,
+				8819A36D252EE4F30019FB7C /* EventList.swift */,
+				8867F35224D320FF007DE930 /* EventRow.swift */,
+				885BEEA32529C42B00B3D61E /* PopEventEdit.swift */,
+			);
+			path = PopoverVIew;
+			sourceTree = "<group>";
+		};
+		88B5C2FC24F49F3900AC2195 /* StickyView */ = {
+			isa = PBXGroup;
+			children = (
+				88B5C2FD24F49F6600AC2195 /* StickyNoteView.swift */,
+				88B5C30124F7EC0A00AC2195 /* StickyNoteWindow.swift */,
+			);
+			path = StickyView;
+			sourceTree = "<group>";
+		};
 		88F1BE3F24D40D45004847D7 /* ProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				88F5EDFF24CFB8CC00212DCC /* Model */,
-				88F5EDF924CF2A0100212DCC /* Test */,
 				88F5EDE824CEB9CA00212DCC /* Helper */,
 				88F5EDE324CEABE900212DCC /* Controller */,
 				88F5EDE224CEAB0900212DCC /* View */,
@@ -150,14 +273,11 @@
 		88F5EDE224CEAB0900212DCC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88B5C2FC24F49F3900AC2195 /* StickyView */,
+				88B3807224DE507F000C048A /* PopoverVIew */,
 				88F1BE3F24D40D45004847D7 /* ProgressView */,
+				8858AB4424D591E100D729CA /* TestView */,
 				88F5EDD124CE6C2500212DCC /* ContentView.swift */,
-				88F5EE0224D163A100212DCC /* TestView.swift */,
-				88F5EDE624CEB0C300212DCC /* PopRootView.swift */,
-				88F5EE0A24D2AA6000212DCC /* PopEventDetail.swift */,
-				88F5EE0C24D2AA7700212DCC /* PopEventList.swift */,
-				88F5EE0E24D2AAA800212DCC /* PopEventAdd.swift */,
-				8867F35224D320FF007DE930 /* EventRow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,6 +286,8 @@
 			isa = PBXGroup;
 			children = (
 				88F5EDE424CEABFF00212DCC /* StatusBarController.swift */,
+				8813C97B24DFAB0000EEF207 /* PopRootViewController.swift */,
+				88B5C2FF24F534BA00AC2195 /* StickyNoteController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,10 +295,16 @@
 		88F5EDE824CEB9CA00212DCC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				882DB452252758FA007E046A /* ThirdParty */,
 				88F5EE1224D2EBBD00212DCC /* Global.swift */,
 				88F5EE1024D2EB1000212DCC /* Initializer.swift */,
 				88F5EDF724CEEDDA00212DCC /* Extension.swift */,
+				88FDB3EB2539BF3D00E59256 /* ExtensionSwiftUI.swift */,
+				88FDB3E925372A3700E59256 /* ExtensionSQLite.swift */,
 				88F5EDE924CEB9D700212DCC /* EventMonitor.swift */,
+				88B5C2F424F0B37E00AC2195 /* Helper.swift */,
+				882DB44C2524CFE1007E046A /* DeallocPrinter.swift */,
+				88B5C2F224EF751E00AC2195 /* Theme.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -184,24 +312,19 @@
 		88F5EDEF24CEC3D700212DCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				889AAF2D253AEC39005D9470 /* DynamicColorMacOS.framework */,
 				88F5EDFA24CF2A7200212DCC /* SQLite.framework */,
 				88F5EDF024CEC3D700212DCC /* XCGLogger.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		88F5EDF924CF2A0100212DCC /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				88F5EDED24CEC29E00212DCC /* Test.swift */,
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
 		88F5EDFF24CFB8CC00212DCC /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				88F5EE0024CFB8EE00212DCC /* CountdownEvent.swift */,
+				88B5C2F824F1020900AC2195 /* Preference.swift */,
+				88B5C2F624F101A500AC2195 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,7 +358,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1170;
 				ORGANIZATIONNAME = funwaywang;
 				TargetAttributes = {
 					88F5EDCB24CE6C2500212DCC = {
@@ -286,6 +409,7 @@
 				"$(SRCROOT)/Carthage/Build/Mac/XCGLogger.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/ObjcExceptionBridging.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/SQLite.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/DynamicColorMacOS.framework",
 			);
 			name = "Run Script";
 			outputFileListPaths = (
@@ -303,25 +427,56 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88B5C2F924F1020900AC2195 /* Preference.swift in Sources */,
 				88F5EDE724CEB0C300212DCC /* PopRootView.swift in Sources */,
 				88F5EE0324D163A100212DCC /* TestView.swift in Sources */,
+				886D0514252D68FF00179E7F /* TestNSView.swift in Sources */,
+				88EFE81F24FB453200554133 /* ColorView.swift in Sources */,
 				8858AB4324D5497A00D729CA /* FilledCircleProgress.swift in Sources */,
 				88F5EE0D24D2AA7700212DCC /* PopEventList.swift in Sources */,
+				882DB44D2524CFE1007E046A /* DeallocPrinter.swift in Sources */,
+				8858AB4824D6D8EA00D729CA /* TestNewWindow.swift in Sources */,
 				8858AB4224D5497A00D729CA /* LinearProgress.swift in Sources */,
 				88F5EDEA24CEB9D700212DCC /* EventMonitor.swift in Sources */,
-				88F5EE0B24D2AA6000212DCC /* PopEventDetail.swift in Sources */,
+				8813C98824E3D5C900EEF207 /* DragTest.swift in Sources */,
 				88F5EDD224CE6C2500212DCC /* ContentView.swift in Sources */,
 				88F5EE1324D2EBBD00212DCC /* Global.swift in Sources */,
+				88B5C2F524F0B37E00AC2195 /* Helper.swift in Sources */,
+				8813C97C24DFAB0000EEF207 /* PopRootViewController.swift in Sources */,
 				8858AB4024D5497A00D729CA /* ArcProgress.swift in Sources */,
+				8858ABBB24DD252B00D729CA /* SystemUIGuide.swift in Sources */,
+				885BEEC9252A0F8600B3D61E /* MouseUpDown.swift in Sources */,
+				8819A36E252EE4F30019FB7C /* EventList.swift in Sources */,
+				88B5C30224F7EC0A00AC2195 /* StickyNoteWindow.swift in Sources */,
+				8858AB4624D5920400D729CA /* TimerView.swift in Sources */,
+				8813C98424E2D05900EEF207 /* DateHelper.swift in Sources */,
 				8867F35324D320FF007DE930 /* EventRow.swift in Sources */,
 				88F5EDE524CEABFF00212DCC /* StatusBarController.swift in Sources */,
+				88B5C2FE24F49F6600AC2195 /* StickyNoteView.swift in Sources */,
+				8813C98624E2F75300EEF207 /* ViewReconstruct.swift in Sources */,
+				885BEEA42529C42B00B3D61E /* PopEventEdit.swift in Sources */,
+				885BEECB252A19C700B3D61E /* MagnificationGestureView.swift in Sources */,
+				8813C97824DE534600EEF207 /* AnimationTest.swift in Sources */,
+				882DB45125271732007E046A /* HoverAwareView.swift in Sources */,
 				88F5EE0124CFB8EE00212DCC /* CountdownEvent.swift in Sources */,
+				8813C98224E182F500EEF207 /* DecimalTextField.swift in Sources */,
+				885BEEC72529F16A00B3D61E /* ComposeGesture.swift in Sources */,
+				885BEEA22528563100B3D61E /* ShakeView.swift in Sources */,
+				88B5C30024F534BA00AC2195 /* StickyNoteController.swift in Sources */,
+				88B5C2FB24F1404A00AC2195 /* UserDefaultTest.swift in Sources */,
 				88F5EDD024CE6C2500212DCC /* AppDelegate.swift in Sources */,
-				88F5EE0F24D2AAA800212DCC /* PopEventAdd.swift in Sources */,
-				88F5EDEE24CEC29E00212DCC /* Test.swift in Sources */,
+				88B3807124DE4022000C048A /* ProgressTest.swift in Sources */,
+				88B5C2F324EF751E00AC2195 /* Theme.swift in Sources */,
+				882DB44F25270D75007E046A /* OnHoverLeak.swift in Sources */,
+				88FDB3EA25372A3700E59256 /* ExtensionSQLite.swift in Sources */,
+				885BEEA62529E47600B3D61E /* TestTapAndMove.swift in Sources */,
 				8858AB4124D5497A00D729CA /* CircularProgress.swift in Sources */,
+				88B5C2F724F101A500AC2195 /* UserData.swift in Sources */,
 				88F5EDF824CEEDDA00212DCC /* Extension.swift in Sources */,
 				88F5EE1124D2EB1000212DCC /* Initializer.swift in Sources */,
+				885BEEA02528325800B3D61E /* TestNotification.swift in Sources */,
+				88B3806F24DD865E000C048A /* UITest.swift in Sources */,
+				88FDB3EC2539BF3D00E59256 /* ExtensionSwiftUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +612,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Countdown/Countdown.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Countdown/Preview Content\"";
@@ -475,6 +631,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = me.hawu.Countdown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -484,6 +641,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Countdown/Countdown.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Countdown/Preview Content\"";
@@ -502,6 +660,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = me.hawu.Countdown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

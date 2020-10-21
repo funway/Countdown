@@ -7,7 +7,7 @@ public struct CircularProgress: View {
     var lineWidth: CGFloat
     var animationTimeInterval: TimeInterval
     
-    public init(progress: CGFloat, backgroundColor : Color = .gray, foregroundColor: Color = .pink,
+    public init(progress: CGFloat, backgroundColor : Color = .secondary, foregroundColor: Color = .pink,
                 lineWidth: CGFloat = 10, animationTimeInterval: TimeInterval = 0.5) {
         self.progress = progress
         self.backgroundColor = backgroundColor
@@ -19,7 +19,7 @@ public struct CircularProgress: View {
     public var body: some View {
         ZStack {
             Circle().strokeBorder(backgroundColor, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
-                .opacity(0.5)
+                .opacity(0.3)
             
             Circle().trim(from: 0.0, to: self.progress)
                 .stroke(foregroundColor, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))

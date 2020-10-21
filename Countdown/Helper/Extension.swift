@@ -7,41 +7,7 @@
 //
 
 import Foundation
-import SQLite
 import SwiftUI
-
-
-public extension SwiftUI.View {
-    
-    /// 给视图添加 tooltip 提示
-    /// - Parameter toolTip: 提示字符串
-    /// - Returns: 返回一个包含 tooltip 的视图
-    func toolTip(_ toolTip: String) -> some SwiftUI.View {
-        self.overlay(TooltipView(toolTip))
-    }
-}
-
-private struct TooltipView: NSViewRepresentable {
-    let toolTip: String
-
-    init(_ toolTip: String?) {
-        if let toolTip = toolTip {
-            self.toolTip = toolTip
-        }
-        else
-        {
-            self.toolTip = ""
-        }
-    }
-
-    func makeNSView(context: NSViewRepresentableContext<TooltipView>) -> NSView {
-        NSView()
-    }
-
-    func updateNSView(_ nsView: NSView, context: NSViewRepresentableContext<TooltipView>) {
-        nsView.toolTip = self.toolTip
-    }
-}
 
 
 extension FileManager {
@@ -57,52 +23,21 @@ extension FileManager {
 }
 
 
-/**
-* 使得 SQLite.swift 可以实现 UUID 类型到 String 的自动转换
-*/
-extension UUID: SQLite.Value {
-    public typealias Datatype = String
+/// 给类或结构体添加 typeNmae 计算属性（包括静态/非静态），返回类型名
+protocol NameDescribable {
+    /// 获取类型名
+    var typeName: String { get }
     
-    public static var declaredDatatype: String {
-        return Datatype.declaredDatatype
+    /// 获取类型名
+    static var typeName: String { get }
+}
+extension NameDescribable {
+    var typeName: String {
+        return String(describing: type(of: self))
     }
-    
-    public static func fromDatatypeValue(_ datatypeValue: Datatype) -> UUID {
-        let uuid = UUID(uuidString: datatypeValue)
-        if uuid == nil {
-            log.error("字符串 \(datatypeValue) 无法解析成 UUID，重新生成一个 UUID 返回")
-            return UUID()
-        }
-        return uuid!
-    }
-    
-    public var datatypeValue: Datatype {
-        return self.uuidString
+
+    static var typeName: String {
+        return String(describing: Self.self)
     }
 }
-
-
-/**
- * 使得 SQLite.swift 可以实现 UUID 类型到 SQLite.Blob 的自动转换
- */
-//extension UUID: SQLite.Value {
-//    public typealias Datatype = SQLite.Blob
-//
-//    public static var declaredDatatype: String {
-//        return Datatype.declaredDatatype
-//    }
-//
-//    public static func fromDatatypeValue(_ datatypeValue: Datatype) -> UUID {
-//        let bytes = datatypeValue.bytes
-//        return UUID(uuid: (bytes[0], bytes[1], bytes[2], bytes[3],
-//                           bytes[4], bytes[5], bytes[6], bytes[7],
-//                           bytes[8], bytes[9], bytes[10], bytes[11],
-//                           bytes[12], bytes[13], bytes[14], bytes[15]))
-//    }
-//    public var datatypeValue: Datatype {
-//        var bytes = [UInt8](repeating: 0, count: 16)
-//        (bytes[0], bytes[1], bytes[2], bytes[3], bytes[4], bytes[5], bytes[6], bytes[7], bytes[8], bytes[9], bytes[10], bytes[11], bytes[12], bytes[13], bytes[14], bytes[15]) = self.uuid
-//        return Datatype(bytes: bytes)
-//    }
-//}
 

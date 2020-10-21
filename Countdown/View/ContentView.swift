@@ -7,53 +7,50 @@
 //
 
 import SwiftUI
-
 struct ContentView: View {
-    @State private var users = ["Paul", "Taylor", "Adele"]
-    @State private var overText = false
-    @State private var progress = 0.5
-
+    @State var showAlert = false
+    @State var date = Date()
 
     var body: some View {
         VStack {
-            List {
-                ForEach(users, id: \.self) { user in
-                    Text(user)
+            Text("test")
+            
+            Button("alert") {
+                log.debug("点击 alert 按钮")
+                self.showAlert.toggle()
+            }
+            
+            HStack {
+                Circle()
+                .fill(Color.blue)
+                .frame(width: 100, height: 100, alignment: .center)
+                
+                Spacer()
+                
+                Text("你好啊 \(date)")
+                
+                Spacer()
+                
+                Button("time?") {
+                    self.date = Date()
                 }
-                .onMove(perform: move)
             }
+            .frame(width: 500, height: 200)
+            .padding()
+            .background(Color.yellow.opacity(0.3))
+            .overlyingAlert(showAlert: $showAlert, title: "Alert!", message: "要删除吗？",
+                confirmButton: Button("Ok") {
+                    log.debug("alert 确认")
+                    self.showAlert = false
+                },
+                cancelButton: Button("Cancel") {
+                    log.debug("alert 取消")
+                    self.showAlert = false
+                }
+            )
             
-            Divider()
-            
-            Text("Hello, World!")
-            .foregroundColor(overText ? Color.green : Color.red)
-            .onHover { over in
-                self.overText = over
-            }
-            
-            Divider()
-            
-            Button(">>>") {
-                self.progress += 0.05
-            }
-            
-            HStack(spacing: 10) {
-                LinearProgress(progress: CGFloat(self.progress)).frame(width:100, height: 20)
-                
-                CircularProgress(progress: CGFloat(self.progress)).frame(width: 100, height: 100)
-                    .overlay(Text("\(Int(progress*100))%"))
-                
-                FilledCircleProgress(progress: CGFloat(self.progress)).frame(width: 100, height: 100)
-                
-                ArcProgress(progress: CGFloat(self.progress)).frame(width: 100, height: 50)
-                    .overlay(Text("\(Int(progress*100))%"))
-            }
-            
-        }.padding(.all, 10)
-    }
-
-    func move(from source: IndexSet, to destination: Int) {
-        users.move(fromOffsets: source, toOffset: destination)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

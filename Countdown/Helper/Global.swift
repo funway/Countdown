@@ -17,5 +17,3 @@ let log = XCGLogger(identifier: "advancedLogger", includeDefaultDestinations: fa
 /// 全局的 SQLite 数据库连接
 var db: SQLite.Connection!
 
-/// 全局的时间函数
-var cdEvents: [CountdownEvent] = []

@@ -73,7 +73,7 @@ func initLog() {
     #if DEBUG
     fileDestination.outputLevel = .debug
     #else
-    fileDestination.outputLevel = .error
+    fileDestination.outputLevel = .warning
     #endif
     
     
@@ -83,7 +83,7 @@ func initLog() {
     
     
     // You can also change the labels for each log level, most useful for alternate languages, French, German etc, but Emoji's are more fun
-    log.levelDescriptions[.verbose] = "📘 Verbose"
+    log.levelDescriptions[.verbose] = "🗯 Verbose"
     log.levelDescriptions[.debug] = "✏️ Debug"
     log.levelDescriptions[.info] = "ℹ️ Info"
     log.levelDescriptions[.notice] = "✳️ Notice"
@@ -119,12 +119,31 @@ func initLog() {
 }
 
 
-func loadData() {
-    log.debug("Load data")
+/// 从 SQLite 数据库中读取 CountdownEvent 数据
+/// - Parameter excludeSoftDelete: 是否排除软删除的数据，默认为 true
+/// - Returns: 返回 CountdownEvent 对象数组
+func loadCountdownEvent(excludeSoftDelete: Bool = true) -> [CountdownEvent] {
+    log.debug("Load CountdownEvent data from SQLite")
     
-    let table = Table(CountdownEvent.typeName)
+    var cdEvents: [CountdownEvent] = []
+    var table = Table(CountdownEvent.typeName)
+    
+    // 设置查询条件
+    if excludeSoftDelete {
+        table = table.filter(CountdownEvent.deleteAt == nil)
+    }
+    table = table.order(CountdownEvent.listOrder.asc, CountdownEvent.createAt.desc)
     
     for row in try! db.prepare(table) {
-        cdEvents.append( CountdownEvent(row: row) )
+        let cdEvent = CountdownEvent(row: row)
+        cdEvents.append(cdEvent)
     }
+    
+    return cdEvents
+}
+
+
+/// Load user preference from UserDefaults
+func loadPreference() {
+    log.debug("Load user preference from UserDefaults")
 }
