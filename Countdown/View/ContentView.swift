@@ -7,9 +7,14 @@
 //
 
 import SwiftUI
+import ServiceManagement
+
 struct ContentView: View {
     @State var showAlert = false
     @State var date = Date()
+    @State var launchAtLogin = false
+    
+    let helperBundleName = "me.hawu.LaunchHelper"
 
     var body: some View {
         VStack {
@@ -48,6 +53,20 @@ struct ContentView: View {
                     self.showAlert = false
                 }
             )
+            
+            HStack {
+                Text("开机启动: ")
+                
+                PerformableSwitch(isOn: $launchAtLogin, perform: { _ in
+                    SMLoginItemSetEnabled(self.helperBundleName as CFString, self.launchAtLogin)
+                }).onAppear(){
+                    let foundHelper = NSWorkspace.shared.runningApplications.contains {
+                        $0.bundleIdentifier == self.helperBundleName
+                    }
+                    
+                    self.launchAtLogin = foundHelper ? true : false
+                }
+            }
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
