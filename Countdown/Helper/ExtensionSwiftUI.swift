@@ -160,6 +160,51 @@ fileprivate struct AlertView: SwiftUI.View {
 }
 
 
+struct HyperLinkText: View {
+    let text: String
+    let destination: URL
+    var body: some View {
+        Button(action: {
+            NSWorkspace.shared.open(self.destination)
+        }, label: {
+            Text(text)
+                .foregroundColor(Color.blue)
+        }).buttonStyle(PlainButtonStyle())
+        .onHoverAware({ hovered in
+            if hovered {
+                NSCursor.pointingHand.push()
+            } else {
+                NSCursor.pop()
+            }
+        })
+    }
+}
+
+
+struct HyperLinkButton<Label> : View where Label : View {
+    let label: () -> Label
+    let destination: URL
+    
+    init(destination: URL, @ViewBuilder label: @escaping () -> Label) {
+        self.destination = destination
+        self.label = label
+    }
+    
+    var body: some View {
+        Button(action: {
+            NSWorkspace.shared.open(self.destination)
+        }, label: label)
+        .onHoverAware({ hovered in
+            if hovered {
+                NSCursor.pointingHand.push()
+            } else {
+                NSCursor.pop()
+            }
+        })
+    }
+}
+
+
 /// 将一个 NSSwitch 包装成 View，并提供事件响应函数
 struct PerformableSwitch: NSViewRepresentable {
     typealias NSViewType = NSSwitch
