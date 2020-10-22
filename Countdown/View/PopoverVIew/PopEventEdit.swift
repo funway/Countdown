@@ -138,13 +138,14 @@ struct PopEventEdit: View {
                                     
                                     Text(self.dateFormatter.string(from: self.cdEvent.endAt))
                                         .font(Font.callout.monospacedDigit())
-                                        .onTapGesture {
-                                            self.calenderBtnClicked.toggle()
-                                        }
-                                    
+                                        
                                     Spacer()
                                 }
                             }.frame(width: geometry.size.width/2)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                self.calenderBtnClicked.toggle()
+                            }
                             
                             VStack(alignment: .leading, spacing: Theme.popViewContentSectionSpacingV) {
                                 Text("Time").font(.caption)
@@ -170,13 +171,14 @@ struct PopEventEdit: View {
                                     
                                     Text(self.timeFormatter.string(from: self.cdEvent.endAt))
                                         .font(Font.callout.monospacedDigit())
-                                        .onTapGesture {
-                                            self.clockBtnClicked.toggle()
-                                        }
                                     
                                     Spacer()
                                 }
                             }.frame(width: geometry.size.width/2)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                self.clockBtnClicked.toggle()
+                            }
                         }.frame(width: geometry.size.width)
                     }.frame(height: 40)
                     

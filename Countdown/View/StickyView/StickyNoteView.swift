@@ -44,7 +44,7 @@ struct StickyNoteView: View {
                     Text(relativeTimeString)
                         .font(Font.system(size: 13, weight: .regular).monospacedDigit())
                 }.padding(20)
-                    .foregroundColor(cdEvent.color.isLight() ? .black : .white)
+                .foregroundColor(cdEvent.color.isLight() ? .black : .white)
                 
                 // 按钮层
                 VStack(spacing: 0.0) {
@@ -57,8 +57,7 @@ struct StickyNoteView: View {
                                 self.cdEvent.save(at: db)
                                 StickyNoteController.shared.remove(for: self.cdEvent)
                             }) {
-                                Image("CloseIcon")
-                                .resizable()
+                                cdEvent.color.isLight() ? Image("CloseIcon").resizable().colorScheme(.light) : Image("CloseIcon").resizable().colorScheme(.dark)
                             }.buttonStyle(PlainButtonStyle())
                             .frame(width: 20, height: 20)
                         }

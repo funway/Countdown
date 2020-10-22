@@ -28,7 +28,6 @@ struct PopEventList: View {
                     Button("设置") {
                         log.verbose("点击设置菜单")
                     }
-                    Toggle("随系统启动", isOn: $userData.preference.isStartupWithOS)
                     Button("退出") {
                         NSApplication.shared.terminate(self)
                     }
