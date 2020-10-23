@@ -17,3 +17,10 @@ let log = XCGLogger(identifier: "advancedLogger", includeDefaultDestinations: fa
 /// 全局的 SQLite 数据库连接
 var db: SQLite.Connection!
 
+let _appVerion = "1.0.0"
+#if DEBUG
+let appVersion = _appVerion + " (Debug)"
+#else
+let appVersion = _appVerion
+#endif
+

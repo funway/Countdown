@@ -21,6 +21,7 @@ func initSQLite() {
     db = try! Connection("\(dbPath)/db.sqlite")
     
     #if DEBUG
+    // 打印每次执行的 SQL 操作
     db.trace { log.verbose("Execute SQL: \($0)") }
     #endif
     
