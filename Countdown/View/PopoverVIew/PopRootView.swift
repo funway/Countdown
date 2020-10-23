@@ -37,15 +37,14 @@ struct PopRootView: View {
                 }
             }
             
-            Divider()
-            
             #if DEBUG
+            Divider()
             Button("Print Debug") {
                 log.verbose("Print Debug =========")
                 self.userData.countdownEvents[0].createAt = Date().adjust(.second, offset: -10)
-                
+
                 self.userData.countdownEvents[0].endAt = Date().adjust(.second, offset: 30)
-                
+
                 log.verbose("========= Print Debug")
             }.padding()
             #endif
