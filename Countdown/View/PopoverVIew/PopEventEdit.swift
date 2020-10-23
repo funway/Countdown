@@ -235,7 +235,6 @@ struct PopEventEdit: View {
                     
                     Divider()
                 }
-                Text("剩余时间!")
             }
             .padding(.horizontal, Theme.popViewContentPaddingH)
             .padding(.top, Theme.popViewContentPaddingV)
