@@ -1,4 +1,12 @@
 /*
+ @2020.10.24
+ 对来自 https://github.com/aerobounce/HoverAwareView 的这个扩展进行了修改。
+ 将 NSTrackingArea.Options 从原来的 .activeInActiveApp 改成了 .activeAlways，
+ 这样不管程序是 active 的最前端状态，还是 inactive 的后端状态，都能接收到 hover 事件。
+ */
+
+
+/*
  HoverAwareView.swift
 
  MIT License
@@ -82,7 +90,7 @@ private extension HoverAwareView {
 
             let options: NSTrackingArea.Options = [
                 .mouseEnteredAndExited,
-                .activeInActiveApp,
+                .activeAlways,
                 .assumeInside,
             ]
 
