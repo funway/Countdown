@@ -79,7 +79,6 @@ struct StickyNoteView: View {
             }
             .onHoverAware({ hovered in
                 self.hovered = hovered
-                log.debug("hovered")
             })
     }
     
