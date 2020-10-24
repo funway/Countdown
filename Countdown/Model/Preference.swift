@@ -8,19 +8,44 @@
 
 import Foundation
 
-// 先弄完 countdown events 再弄这个配置项吧 别急
+
+/// 单例模式
 class Preference: ObservableObject {
     
-    @Published var isStartupWithOS: Bool {
-        didSet {
-            // 初次赋值不会触发 didSet
-            log.debug("设置开机启动项: \(isStartupWithOS)")
-            UserDefaults.standard.set(isStartupWithOS, forKey: "isStartupWithOS")
-        }
+    static let shared = Preference()
+    
+    private init() {
+        log.debug("Load preference from: \(NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)[0])/Preferences/")
+        
+        remindMe = UserDefaults.standard.bool(forKey: keyForRemindMe)
+        showStickyNote = UserDefaults.standard.bool(forKey: keyForShowStickyNote)
+        testString = UserDefaults.standard.string(forKey: keyForTestString) ?? "空空"
     }
     
-    init() {
-        log.debug("Load preference from: \(NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)[0])/Preferences/")
-        self.isStartupWithOS = UserDefaults.standard.bool(forKey: "isStartupWithOS")
+    
+    @Published var remindMe: Bool {
+        didSet {
+            log.debug("设置默认提醒: \(remindMe)")
+            UserDefaults.standard.set(remindMe, forKey: keyForRemindMe)
+        }
     }
+    let keyForRemindMe = "Countdown | New Event | remindMe"
+    
+    
+    @Published var showStickyNote: Bool {
+        didSet {
+            log.debug("设置默认显示便签: \(showStickyNote)")
+            UserDefaults.standard.set(showStickyNote, forKey: keyForShowStickyNote)
+        }
+    }
+    let keyForShowStickyNote = "Countdown | New Event | showStickyNote"
+    
+    
+    @Published var testString: String {
+        didSet {
+            log.debug("设置测试字符串: \(testString)")
+            UserDefaults.standard.set(testString, forKey: keyForTestString)
+        }
+    }
+    let keyForTestString = "Countdown | Test | testString"
 }

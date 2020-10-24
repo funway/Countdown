@@ -142,9 +142,3 @@ func loadCountdownEvent(excludeSoftDelete: Bool = true) -> [CountdownEvent] {
     
     return cdEvents
 }
-
-
-/// Load user preference from UserDefaults
-func loadPreference() {
-    log.debug("Load user preference from UserDefaults")
-}

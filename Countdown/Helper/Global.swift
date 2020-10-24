@@ -10,13 +10,6 @@ import Foundation
 import XCGLogger
 import SQLite
 
-
-/// 全局的 log 对象
-let log = XCGLogger(identifier: "advancedLogger", includeDefaultDestinations: false)
-
-/// 全局的 SQLite 数据库连接
-var db: SQLite.Connection!
-
 let _appVerion = "1.0.0"
 #if DEBUG
 let appVersion = _appVerion + " (Debug)"
@@ -24,3 +17,10 @@ let appVersion = _appVerion + " (Debug)"
 let appVersion = _appVerion
 #endif
 
+let launchHelperBundleId = "me.hawu.Countdown.LaunchHelper"
+
+/// 全局的 log 对象
+let log = XCGLogger(identifier: "advancedLogger", includeDefaultDestinations: false)
+
+/// 全局的 SQLite 数据库连接
+var db: SQLite.Connection!
