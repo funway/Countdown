@@ -24,7 +24,7 @@ struct PopRootView: View {
     var body: some View {
         VStack{
             if .list == self.userData.currentPopContainedViewType {
-                PopEventList().transition(.move(edge: .leading))
+                PopEventList()
             }
                 
             else if .edit == self.userData.currentPopContainedViewType {
@@ -52,22 +52,6 @@ struct PopRootView: View {
     
     init() {
         log.verbose("初始化 PopRootView 视图")
-    }
-    
-    private var listViewHeight: CGFloat {
-        get {
-            let height = Theme.popViewEventRowHeight * CGFloat(userData.countdownEvents.count)
-            let minHeight = CGFloat(300)
-            let maxHeight = CGFloat(800)
-            
-            if height < minHeight {
-                return minHeight
-            } else if height > maxHeight {
-                return maxHeight
-            }
-            
-            return height
-        }
     }
 }
 

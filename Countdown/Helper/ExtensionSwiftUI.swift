@@ -55,6 +55,15 @@ extension SwiftUI.View {
             return AnyView(self)
         }
     }
+    
+    
+    @ViewBuilder func hide(_ hidden: Bool) -> some View {
+        if hidden {
+            self.hidden()
+        } else {
+            self
+        }
+    }
 }
 
 
