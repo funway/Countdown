@@ -19,7 +19,7 @@ public struct CircularProgress: View {
     public var body: some View {
         ZStack {
             Circle().strokeBorder(backgroundColor, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
-                .opacity(0.3)
+                .opacity(0.2)
             
             Circle().trim(from: 0.0, to: self.progress)
                 .stroke(foregroundColor, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))

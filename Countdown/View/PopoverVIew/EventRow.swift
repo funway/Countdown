@@ -40,7 +40,7 @@ struct EventRow: View {
     var body: some View {
         ZStack {
             HStack {
-                CircularProgress(progress: CGFloat(progress), foregroundColor: Color(Theme.colors.randomElement()!), lineWidth: 4)
+                CircularProgress(progress: CGFloat(progress), foregroundColor: Color(cdEvent.color), lineWidth: 4)
                     .frame(width: 32, height: 32)
                 
                 VStack(alignment: .leading, spacing: 5.0) {
@@ -78,7 +78,7 @@ struct EventRow: View {
             }
             
         }
-        .frame(height: 50)
+        .frame(height: Theme.popViewEventRowHeight)
         .onAppear(){
             self.refreshTimer.upstream.connect().cancel()
             self.refreshTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()

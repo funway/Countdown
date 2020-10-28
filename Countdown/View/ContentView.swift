@@ -60,7 +60,9 @@ struct ContentView: View {
                 Text("开机启动: ")
                 
                 PerformableSwitch(isOn: $launchAtLogin, perform: { _ in
-                    SMLoginItemSetEnabled(self.helperBundleName as CFString, self.launchAtLogin)
+                    if !SMLoginItemSetEnabled(self.helperBundleName as CFString, self.launchAtLogin) {
+                        log.error("无法将 LaunchHelper 设置为启动项")
+                    }
                 }).onAppear(){
                     let foundHelper = NSWorkspace.shared.runningApplications.contains {
                         return $0.bundleIdentifier == self.helperBundleName
@@ -76,6 +78,8 @@ struct ContentView: View {
                 PerformableSwitch(isOn: $test, perform: { _ in
                     log.debug("测试")
                 })
+                
+                Toggle("", isOn: $test).toggleStyle(SwitchToggleStyle())
             }
             
         }

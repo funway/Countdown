@@ -53,7 +53,9 @@ class CountdownEvent: ObservableObject {
          uuid: UUID = UUID(),
          endAt: Date = Date(timeIntervalSinceNow: 60*60),
          createAt: Date = Date(),
-         color: NSColor = .red) {
+         color: NSColor = .red,
+         remindMe: Bool = false,
+         showStickyNote: Bool = false) {
 
         self.title = title
         self.uuid = uuid
@@ -62,8 +64,8 @@ class CountdownEvent: ObservableObject {
         self.color = color
         
         self.listOrder = 0
-        self.remindMe = false
-        self.showStickyNote = false
+        self.remindMe = remindMe
+        self.showStickyNote = showStickyNote
         
         self.displayedProgress = (Date().timeIntervalSince1970 - createAt.timeIntervalSince1970)
                                 / (endAt.timeIntervalSince1970 - createAt.timeIntervalSince1970)

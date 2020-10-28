@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "round_add_black_24pt_1x.png",
+      "filename" : "round_add_black_36dp.png",
       "idiom" : "mac",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "round_add_white_24pt_1x.png",
+      "filename" : "round_add_white_36dp.png",
       "idiom" : "mac",
       "scale" : "1x"
     },
     {
-      "filename" : "round_add_black_24pt_2x.png",
+      "filename" : "round_add_black_36dp-1.png",
       "idiom" : "mac",
       "scale" : "2x"
     },
@@ -28,7 +28,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "round_add_white_24pt_2x.png",
+      "filename" : "round_add_white_36dp-1.png",
       "idiom" : "mac",
       "scale" : "2x"
     }

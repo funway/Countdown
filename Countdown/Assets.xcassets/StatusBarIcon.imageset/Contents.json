@@ -2,7 +2,8 @@
   "images" : [
     {
       "filename" : "baseline_timelapse_black_36pt_1x.png",
-      "idiom" : "mac"
+      "idiom" : "mac",
+      "scale" : "1x"
     },
     {
       "appearances" : [
@@ -12,7 +13,24 @@
         }
       ],
       "filename" : "baseline_timelapse_white_36pt_1x.png",
-      "idiom" : "mac"
+      "idiom" : "mac",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "round_timelapse_black_36dp.png",
+      "idiom" : "mac",
+      "scale" : "2x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "round_timelapse_white_36dp.png",
+      "idiom" : "mac",
+      "scale" : "2x"
     }
   ],
   "info" : {

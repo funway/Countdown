@@ -58,7 +58,7 @@ class StatusBarController {
         }
     }
     
-    func showPopover(_ sender: AnyObject) {
+    func showPopover(_ sender: Any?) {
         
         // relativeTo 参数表示 popover 关联视图的边界
         // of 参数表示 popover 要关联的视图
@@ -66,7 +66,7 @@ class StatusBarController {
         popover.show(relativeTo: statusBarButton.bounds, of: statusBarButton, preferredEdge: NSRectEdge.maxY)
     }
 
-    func hidePopover(_ sender: AnyObject) {
+    func hidePopover(_ sender: Any?) {
         
         popover.performClose(sender)
     }

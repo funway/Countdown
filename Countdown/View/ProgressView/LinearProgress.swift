@@ -38,7 +38,7 @@ public struct LinearProgress: View {
                 Rectangle().frame(width: geometry.size.width , height: geometry.size.height)
                     .foregroundColor(self.backgroundColor)
                     .cornerRadius(geometry.size.width/7)
-                    .opacity(0.3)
+                    .opacity(0.2)
                     .shadow(radius: 1)
                     
                 LinearGradient(gradient: self.foregroundGradient,

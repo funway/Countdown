@@ -26,7 +26,10 @@ struct PopEventList: View {
                 // 这里 label 不直接用 Image 而要用 Button 包裹一下的原因是，为了保持与右边的按钮颜色一致
                 MenuButton(label: settingsButton) {
                     Button("设置") {
-                        log.verbose("点击设置菜单")
+                        PreferencesWindowController.shared.show()
+                        
+                        let delegate = NSApplication.shared.delegate as! AppDelegate
+                        delegate.statusBar.hidePopover(nil)
                     }
                     Button("退出") {
                         NSApplication.shared.terminate(self)
@@ -60,12 +63,34 @@ struct PopEventList: View {
             
             Divider()
             
-            EventList().padding(.horizontal, Theme.popViewContentPaddingH)
+            EventList()
+                .frame(height: listHeight)
+                .padding(.horizontal, Theme.popViewContentPaddingH)
+            
+//            ForEach(userData.countdownEvents, id: \.self.uuid) { cdEvent in
+//                EventRow(cdEvent: cdEvent)
+//            }
         }
     }
     
     init() {
         log.verbose("初始化 PopEventList 视图")
+    }
+    
+    private var listHeight: CGFloat {
+        get {
+            let height = Theme.popViewEventRowHeight * CGFloat(userData.countdownEvents.count)
+            let minHeight = CGFloat(300)
+            let maxHeight = CGFloat(600)
+            
+            if height < minHeight {
+                return minHeight
+            } else if height > maxHeight {
+                return maxHeight
+            }
+            
+            return height
+        }
     }
 }
 

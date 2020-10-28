@@ -205,6 +205,62 @@ struct HyperLinkButton<Label> : View where Label : View {
 }
 
 
+struct SegmentedPicker: NSViewRepresentable {
+    typealias NSViewType = NSSegmentedControl
+    
+    let labels: [String]
+    let segmentDistribution: NSSegmentedControl.Distribution
+    let segmentStyle: NSSegmentedControl.Style
+    @Binding var selectedIndex: Int
+    
+    init(labels: [String],
+         selectedIndex: Binding<Int>,
+         segmentDistribution: NSSegmentedControl.Distribution = .fillEqually,
+         segmentStyle: NSSegmentedControl.Style = .automatic) {
+        
+        self.labels = labels
+        self._selectedIndex = selectedIndex
+        self.segmentDistribution = segmentDistribution
+        self.segmentStyle = segmentStyle
+    }
+    
+    
+    func makeCoordinator() -> SegmentedPicker.Coordinator {
+        return Coordinator(selectedIndex: $selectedIndex)
+    }
+    
+    func makeNSView(context: Context) -> NSSegmentedControl {
+        let control = NSSegmentedControl(
+            labels: labels,
+            trackingMode: .selectOne,
+            target: context.coordinator,
+            action: #selector(Coordinator.onChange(sender:))
+        )
+        
+        control.segmentDistribution = segmentDistribution
+        control.segmentStyle = segmentStyle
+        
+        return control
+    }
+    
+    func updateNSView(_ nsView: NSSegmentedControl, context: Context) {
+        nsView.selectedSegment = selectedIndex
+    }
+    
+    class Coordinator: NSObject {
+        @Binding var selectedIndex: Int
+        
+        init(selectedIndex: Binding<Int>) {
+            self._selectedIndex = selectedIndex
+        }
+        
+        @objc func onChange(sender: NSSegmentedControl) {
+            selectedIndex = sender.selectedSegment
+        }
+    }
+}
+
+
 /// 将一个 NSSwitch 包装成 View，并提供事件响应函数
 struct PerformableSwitch: NSViewRepresentable {
     typealias NSViewType = NSSwitch

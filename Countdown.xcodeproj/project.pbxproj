@@ -38,8 +38,18 @@
 		886D1B8B25401DCA00326C5A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886D1B8A25401DCA00326C5A /* Preview Assets.xcassets */; };
 		886D1B8E25401DCA00326C5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886D1B8C25401DCA00326C5A /* Main.storyboard */; };
 		886D1B952540261700326C5A /* LaunchHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 886D1B8125401DC400326C5A /* LaunchHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		886F659C254296EE00E3A354 /* TestTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F659B254296EE00E3A354 /* TestTabView.swift */; };
+		886F659E254297A700E3A354 /* TestCustomedTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F659D254297A700E3A354 /* TestCustomedTabView.swift */; };
+		888B298625446B71003C48CD /* TestPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888B298525446B71003C48CD /* TestPreference.swift */; };
+		888B298825447B98003C48CD /* TestAnimatorResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888B298725447B98003C48CD /* TestAnimatorResize.swift */; };
+		889732A6254077A10064D200 /* TestSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889732A5254077A10064D200 /* TestSettingsView.swift */; };
 		889AAF2E253AEC39005D9470 /* DynamicColorMacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889AAF2D253AEC39005D9470 /* DynamicColorMacOS.framework */; };
 		889AAF2F253AEC39005D9470 /* DynamicColorMacOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 889AAF2D253AEC39005D9470 /* DynamicColorMacOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		88AE8F542547F9C2001934CA /* TestPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F532547F9C2001934CA /* TestPicker.swift */; };
+		88AE8F5625483F11001934CA /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F5525483F11001934CA /* PreferencesWindowController.swift */; };
+		88AE8F5825484010001934CA /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F5725484010001934CA /* AboutView.swift */; };
+		88AE8F5A25484045001934CA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F5925484045001934CA /* SettingsView.swift */; };
+		88AE8F5C25484248001934CA /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F5B25484248001934CA /* PreferencesView.swift */; };
 		88B3806F24DD865E000C048A /* UITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3806E24DD865E000C048A /* UITest.swift */; };
 		88B3807124DE4022000C048A /* ProgressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3807024DE4022000C048A /* ProgressTest.swift */; };
 		88B5C2F324EF751E00AC2195 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5C2F224EF751E00AC2195 /* Theme.swift */; };
@@ -133,7 +143,17 @@
 		886D1B8D25401DCA00326C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		886D1B8F25401DCA00326C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		886D1B9025401DCA00326C5A /* LaunchHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LaunchHelper.entitlements; sourceTree = "<group>"; };
+		886F659B254296EE00E3A354 /* TestTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTabView.swift; sourceTree = "<group>"; };
+		886F659D254297A700E3A354 /* TestCustomedTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCustomedTabView.swift; sourceTree = "<group>"; };
+		888B298525446B71003C48CD /* TestPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPreference.swift; sourceTree = "<group>"; };
+		888B298725447B98003C48CD /* TestAnimatorResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnimatorResize.swift; sourceTree = "<group>"; };
+		889732A5254077A10064D200 /* TestSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSettingsView.swift; sourceTree = "<group>"; };
 		889AAF2D253AEC39005D9470 /* DynamicColorMacOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DynamicColorMacOS.framework; path = Carthage/Build/Mac/DynamicColorMacOS.framework; sourceTree = "<group>"; };
+		88AE8F532547F9C2001934CA /* TestPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPicker.swift; sourceTree = "<group>"; };
+		88AE8F5525483F11001934CA /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		88AE8F5725484010001934CA /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		88AE8F5925484045001934CA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		88AE8F5B25484248001934CA /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		88B3806E24DD865E000C048A /* UITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITest.swift; sourceTree = "<group>"; };
 		88B3807024DE4022000C048A /* ProgressTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTest.swift; sourceTree = "<group>"; };
 		88B5C2F224EF751E00AC2195 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -221,6 +241,12 @@
 				885BEEC8252A0F8600B3D61E /* MouseUpDown.swift */,
 				885BEEC62529F16A00B3D61E /* ComposeGesture.swift */,
 				885BEECA252A19C700B3D61E /* MagnificationGestureView.swift */,
+				889732A5254077A10064D200 /* TestSettingsView.swift */,
+				88AE8F532547F9C2001934CA /* TestPicker.swift */,
+				886F659B254296EE00E3A354 /* TestTabView.swift */,
+				886F659D254297A700E3A354 /* TestCustomedTabView.swift */,
+				888B298525446B71003C48CD /* TestPreference.swift */,
+				888B298725447B98003C48CD /* TestAnimatorResize.swift */,
 			);
 			path = TestView;
 			sourceTree = "<group>";
@@ -244,6 +270,16 @@
 				886D1B8A25401DCA00326C5A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		88AE8F522547BDAF001934CA /* PreferencesView */ = {
+			isa = PBXGroup;
+			children = (
+				88AE8F5725484010001934CA /* AboutView.swift */,
+				88AE8F5925484045001934CA /* SettingsView.swift */,
+				88AE8F5B25484248001934CA /* PreferencesView.swift */,
+			);
+			path = PreferencesView;
 			sourceTree = "<group>";
 		};
 		88B3807224DE507F000C048A /* PopoverVIew */ = {
@@ -325,6 +361,7 @@
 		88F5EDE224CEAB0900212DCC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88AE8F522547BDAF001934CA /* PreferencesView */,
 				88B5C2FC24F49F3900AC2195 /* StickyView */,
 				88B3807224DE507F000C048A /* PopoverVIew */,
 				88F1BE3F24D40D45004847D7 /* ProgressView */,
@@ -338,8 +375,9 @@
 			isa = PBXGroup;
 			children = (
 				88F5EDE424CEABFF00212DCC /* StatusBarController.swift */,
-				8813C97B24DFAB0000EEF207 /* PopRootViewController.swift */,
 				88B5C2FF24F534BA00AC2195 /* StickyNoteController.swift */,
+				88AE8F5525483F11001934CA /* PreferencesWindowController.swift */,
+				8813C97B24DFAB0000EEF207 /* PopRootViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -521,9 +559,11 @@
 			files = (
 				88B5C2F924F1020900AC2195 /* Preference.swift in Sources */,
 				88F5EDE724CEB0C300212DCC /* PopRootView.swift in Sources */,
+				888B298825447B98003C48CD /* TestAnimatorResize.swift in Sources */,
 				88F5EE0324D163A100212DCC /* TestView.swift in Sources */,
 				886D0514252D68FF00179E7F /* TestNSView.swift in Sources */,
 				88EFE81F24FB453200554133 /* ColorView.swift in Sources */,
+				88AE8F5625483F11001934CA /* PreferencesWindowController.swift in Sources */,
 				8858AB4324D5497A00D729CA /* FilledCircleProgress.swift in Sources */,
 				88F5EE0D24D2AA7700212DCC /* PopEventList.swift in Sources */,
 				882DB44D2524CFE1007E046A /* DeallocPrinter.swift in Sources */,
@@ -535,27 +575,35 @@
 				88F5EE1324D2EBBD00212DCC /* Global.swift in Sources */,
 				88B5C2F524F0B37E00AC2195 /* Helper.swift in Sources */,
 				8813C97C24DFAB0000EEF207 /* PopRootViewController.swift in Sources */,
+				88AE8F542547F9C2001934CA /* TestPicker.swift in Sources */,
 				8858AB4024D5497A00D729CA /* ArcProgress.swift in Sources */,
 				8858ABBB24DD252B00D729CA /* SystemUIGuide.swift in Sources */,
 				885BEEC9252A0F8600B3D61E /* MouseUpDown.swift in Sources */,
 				8819A36E252EE4F30019FB7C /* EventList.swift in Sources */,
 				88B5C30224F7EC0A00AC2195 /* StickyNoteWindow.swift in Sources */,
 				8858AB4624D5920400D729CA /* TimerView.swift in Sources */,
+				88AE8F5C25484248001934CA /* PreferencesView.swift in Sources */,
 				8813C98424E2D05900EEF207 /* DateHelper.swift in Sources */,
 				8867F35324D320FF007DE930 /* EventRow.swift in Sources */,
+				888B298625446B71003C48CD /* TestPreference.swift in Sources */,
 				88F5EDE524CEABFF00212DCC /* StatusBarController.swift in Sources */,
 				88B5C2FE24F49F6600AC2195 /* StickyNoteView.swift in Sources */,
 				8813C98624E2F75300EEF207 /* ViewReconstruct.swift in Sources */,
 				885BEEA42529C42B00B3D61E /* PopEventEdit.swift in Sources */,
+				88AE8F5825484010001934CA /* AboutView.swift in Sources */,
 				885BEECB252A19C700B3D61E /* MagnificationGestureView.swift in Sources */,
 				8813C97824DE534600EEF207 /* AnimationTest.swift in Sources */,
 				882DB45125271732007E046A /* HoverAwareView.swift in Sources */,
 				88F5EE0124CFB8EE00212DCC /* CountdownEvent.swift in Sources */,
 				8813C98224E182F500EEF207 /* DecimalTextField.swift in Sources */,
 				885BEEC72529F16A00B3D61E /* ComposeGesture.swift in Sources */,
+				886F659E254297A700E3A354 /* TestCustomedTabView.swift in Sources */,
+				886F659C254296EE00E3A354 /* TestTabView.swift in Sources */,
 				885BEEA22528563100B3D61E /* ShakeView.swift in Sources */,
+				88AE8F5A25484045001934CA /* SettingsView.swift in Sources */,
 				88B5C30024F534BA00AC2195 /* StickyNoteController.swift in Sources */,
 				88B5C2FB24F1404A00AC2195 /* UserDefaultTest.swift in Sources */,
+				889732A6254077A10064D200 /* TestSettingsView.swift in Sources */,
 				88F5EDD024CE6C2500212DCC /* AppDelegate.swift in Sources */,
 				88B3807124DE4022000C048A /* ProgressTest.swift in Sources */,
 				88B5C2F324EF751E00AC2195 /* Theme.swift in Sources */,

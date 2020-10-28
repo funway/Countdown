@@ -43,7 +43,7 @@ final class StickyNoteController {
                 styleMask: [],
                 backing: .buffered, defer: false)
             
-            window.setFrameAutosaveName(cdEvent.uuid.uuidString)
+            window.setFrameAutosaveName("StickyNote | \(cdEvent.uuid.uuidString)")
             
             window.isMovableByWindowBackground = true
             

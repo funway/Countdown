@@ -27,7 +27,7 @@ struct FilledCircleProgress: View {
             GeometryReader { geometry in
                 Circle()
                     .foregroundColor(self.backgroundColor)
-                    .opacity(0.3)
+                    .opacity(0.2)
                     .shadow(radius: 1)
                 
                 FilledLoadingCircle(radius: min(geometry.size.width, geometry.size.height)/2, progress: self.progress)

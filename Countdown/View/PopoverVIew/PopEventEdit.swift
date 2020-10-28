@@ -29,9 +29,11 @@ struct PopEventEdit: View {
         self.dateFormatter.dateFormat = "yyyy/MM/dd"
         self.timeFormatter.dateFormat = "HH:mm"
         
-        self.cdEvent = cdEvent ?? CountdownEvent(title: "未命名",
-                                                 endAt: Date().adjust(hour: nil, minute: 0, second: 0).adjust(.day, offset: 1),
-                                                 color: Theme.colors[Int.random(in: 0..<Theme.colors.count)])
+        self.cdEvent = cdEvent ?? CountdownEvent(title: "Untitled",
+                                                 endAt: Date().dateFor(.tomorrow).dateFor(.startOfDay),
+                                                 color: Theme.colors[Int.random(in: 0..<Theme.colors.count)],
+                                                 remindMe: Preference.shared.remindMe,
+                                                 showStickyNote: Preference.shared.showStickyNote)
     }
     
     var body: some View {
@@ -48,7 +50,7 @@ struct PopEventEdit: View {
                     
                     // 如果是新增的倒计时事件，将 cdEvent 写入全局的 [CountdownEvent] 数组
                     if self.userData.currentPopContainedViewType == PopContainedViewType.add {
-                        self.userData.countdownEvents.append(self.cdEvent)
+                        self.userData.countdownEvents.insert(self.cdEvent, at: 0)
                     }
                     
                     // 返回列表视图
@@ -56,7 +58,7 @@ struct PopEventEdit: View {
                         self.userData.currentPopContainedViewType = .list
                     }
                 }) {
-                    Image("LeftIcon")
+                    Image("BackIcon")
                     .resizable()
                     .frame(width: Theme.popViewHeaderIconWidth, height: Theme.popViewHeaderIconWidth)
                     .toolTip("保存并返回")
@@ -238,7 +240,13 @@ struct PopEventEdit: View {
             }
             .padding(.horizontal, Theme.popViewContentPaddingH)
             .padding(.top, Theme.popViewContentPaddingV)
-        }.overlyingAlert(showAlert: $showDeleteAlert,
+        }
+        .onAppear(perform: {
+            if self.userData.currentPopContainedViewType == PopContainedViewType.add && self.cdEvent.showStickyNote {
+                StickyNoteController.shared.add(for: self.cdEvent)
+            }
+        })
+        .overlyingAlert(showAlert: $showDeleteAlert,
             title: "确认删除?",
             message: "删除倒计时【\(cdEvent.title)】",
             confirmButton: Button("删除"){

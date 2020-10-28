@@ -108,6 +108,15 @@ final class EventListNSTableController: NSViewController {
 }
 
 extension EventListNSTableController: NSTableViewDelegate {
+    
+    // 为 NSTableView 返回每一行 View
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let eventRow = EventRow(cdEvent: userData.countdownEvents[row]).border(width: 1, edges: [.bottom], color: Color.gray.opacity(0.2))
+       
+        let view = NSHostingView(rootView: eventRow)
+        
+        return view
+    }
 }
 
 extension EventListNSTableController: NSTableViewDataSource {
@@ -158,20 +167,14 @@ extension EventListNSTableController: NSTableViewDataSource {
 
         return true
     }
-    
-    // 为 NSTableView 返回每一行 View
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let eventRow = EventRow(cdEvent: userData.countdownEvents[row]).border(width: 1, edges: [.bottom], color: Color.gray.opacity(0.2))
-       
-        let view = NSHostingView(rootView: eventRow)
-        
-        return view
-    }
+
 
     func numberOfRows(in tableView: NSTableView) -> Int {
         return userData.countdownEvents.count
     }
-    
+}
+
+extension EventListNSTableController {
     private class BackgroundNSView: NSView {
         override func draw(_ dirtyRect: NSRect) {
             // 调用 set() 方法设置当前画笔颜色

@@ -37,6 +37,7 @@ struct UserDefaultView: View {
     var body: some View {
             VStack {
                 TextField("Username", text: $userSettings.username)
+                TextField("Username", text: $userSettings.username)
                 
                 Text("UserDefaults 存储路径: \(storagePath)/Preferences/")
             }

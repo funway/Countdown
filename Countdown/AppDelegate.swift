@@ -68,11 +68,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         #if DEBUG
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        let contentView = TestSettingsView()
         // Create the window and set the content view.
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+            styleMask: [.titled, .closable, .fullSizeContentView],
             backing: .buffered, defer: false)
         window.center()
         window.setFrameAutosaveName("Main Window")

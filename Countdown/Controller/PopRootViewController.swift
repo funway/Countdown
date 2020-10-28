@@ -14,10 +14,12 @@ class PopRootViewController: NSViewController
      * 视图控制器的生命周期
      */
     override func viewWillAppear() {
+        log.verbose("PopRootView will appear")
         super.viewWillAppear()
     }
     
     override func viewDidDisappear() {
         super.viewDidDisappear()
+        log.verbose("PopRootView did disappear")
     }
 }

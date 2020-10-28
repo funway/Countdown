@@ -31,7 +31,7 @@ struct ArcProgress: View {
                     .strokeBorder(self.backgroundColor, lineWidth: self.lineWidth)
                     .aspectRatio(contentMode: .fill)
                     .shadow(radius: 1)
-                    .opacity(0.3)
+                    .opacity(0.2)
                     .position(x: geometry.size.width/2, y: geometry.size.height)
                 
                 Arc(startAngle: .degrees(-90), endAngle: Angle.degrees(180*Double(min(self.progress, 1))-90))

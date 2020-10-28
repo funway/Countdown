@@ -23,37 +23,51 @@ struct PopRootView: View {
     
     var body: some View {
         VStack{
-            ZStack {
-                if .list == self.userData.currentPopContainedViewType {
-                    PopEventList()
-                }
-                    
-                else if .edit == self.userData.currentPopContainedViewType {
-                    PopEventEdit(cdEvent: self.userData.currentEvent).transition(.move(edge: .trailing))
-                }
+            if .list == self.userData.currentPopContainedViewType {
+                PopEventList().transition(.move(edge: .leading))
+            }
                 
-                else if .add == self.userData.currentPopContainedViewType {
-                    PopEventEdit().transition(.move(edge: .trailing))
-                }
+            else if .edit == self.userData.currentPopContainedViewType {
+                PopEventEdit(cdEvent: self.userData.currentEvent).transition(.move(edge: .trailing))
             }
             
+            else if .add == self.userData.currentPopContainedViewType {
+                PopEventEdit().transition(.move(edge: .trailing))
+            }
+        
             #if DEBUG
-            Divider()
-            Button("Print Debug") {
-                log.verbose("Print Debug =========")
-                self.userData.countdownEvents[0].createAt = Date().adjust(.second, offset: -10)
-
-                self.userData.countdownEvents[0].endAt = Date().adjust(.second, offset: 30)
-
-                log.verbose("========= Print Debug")
-            }.padding()
+//            Divider()
+//            Button("Print Debug") {
+//                log.verbose("Print Debug =========")
+//                self.userData.countdownEvents[0].createAt = Date().adjust(.second, offset: -10)
+//
+//                self.userData.countdownEvents[0].endAt = Date().adjust(.second, offset: 30)
+//
+//                log.verbose("========= Print Debug")
+//            }.padding()
             #endif
             
-        }.frame(width: Theme.popViewWidth)
+        }.padding(.bottom, 20).frame(width: Theme.popViewWidth)
     }
     
     init() {
         log.verbose("初始化 PopRootView 视图")
+    }
+    
+    private var listViewHeight: CGFloat {
+        get {
+            let height = Theme.popViewEventRowHeight * CGFloat(userData.countdownEvents.count)
+            let minHeight = CGFloat(300)
+            let maxHeight = CGFloat(800)
+            
+            if height < minHeight {
+                return minHeight
+            } else if height > maxHeight {
+                return maxHeight
+            }
+            
+            return height
+        }
     }
 }
 

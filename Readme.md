@@ -51,3 +51,15 @@ Xcode 11.7
 # Todo
 
 1. NSSwitch 控件，当窗口不是 keywindow 的时候，其选中的蓝色底色会变成灰色 =。 =
+
+   这个好像无解
+
+   
+
+2. datepicker、ColorPicker
+
+   参考下 Swift-Mac 这个项目
+   
+   
+   
+3. NSTableView 刷新有点卡
