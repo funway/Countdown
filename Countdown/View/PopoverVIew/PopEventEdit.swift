@@ -286,6 +286,6 @@ struct PopEventEdit_Previews: PreviewProvider {
     static var previews: some View {
         PopEventEdit()
             .frame(width: Theme.popViewWidth)
-            .environmentObject(UserData())
+            .environmentObject(UserData.shared)
     }
 }

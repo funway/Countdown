@@ -27,14 +27,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // 初始化 SQLite 数据库模块
         initSQLite()
-        
-        // 读取倒计时事件(数组是值类型哦)
-        let cdEvents = loadCountdownEvent()
-        let userData = UserData(countdownEvents: cdEvents)
-        
+               
+        // 创建 NSPopover 实例，其视图为 PopRootView
         let popover = NSPopover()
-        let popoverView = PopRootView().environmentObject(userData)
-        
+        let popoverView = PopRootView().environmentObject(UserData.shared)
         // 必须先为 NSPopover 设置视图控制器后才能添加视图
         popover.contentViewController = PopRootViewController()
         popover.contentViewController?.view = NSHostingView(rootView: popoverView)
@@ -44,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBar = StatusBarController(popover)
         
         // 创建“便利贴”视图
-        for cdEvnent in cdEvents {
+        for cdEvnent in UserData.shared.countdownEvents {
             if cdEvnent.showStickyNote {
                 StickyNoteController.shared.add(for: cdEvnent)
             }
@@ -55,7 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                              repeats: true,
                                              block: { _ in
                                                 
-                                                for cdEvent in userData.countdownEvents {
+                                                for cdEvent in UserData.shared.countdownEvents {
                                                     if cdEvent.remindMe && (Int(cdEvent.endAt.timeIntervalSince1970) == Int(Date().timeIntervalSince1970)) {
                                                         Helper.sendCountdownNotification(for: cdEvent)
                                                     }
@@ -68,7 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         #if DEBUG
         // Create the SwiftUI view that provides the window contents.
-        let contentView = TestSettingsView()
+        let contentView = ContentView()
         // Create the window and set the content view.
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),

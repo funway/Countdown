@@ -12,6 +12,7 @@ import Foundation
 /// 单例模式
 class Preference: ObservableObject {
     
+    /// 获取 Preference 的单例
     static let shared = Preference()
     
     private init() {

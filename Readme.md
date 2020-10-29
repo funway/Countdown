@@ -63,3 +63,7 @@ Xcode 11.7
    
    
 3. NSTableView 刷新有点卡
+
+   应该是因为每次 NSTableView.reloadData() 都会删除，然后重建视图导致的。
+
+   可以不让它reloadData，手工 removeRows 和 insertRows

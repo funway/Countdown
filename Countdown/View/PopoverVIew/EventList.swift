@@ -28,7 +28,7 @@ struct EventList_Previews: PreviewProvider {
     static var previews: some View {
         EventList()
             .frame(width: 340)
-            .environmentObject(UserData(countdownEvents: loadCountdownEvent()))
+            .environmentObject(UserData.shared)
     }
 }
 
@@ -99,7 +99,7 @@ final class EventListNSTableController: NSViewController {
         }
         
         // 设置当前点击的倒计时事件
-        userData.currentEvent = userData.countdownEvents[tableView.clickedRow]
+        userData.currentClickedEvent = userData.countdownEvents[tableView.clickedRow]
         withAnimation {
             // 跳转到编辑视图
             userData.currentPopContainedViewType = PopContainedViewType.edit

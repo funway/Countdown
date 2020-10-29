@@ -10,17 +10,19 @@ import Foundation
 
 final class UserData: ObservableObject {
     
+    /// 获取 UserData 的单例
+    static let shared = UserData()
+    
+    /// 保存倒计时事件的数组
+    @Published var countdownEvents: [CountdownEvent]
+    
     /// 当前状态栏弹出框的视图类型（默认是列表视图）
     @Published var currentPopContainedViewType: PopContainedViewType = .list
     
-    @Published var countdownEvents: [CountdownEvent]
+    /// 当前点击的倒计时事件（在 popEventList 视图中点击）
+    var currentClickedEvent: CountdownEvent?
     
-    var currentEvent: CountdownEvent?
-    
-    /// 构造器
-    /// - Parameters:
-    ///   - countdownEvents: CountdownEvent 对象数组，默认从 SQLite 数据库中读取（注意：数组是值类型）
-    init(countdownEvents: [CountdownEvent] = loadCountdownEvent()) {
-        self.countdownEvents = countdownEvents
+    private init() {
+        self.countdownEvents = loadCountdownEvent()
     }
 }

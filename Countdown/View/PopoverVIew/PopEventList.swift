@@ -47,7 +47,7 @@ struct PopEventList: View {
                 
                 Button(action: {
                     log.verbose("点击添加按钮")
-                    self.userData.currentEvent = nil
+                    self.userData.currentClickedEvent = nil
                     withAnimation {
                         self.userData.currentPopContainedViewType = PopContainedViewType.add
                     }
@@ -98,6 +98,6 @@ struct PopEventList_Previews: PreviewProvider {
     static var previews: some View {
         PopEventList()
             .frame(width: Theme.popViewWidth)
-            .environmentObject(UserData())
+            .environmentObject(UserData.shared)
     }
 }

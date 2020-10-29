@@ -24,11 +24,11 @@ struct PopRootView: View {
     var body: some View {
         VStack{
             if .list == self.userData.currentPopContainedViewType {
-                PopEventList()
+                PopEventList().transition(.move(edge: .leading))
             }
                 
             else if .edit == self.userData.currentPopContainedViewType {
-                PopEventEdit(cdEvent: self.userData.currentEvent).transition(.move(edge: .trailing))
+                PopEventEdit(cdEvent: self.userData.currentClickedEvent).transition(.move(edge: .trailing))
             }
             
             else if .add == self.userData.currentPopContainedViewType {
@@ -57,6 +57,6 @@ struct PopRootView: View {
 
 struct PopRootView_Previews: PreviewProvider {
     static var previews: some View {
-        PopRootView().environmentObject(UserData(countdownEvents: loadCountdownEvent()))
+        PopRootView().environmentObject(UserData.shared)
     }
 }
