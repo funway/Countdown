@@ -13,7 +13,7 @@ final class UserData: ObservableObject {
     /// 获取 UserData 的单例
     static let shared = UserData()
     
-    /// 保存倒计时事件的数组
+    /// 保存倒计时事件的数组（❗️❗️注意：数组是值类型）
     @Published var countdownEvents: [CountdownEvent]
     
     /// 当前状态栏弹出框的视图类型（默认是列表视图）

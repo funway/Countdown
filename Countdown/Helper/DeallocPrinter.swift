@@ -17,10 +17,10 @@ class DeallocPrinter {
     init(forType: String) {
         self.forType = forType
         
-        log.verbose("构造 \(forType) 实例中的 DeallocPrinter 对象")
+        log.verbose("构造 \(forType) 实例的 DP")
     }
     
     deinit {
-        log.verbose("释放 \(forType) 实例中的 DeallocPrinter 对象")
+        log.verbose("释放 \(forType) 实例的 DP")
     }
 }

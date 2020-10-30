@@ -36,15 +36,18 @@ struct PopRootView: View {
             }
         
             #if DEBUG
-//            Divider()
-//            Button("Print Debug") {
-//                log.verbose("Print Debug =========")
-//                self.userData.countdownEvents[0].createAt = Date().adjust(.second, offset: -10)
-//
-//                self.userData.countdownEvents[0].endAt = Date().adjust(.second, offset: 30)
-//
-//                log.verbose("========= Print Debug")
-//            }.padding()
+            Divider()
+            Button("Print Debug") {
+                log.verbose("Print Debug =========")
+                
+                self.userData.countdownEvents[0].createAt = Date().adjust(.second, offset: -10)
+                self.userData.countdownEvents[0].endAt = Date().adjust(.second, offset: 30)
+                
+                let appDelegate = NSApplication.shared.delegate as! AppDelegate
+                log.debug("\(appDelegate.eventListController.tableView.hiddenRowIndexes)")
+
+                log.verbose("========= Print Debug")
+            }.padding()
             #endif
             
         }.padding(.bottom, 20).frame(width: Theme.popViewWidth)

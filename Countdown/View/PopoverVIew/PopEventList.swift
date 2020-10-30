@@ -28,8 +28,8 @@ struct PopEventList: View {
                     Button("设置") {
                         PreferencesWindowController.shared.show()
                         
-                        let delegate = NSApplication.shared.delegate as! AppDelegate
-                        delegate.statusBar.hidePopover(nil)
+                        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+                        appDelegate.statusBarController.hidePopover(nil)
                     }
                     Button("退出") {
                         NSApplication.shared.terminate(self)

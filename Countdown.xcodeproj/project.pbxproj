@@ -32,6 +32,8 @@
 		885BEEC9252A0F8600B3D61E /* MouseUpDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885BEEC8252A0F8600B3D61E /* MouseUpDown.swift */; };
 		885BEECB252A19C700B3D61E /* MagnificationGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885BEECA252A19C700B3D61E /* MagnificationGestureView.swift */; };
 		8867F35324D320FF007DE930 /* EventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867F35224D320FF007DE930 /* EventRow.swift */; };
+		886A9841254AF41100C25A7A /* EventListNSTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886A9840254AF41100C25A7A /* EventListNSTableController.swift */; };
+		886A9843254C06F500C25A7A /* EventRowStatic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886A9842254C06F500C25A7A /* EventRowStatic.swift */; };
 		886D0514252D68FF00179E7F /* TestNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886D0513252D68FF00179E7F /* TestNSView.swift */; };
 		886D1B8425401DC500326C5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886D1B8325401DC500326C5A /* AppDelegate.swift */; };
 		886D1B8825401DCA00326C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886D1B8725401DCA00326C5A /* Assets.xcassets */; };
@@ -135,6 +137,8 @@
 		885BEEC8252A0F8600B3D61E /* MouseUpDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseUpDown.swift; sourceTree = "<group>"; };
 		885BEECA252A19C700B3D61E /* MagnificationGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnificationGestureView.swift; sourceTree = "<group>"; };
 		8867F35224D320FF007DE930 /* EventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRow.swift; sourceTree = "<group>"; };
+		886A9840254AF41100C25A7A /* EventListNSTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListNSTableController.swift; sourceTree = "<group>"; };
+		886A9842254C06F500C25A7A /* EventRowStatic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRowStatic.swift; sourceTree = "<group>"; };
 		886D0513252D68FF00179E7F /* TestNSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNSView.swift; sourceTree = "<group>"; };
 		886D1B8125401DC400326C5A /* LaunchHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaunchHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		886D1B8325401DC500326C5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -289,6 +293,7 @@
 				88F5EE0C24D2AA7700212DCC /* PopEventList.swift */,
 				8819A36D252EE4F30019FB7C /* EventList.swift */,
 				8867F35224D320FF007DE930 /* EventRow.swift */,
+				886A9842254C06F500C25A7A /* EventRowStatic.swift */,
 				885BEEA32529C42B00B3D61E /* PopEventEdit.swift */,
 			);
 			path = PopoverVIew;
@@ -378,6 +383,7 @@
 				88B5C2FF24F534BA00AC2195 /* StickyNoteController.swift */,
 				88AE8F5525483F11001934CA /* PreferencesWindowController.swift */,
 				8813C97B24DFAB0000EEF207 /* PopRootViewController.swift */,
+				886A9840254AF41100C25A7A /* EventListNSTableController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -572,6 +578,7 @@
 				88F5EDEA24CEB9D700212DCC /* EventMonitor.swift in Sources */,
 				8813C98824E3D5C900EEF207 /* DragTest.swift in Sources */,
 				88F5EDD224CE6C2500212DCC /* ContentView.swift in Sources */,
+				886A9843254C06F500C25A7A /* EventRowStatic.swift in Sources */,
 				88F5EE1324D2EBBD00212DCC /* Global.swift in Sources */,
 				88B5C2F524F0B37E00AC2195 /* Helper.swift in Sources */,
 				8813C97C24DFAB0000EEF207 /* PopRootViewController.swift in Sources */,
@@ -590,6 +597,7 @@
 				88B5C2FE24F49F6600AC2195 /* StickyNoteView.swift in Sources */,
 				8813C98624E2F75300EEF207 /* ViewReconstruct.swift in Sources */,
 				885BEEA42529C42B00B3D61E /* PopEventEdit.swift in Sources */,
+				886A9841254AF41100C25A7A /* EventListNSTableController.swift in Sources */,
 				88AE8F5825484010001934CA /* AboutView.swift in Sources */,
 				885BEECB252A19C700B3D61E /* MagnificationGestureView.swift in Sources */,
 				8813C97824DE534600EEF207 /* AnimationTest.swift in Sources */,

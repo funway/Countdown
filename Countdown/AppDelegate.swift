@@ -13,8 +13,8 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     // 类型后面用 ! 号表示这是一个隐式解析的可选类型
-    var statusBar: StatusBarController!
-    var popover: NSPopover!
+    var statusBarController: StatusBarController!
+    var eventListController: EventListNSTableController!
     var reminderTimer: Timer!
     
     #if DEBUG
@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // 初始化 SQLite 数据库模块
         initSQLite()
                
-        // 创建 NSPopover 实例，其视图为 PopRootView
+        // 创建状态栏弹出框视图
         let popover = NSPopover()
         let popoverView = PopRootView().environmentObject(UserData.shared)
         // 必须先为 NSPopover 设置视图控制器后才能添加视图
@@ -37,14 +37,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentSize = NSSize(width: 360, height: 360)
         
         // 创建状态栏图标控制器
-        statusBar = StatusBarController(popover)
-        
-        // 创建“便利贴”视图
+        statusBarController = StatusBarController(popover)
+    
+        // 创建桌面“便利贴”视图
         for cdEvnent in UserData.shared.countdownEvents {
             if cdEvnent.showStickyNote {
                 StickyNoteController.shared.add(for: cdEvnent)
             }
         }
+        
+        // 创建列表视图的 NSTableView
+        // 由于 NSTableView 对象的创建与刷新会比较耗时，所以单独摘出来做一个全局共享对象
+        eventListController = EventListNSTableController(userData: UserData.shared)
+        
         
         // 启动计时器，轮询所有倒计时事件，看看是否需要弹出倒计时结束的通知
         reminderTimer = Timer.scheduledTimer(withTimeInterval: 1,

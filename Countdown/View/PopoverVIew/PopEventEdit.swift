@@ -48,9 +48,14 @@ struct PopEventEdit: View {
                     // 将 cdEvent 写入数据库
                     self.cdEvent.save(at: db)
                     
-                    // 如果是新增的倒计时事件，将 cdEvent 写入全局的 [CountdownEvent] 数组
+                    // 如果是新增的倒计时事件
                     if self.userData.currentPopContainedViewType == PopContainedViewType.add {
+                        // 将 cdEvent 写入全局的 [CountdownEvent] 数组
                         self.userData.countdownEvents.insert(self.cdEvent, at: 0)
+                        
+                        // 在 EventListNSTableController 的 NSTableView 中新增一行
+                        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+                        appDelegate.eventListController.insertRow(at: 0)
                     }
                     
                     // 返回列表视图
@@ -79,9 +84,12 @@ struct PopEventEdit: View {
                 // 删除按钮
                 Button(action: {
                     log.verbose("点击删除按钮")
+                    
                     if PopContainedViewType.add == self.userData.currentPopContainedViewType {
+                        // 如果是在“新增”页面
                         self.deleteCountdownEvent()
                     } else {
+                        // 如果是在“编辑”页面，先弹出“确认删除”的提示
                         self.showDeleteAlert.toggle()
                     }
                 }) {
@@ -268,8 +276,17 @@ struct PopEventEdit: View {
 
         // 如果是编辑已存在的倒计时事件
         if self.userData.currentPopContainedViewType == PopContainedViewType.edit {
+            guard let index = userData.countdownEvents.firstIndex(where: {$0.uuid == cdEvent.uuid}) else {
+                log.error("在 UserData 中找不到 CountdownEvent 对象[\(cdEvent)]")
+                return
+            }
+            
             // 从全局的 [CountdownEvent] 数组中删除该事件
-            self.userData.countdownEvents.removeAll(where: {$0.uuid == self.cdEvent.uuid})
+            userData.countdownEvents.remove(at: index)
+            
+            // 在 EventListNSTableController 的 NSTableView 中删除对应行
+            let appDelegate = NSApplication.shared.delegate as! AppDelegate
+            appDelegate.eventListController.removeRow(at: index)
 
             // 从数据库中删除该事件
             self.cdEvent.delete(at: db)

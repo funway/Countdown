@@ -14,7 +14,7 @@ struct EventRow: View {
     let timeFormat: String
     
     #if DEBUG
-    private let deallocPrinter = DeallocPrinter(forType: String(describing: Self.self))
+    private let deallocPrinter: DeallocPrinter!
     #endif
     
     @State var refreshTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -35,6 +35,10 @@ struct EventRow: View {
         // 在构造器中对 @State 值进行初始化的正确方式
         self._progress = State(initialValue: cdEvent.progress)
         self._relativeTimeString = State(initialValue: cdEvent.endAt.toStringWithRelativeTime())
+        
+        #if DEBUG
+        self.deallocPrinter = DeallocPrinter(forType: String(describing: Self.self) + "[\(cdEvent.title)]")
+        #endif
     }
     
     var body: some View {
@@ -82,6 +86,8 @@ struct EventRow: View {
         .onAppear(){
             self.refreshTimer.upstream.connect().cancel()
             self.refreshTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+            
+            self.refresh()
         }
         .onDisappear(){
             self.refreshTimer.upstream.connect().cancel()
