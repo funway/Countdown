@@ -112,8 +112,7 @@ extension EventListNSTableController: NSTableViewDelegate {
             log.verbose("不存在 EventRow[\(userData.countdownEvents[row].title)]，创建之")
 
             let eventRow = EventRow(cdEvent: userData.countdownEvents[row]).border(width: 1, edges: [.bottom], color: Color.gray.opacity(0.2))
-//            let eventRow = Text(userData.countdownEvents[row].title).frame(height: 50)
-//            let eventRow = EventRowStatic(cdEvent: userData.countdownEvents[row]).border(width: 1, edges: [.bottom], color: Color.gray.opacity(0.2))
+//            let eventRow = Text(userData.countdownEvents[row].title).frame(height: 50).border(width: 1, edges: [.bottom], color: Color.gray.opacity(0.2))
             
             eventRows[userData.countdownEvents[row].uuid] = NSHostingView(rootView: eventRow)
 
@@ -122,15 +121,6 @@ extension EventListNSTableController: NSTableViewDelegate {
         }
 
         return eventRows[userData.countdownEvents[row].uuid]
-
-        ////////////////////////////////////////////////////////////////////////////////
-        
-        // 不保存 EventRow，每次都新建
-//        let eventRow = EventRow(cdEvent: userData.countdownEvents[row]).border(width: 1, edges: [.bottom], color: Color.gray.opacity(0.2))
-//
-//        let view = NSHostingView(rootView: eventRow)
-//
-//        return view
     }
 }
 

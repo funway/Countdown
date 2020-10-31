@@ -66,10 +66,6 @@ struct PopEventList: View {
             EventList()
                 .frame(height: listHeight)
                 .padding(.horizontal, Theme.popViewContentPaddingH)
-            
-//            ForEach(userData.countdownEvents, id: \.self.uuid) { cdEvent in
-//                EventRow(cdEvent: cdEvent)
-//            }
         }
     }
     
@@ -77,10 +73,12 @@ struct PopEventList: View {
         log.verbose("初始化 PopEventList 视图")
     }
     
+    
+    /// 计算列表的高度
     private var listHeight: CGFloat {
         get {
             let height = Theme.popViewEventRowHeight * CGFloat(userData.countdownEvents.count)
-            let minHeight = CGFloat(300)
+            let minHeight = CGFloat(200)
             let maxHeight = CGFloat(600)
             
             if height < minHeight {
