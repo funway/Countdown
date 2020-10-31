@@ -58,12 +58,14 @@ Xcode 11.7
 
 2. datepicker、ColorPicker
 
-   参考下 Swift-Mac 这个项目
+   完善这两个控件。可以参考下 Swift-Mac 这个项目
    
    
    
-3. NSTableView 刷新有点卡
+3. NSTableView 每次切换时候都会有点卡
 
-   应该是因为每次 NSTableView.reloadData() 都会删除，然后重建视图导致的。
+   已经优化成：1、保存每行的视图，2、手工删除与插入行。
 
-   可以不让它reloadData，手工 removeRows 和 insertRows
+   但如果行数多的话，还是会有点卡。 后期的优化方向应该是从 EventRow 入手了，因为好像如果把 EventRow 简化一点，也能提高 NSTableView 的展示速度。
+
+   
