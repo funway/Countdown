@@ -24,7 +24,7 @@ final class StickyNoteController {
     }
     
     /// 不允许实例化，只能通过 shared 属性获取单例
-    private init() { }
+    private init() {}
     
     
     /// 添加一个 “便利贴” 视图

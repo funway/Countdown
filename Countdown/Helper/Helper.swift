@@ -12,9 +12,7 @@ import UserNotifications
 class Helper {
     
     /// 不允许实例化
-    private init() {
-        
-    }
+    private init() {}
     
     
     /// 获取一个 类类型实例 的内存地址

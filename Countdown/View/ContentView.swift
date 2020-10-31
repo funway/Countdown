@@ -7,22 +7,26 @@
 //
 
 import SwiftUI
-import ServiceManagement
-import UserNotifications
 
 struct ContentView: View {
-    @State var items = Array(1...500)
+    @State private var currentTime: Date = Date()
 
     var body: some View {
         VStack {
-            Button("Shuffle") {
-                self.items.shuffle()
+            Button("start"){
+                AppTimer.shared.start()
             }
-
-            List(items, id: \.self) {
-                Text("Item \($0)")
+            Button("stop"){
+                AppTimer.shared.stop()
             }
-        }
+            
+            Divider()
+            
+            Text("\(currentTime)")
+        }.onReceive(AppTimer.shared.$ticktock, perform: { currentTime in
+            self.currentTime = currentTime
+            log.debug("contentview receie timer")
+        })
     }
 }
 

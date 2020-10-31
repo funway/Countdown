@@ -75,7 +75,7 @@ struct PopEventEdit: View {
                 
                 if PopContainedViewType.add == userData.currentPopContainedViewType {
                     Text("Add").font(.headline)
-                } else {
+                } else if PopContainedViewType.edit == userData.currentPopContainedViewType {
                     Text("Edit").font(.headline)
                 }
                 

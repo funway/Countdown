@@ -12,7 +12,7 @@ import SwiftUI
 final class PreferencesWindowController {
     static let shared = PreferencesWindowController()
     
-    private init() { }
+    private init() {}
     
     var window: NSWindow!
     
