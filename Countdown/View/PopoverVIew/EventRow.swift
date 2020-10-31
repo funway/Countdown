@@ -80,6 +80,9 @@ struct EventRow: View {
             
         }
         .frame(height: Theme.popViewEventRowHeight)
+        .onAppear(perform: {
+            self.refresh()
+        })
         .onReceive(AppTimer.shared.$ticktock) { currentTime in
             self.refresh()
         }
