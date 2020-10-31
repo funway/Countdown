@@ -17,7 +17,6 @@ struct EventRow: View {
     private let deallocPrinter: DeallocPrinter!
     #endif
     
-    @State var refreshTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var hovered = false
     @State var progress: Double
     @State var relativeTimeString: String
@@ -81,16 +80,7 @@ struct EventRow: View {
             
         }
         .frame(height: Theme.popViewEventRowHeight)
-        .onAppear(){
-            self.refreshTimer.upstream.connect().cancel()
-            self.refreshTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-            
-            self.refresh()
-        }
-        .onDisappear(){
-            self.refreshTimer.upstream.connect().cancel()
-        }
-        .onReceive(refreshTimer) { currentTime in
+        .onReceive(AppTimer.shared.$ticktock) { currentTime in
             self.refresh()
         }
         .onHoverAware { hovered in

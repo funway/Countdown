@@ -15,11 +15,13 @@ class PopRootViewController: NSViewController
      */
     override func viewWillAppear() {
         log.verbose("PopRootView will appear")
+        AppTimer.shared.start()
         super.viewWillAppear()
     }
     
     override func viewDidDisappear() {
         super.viewDidDisappear()
+        AppTimer.shared.stop()
         log.verbose("PopRootView did disappear")
     }
 }

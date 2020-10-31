@@ -23,8 +23,10 @@ class AppTimer: ObservableObject {
     /// 启动计时器
     func start() {
         timer?.cancel()
+        
+        self.ticktock = Date()
+        
         timer = Timer.publish(every: 1.0, on: RunLoop.main, in: RunLoop.Mode.common).autoconnect().sink(receiveValue: { _ in
-            log.verbose("AppTimer tick tock")
             self.ticktock = Date()
         })
     }

@@ -25,7 +25,7 @@ struct ContentView: View {
             Text("\(currentTime)")
         }.onReceive(AppTimer.shared.$ticktock, perform: { currentTime in
             self.currentTime = currentTime
-            log.debug("contentview receie timer")
+            log.verbose("contentview receie timer")
         })
     }
 }

@@ -61,8 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                                         Helper.sendCountdownNotification(for: cdEvent)
                                                     }
                                                 }
-                                             }
-                        )
+                                             })
         
         
         ////////////// 👇下面这部分代码可以删除了
