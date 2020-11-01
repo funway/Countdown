@@ -18,16 +18,10 @@ struct PopEventEdit: View {
     @State private var clockBtnClicked = false
     @State private var showDeleteAlert = false
     
-    private let dateFormatter = DateFormatter()
-    private let timeFormatter = DateFormatter()
-    
     private let deallocPrinter = DeallocPrinter(forType: String(describing: Self.self))
     
     init(cdEvent: CountdownEvent? = nil) {
         log.verbose("初始化 PopEventEdit 视图")
-        
-        self.dateFormatter.dateFormat = "yyyy/MM/dd"
-        self.timeFormatter.dateFormat = "HH:mm"
         
         self.cdEvent = cdEvent ?? CountdownEvent(title: "Untitled",
                                                  endAt: Date().dateFor(.tomorrow).dateFor(.startOfDay),
@@ -137,25 +131,19 @@ struct PopEventEdit: View {
                                     }
                                     .buttonStyle(BorderlessButtonStyle())
                                     .popover(isPresented: self.$calenderBtnClicked, content: {
-                                        
                                         DatePicker(selection: self.$cdEvent.endAt,
                                                    displayedComponents: [.date],
-                                                   label: { Text("日期") })
+                                                   label: { Text("Date") })
                                             .datePickerStyle(GraphicalDatePickerStyle())
                                             .labelsHidden()
                                             .padding()
                                     })
                                     
-                                    Text(self.dateFormatter.string(from: self.cdEvent.endAt))
-                                        .font(Font.callout.monospacedDigit())
+                                    CustomNSDatePicker(date: self.$cdEvent.endAt, elements: .yearMonthDay, minDate: Date()).frame(width: 100)
                                         
                                     Spacer()
                                 }
                             }.frame(width: geometry.size.width/2)
-                            .contentShape(Rectangle())
-                            .onTapGesture {
-                                self.calenderBtnClicked.toggle()
-                            }
                             
                             VStack(alignment: .leading, spacing: Theme.popViewContentSectionSpacingV) {
                                 Text("Time").font(.caption)
@@ -173,22 +161,17 @@ struct PopEventEdit: View {
                                         
                                         DatePicker(selection: self.$cdEvent.endAt,
                                                    displayedComponents: [.hourAndMinute],
-                                                   label: { Text("时间") })
+                                                   label: { Text("Time") })
                                             .datePickerStyle(GraphicalDatePickerStyle())
                                             .labelsHidden()
                                             .padding()
                                     })
                                     
-                                    Text(self.timeFormatter.string(from: self.cdEvent.endAt))
-                                        .font(Font.callout.monospacedDigit())
+                                    CustomNSDatePicker(date: self.$cdEvent.endAt, elements: .hourMinute, minDate: Date()).frame(width: 100)
                                     
                                     Spacer()
                                 }
                             }.frame(width: geometry.size.width/2)
-                            .contentShape(Rectangle())
-                            .onTapGesture {
-                                self.clockBtnClicked.toggle()
-                            }
                         }.frame(width: geometry.size.width)
                     }.frame(height: 40)
                     

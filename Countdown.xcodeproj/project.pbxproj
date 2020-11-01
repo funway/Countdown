@@ -63,6 +63,7 @@
 		88B5C2FE24F49F6600AC2195 /* StickyNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5C2FD24F49F6600AC2195 /* StickyNoteView.swift */; };
 		88B5C30024F534BA00AC2195 /* StickyNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5C2FF24F534BA00AC2195 /* StickyNoteController.swift */; };
 		88B5C30224F7EC0A00AC2195 /* StickyNoteWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5C30124F7EC0A00AC2195 /* StickyNoteWindow.swift */; };
+		88BECD9F254EB51600CD4488 /* TestDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BECD9E254EB51600CD4488 /* TestDatePicker.swift */; };
 		88EFE81F24FB453200554133 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EFE81E24FB453200554133 /* ColorView.swift */; };
 		88F5EDD024CE6C2500212DCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDCF24CE6C2500212DCC /* AppDelegate.swift */; };
 		88F5EDD224CE6C2500212DCC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5EDD124CE6C2500212DCC /* ContentView.swift */; };
@@ -170,6 +171,7 @@
 		88B5C2FD24F49F6600AC2195 /* StickyNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyNoteView.swift; sourceTree = "<group>"; };
 		88B5C2FF24F534BA00AC2195 /* StickyNoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyNoteController.swift; sourceTree = "<group>"; };
 		88B5C30124F7EC0A00AC2195 /* StickyNoteWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyNoteWindow.swift; sourceTree = "<group>"; };
+		88BECD9E254EB51600CD4488 /* TestDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDatePicker.swift; sourceTree = "<group>"; };
 		88EFE81E24FB453200554133 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		88F5EDCC24CE6C2500212DCC /* Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F5EDCF24CE6C2500212DCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				886F659D254297A700E3A354 /* TestCustomedTabView.swift */,
 				888B298525446B71003C48CD /* TestPreference.swift */,
 				888B298725447B98003C48CD /* TestAnimatorResize.swift */,
+				88BECD9E254EB51600CD4488 /* TestDatePicker.swift */,
 			);
 			path = TestView;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				88F5EE0124CFB8EE00212DCC /* CountdownEvent.swift in Sources */,
 				8813C98224E182F500EEF207 /* DecimalTextField.swift in Sources */,
 				885BEEC72529F16A00B3D61E /* ComposeGesture.swift in Sources */,
+				88BECD9F254EB51600CD4488 /* TestDatePicker.swift in Sources */,
 				886F659E254297A700E3A354 /* TestCustomedTabView.swift in Sources */,
 				886F659C254296EE00E3A354 /* TestTabView.swift in Sources */,
 				885BEEA22528563100B3D61E /* ShakeView.swift in Sources */,
