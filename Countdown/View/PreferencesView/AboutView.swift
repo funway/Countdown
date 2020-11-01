@@ -22,7 +22,6 @@ struct AboutView: View {
             
             HStack {
                 Text("Author:")
-                HyperLinkText(text: "funway", destination: URL(string: "https://www.hawu.me")!)
                 
                 HyperLinkButton(destination: URL(string: "https://github.com/funway")!, label: {
                     Image("GithubIcon").resizable().frame(width: 16, height: 16)
@@ -31,6 +30,11 @@ struct AboutView: View {
                 HyperLinkButton(destination: URL(string: "https://twitter.com/wangfunway")!, label: {
                     Image("TwitterIcon").resizable().frame(width: 16, height: 16)
                 }).buttonStyle(BorderlessButtonStyle())
+            }
+            
+            HStack {
+                Text("Donate me with")
+                HyperLinkText(text: "Paypal", destination: URL(string: "https://paypal.me/wangfengwei")!)
             }
             
             Divider()

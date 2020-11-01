@@ -12,6 +12,7 @@ import ServiceManagement
 struct SettingsView: View {
     @State var launchAtLogin = false
     @ObservedObject var preference = Preference.shared
+    private let rowHeight = CGFloat(21)
     
     var body: some View {
         VStack(spacing: 10.0) {
@@ -19,7 +20,7 @@ struct SettingsView: View {
                 VStack {
                     Divider()
                 }
-                Text("通用").fontWeight(.light)
+                Text("General").fontWeight(.light)
                 VStack {
                     Divider()
                 }
@@ -28,7 +29,7 @@ struct SettingsView: View {
             GeometryReader { geometry in
                 HStack {
                     VStack {
-                        Text("登录时启动:")
+                        Text("Launch at login:")
                     }.frame(width: geometry.size.width/2, height: nil, alignment: .trailing)
                     
                     VStack {
@@ -45,7 +46,7 @@ struct SettingsView: View {
                         }
                     }.frame(width: geometry.size.width/2, height: nil, alignment: .leading)
                 }
-            }.frame(height: 21)
+            }.frame(height: rowHeight)
             
             Spacer().frame(height: 20)
             
@@ -53,7 +54,7 @@ struct SettingsView: View {
                 VStack {
                     Divider()
                 }
-                Text("新建倒计时").fontWeight(.light)
+                Text("New Countdown").fontWeight(.light)
                 VStack {
                     Divider()
                 }
@@ -62,7 +63,7 @@ struct SettingsView: View {
             GeometryReader { geometry in
                 HStack {
                     VStack {
-                        Text("启用提醒:")
+                        Text("Remind me:")
                     }.frame(width: geometry.size.width/2, height: nil, alignment: .trailing)
                     
                     VStack {
@@ -70,11 +71,11 @@ struct SettingsView: View {
                         })
                     }.frame(width: geometry.size.width/2, height: nil, alignment: .leading)
                 }
-            }.frame(height: 21)
+            }.frame(height: rowHeight)
             GeometryReader { geometry in
                 HStack {
                     VStack {
-                        Text("桌面便签:")
+                        Text("Sticky note:")
                     }.frame(width: geometry.size.width/2, height: nil, alignment: .trailing)
                     
                     VStack {
@@ -82,7 +83,7 @@ struct SettingsView: View {
                         })
                     }.frame(width: geometry.size.width/2, height: nil, alignment: .leading)
                 }
-            }.frame(height: 21)
+            }.frame(height: rowHeight)
             
             Spacer()
         }.frame(maxWidth: .infinity, maxHeight: .infinity)

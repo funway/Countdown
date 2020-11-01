@@ -66,7 +66,7 @@ struct PopEventEdit: View {
                     Image("BackIcon")
                     .resizable()
                     .frame(width: Theme.popViewHeaderIconWidth, height: Theme.popViewHeaderIconWidth)
-                    .toolTip("保存并返回")
+                    .toolTip("Save & Back")
                 }
                 .buttonStyle(BorderlessButtonStyle())
                 .padding(.horizontal)
@@ -96,7 +96,7 @@ struct PopEventEdit: View {
                     Image("TrashIcon")
                     .resizable()
                     .frame(width: Theme.popViewHeaderIconWidth, height: Theme.popViewHeaderIconWidth)
-                    .toolTip("删除")
+                    .toolTip("Delete")
                 }
                 .buttonStyle(BorderlessButtonStyle())
                 .padding(.horizontal)

@@ -24,6 +24,7 @@ class Preference: ObservableObject {
     }
     
     
+    /// 新建倒计时事件，是否默认到期提醒
     @Published var remindMe: Bool {
         didSet {
             log.debug("设置默认提醒: \(remindMe)")
@@ -33,6 +34,7 @@ class Preference: ObservableObject {
     let keyForRemindMe = "Countdown | New Event | remindMe"
     
     
+    /// 新建倒计时事件，是否默认显示桌面便签
     @Published var showStickyNote: Bool {
         didSet {
             log.debug("设置默认显示便签: \(showStickyNote)")

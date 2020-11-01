@@ -92,10 +92,16 @@ final class EventListNSTableController: NSViewController {
         }
     }
     
+    
+    /// 插入行
+    /// - Parameter index: 要插入的目标行 index
     func insertRow(at index: Int) {
         tableView.insertRows(at: [index])
     }
     
+    
+    /// 删除行
+    /// - Parameter index: 要删除的目标行 index
     func removeRow(at index: Int) {
         tableView.removeRows(at: [index])
     }
