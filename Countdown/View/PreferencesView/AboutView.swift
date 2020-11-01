@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct AboutView: View {
+    @State var showAlipayQRCode = false
+    
     var body: some View {
         VStack(spacing: 10.0) {
             HStack(spacing: 10.0) {
@@ -35,6 +37,13 @@ struct AboutView: View {
             HStack {
                 Text("Donate me with")
                 HyperLinkText(text: "Paypal", destination: URL(string: "https://paypal.me/wangfengwei")!)
+                Text("or")
+                Button("AliPay"){
+                    self.showAlipayQRCode.toggle()
+                }.popover(isPresented: self.$showAlipayQRCode, content: {
+                    Image("AlipayQRCode").resizable().frame(width: 247.5, height: 371.5)
+                })
+                Text("😜")
             }
             
             Divider()
