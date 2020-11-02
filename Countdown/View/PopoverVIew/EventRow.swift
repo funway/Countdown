@@ -43,7 +43,7 @@ struct EventRow: View {
     var body: some View {
         ZStack {
             HStack {
-                CircularProgress(progress: CGFloat(progress), foregroundColor: Color(cdEvent.color), lineWidth: 4)
+                CircularProgress(progress: CGFloat(progress), foregroundColor: Color(cdEvent.color), lineWidth: 4, clockwise: false)
                     .frame(width: 32, height: 32)
                 
                 VStack(alignment: .leading, spacing: 5.0) {

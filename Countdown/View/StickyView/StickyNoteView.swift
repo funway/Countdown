@@ -34,7 +34,7 @@ struct StickyNoteView: View {
             ZStack {
                 
                 // 进度条层
-                CircularProgress(progress: CGFloat(progress), foregroundColor: Color(cdEvent.color.isLight() ? cdEvent.color.darkened() : cdEvent.color.tinted()), lineWidth: 8).padding(6.0)
+                CircularProgress(progress: CGFloat(progress), foregroundColor: Color(cdEvent.color.isLight() ? cdEvent.color.darkened() : cdEvent.color.tinted()), lineWidth: 8, clockwise: false).padding(6.0)
                 
                 // 内容层
                 VStack(spacing: 5.0){

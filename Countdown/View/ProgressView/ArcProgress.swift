@@ -14,14 +14,16 @@ struct ArcProgress: View {
     var foregroundColor: Color
     var lineWidth: CGFloat
     var animationTimeInterval: TimeInterval
+    var clockwise: Bool
     
     public init(progress: CGFloat, backgroundColor : Color = .gray, foregroundColor: Color = .pink,
-                lineWidth: CGFloat = 10, animationTimeInterval: TimeInterval = 0.5) {
+                lineWidth: CGFloat = 10, animationTimeInterval: TimeInterval = 0.5, clockwise: Bool = true) {
         self.progress = progress
         self.backgroundColor = backgroundColor
         self.foregroundColor = foregroundColor
         self.lineWidth = lineWidth
         self.animationTimeInterval = animationTimeInterval
+        self.clockwise = clockwise
     }
     
     var body: some View {
@@ -34,7 +36,7 @@ struct ArcProgress: View {
                     .opacity(0.2)
                     .position(x: geometry.size.width/2, y: geometry.size.height)
                 
-                Arc(startAngle: .degrees(-90), endAngle: Angle.degrees(180*Double(min(self.progress, 1))-90))
+                Arc(startAngle: self.clockwise ? .degrees(-90) : .degrees(90 - 180*Double(min(self.progress, 1))), endAngle: self.clockwise ? Angle.degrees(180*Double(min(self.progress, 1))-90) : .degrees(90))
                     .strokeBorder(self.foregroundColor, style: StrokeStyle(lineWidth: self.lineWidth, lineCap: .round))
                     .position(x: geometry.size.width/2, y: geometry.size.height)
                     .animation(.linear(duration: self.animationTimeInterval))
@@ -48,10 +50,16 @@ fileprivate struct Arc: InsettableShape {
     var startAngle: Angle
     var endAngle: Angle
     var insetAmount: CGFloat = 0
-    
-    var animatableData: Double {
-        get { endAngle.animatableData }
-        set { self.endAngle.animatableData = newValue }
+        
+    var animatableData: AnimatablePair<Double, Double> {
+        get {
+           AnimatablePair(startAngle.animatableData, endAngle.animatableData)
+        }
+
+        set {
+            self.startAngle.animatableData = newValue.first
+            self.endAngle.animatableData = newValue.second
+        }
     }
 
     func path(in rect: CGRect) -> Path {
@@ -73,8 +81,10 @@ fileprivate struct Arc: InsettableShape {
 }
 
 
+
+
 struct ArcProgress_Previews: PreviewProvider {
     static var previews: some View {
-        ArcProgress(progress: 0.5).frame(width: 300, height: 200)
+        ArcProgress(progress: 0.1, clockwise: false).frame(width: 300, height: 200)
     }
 }

@@ -48,19 +48,32 @@ struct ProgressTest: View {
             Divider()
             
             Button(">>>") {
-                self.progress += 0.05
+                self.progress += 0.15
             }
             
             HStack(spacing: 10) {
                 LinearProgress(progress: CGFloat(self.progress)).frame(width:100, height: 20)
                 
                 CircularProgress(progress: CGFloat(self.progress), foregroundColor: Color(red: 42/255, green: 157/255, blue: 143/255))
-                    .frame(width: 300, height: 300)
+                    .frame(width: 100, height: 100)
                     .overlay(Text("\(Int(progress*100))%"))
                 
                 FilledCircleProgress(progress: CGFloat(self.progress), foregroundColor: Color(red: 179/255, green: 146/255, blue: 172/255)).frame(width: 100, height: 100)
                 
                 ArcProgress(progress: CGFloat(self.progress), foregroundColor: Color(red: 5/255, green: 102/255, blue: 141/255)).frame(width: 100, height: 50)
+                    .overlay(Text("\(Int(progress*100))%"))
+            }
+            
+            HStack(spacing: 10) {
+                LinearProgress(progress: CGFloat(self.progress), backward: true).frame(width:100, height: 20)
+                
+                CircularProgress(progress: CGFloat(self.progress), foregroundColor: Color(red: 42/255, green: 157/255, blue: 143/255), clockwise: false)
+                    .frame(width: 100, height: 100)
+                    .overlay(Text("\(Int(progress*100))%"))
+                
+                FilledCircleProgress(progress: CGFloat(self.progress), foregroundColor: Color(red: 179/255, green: 146/255, blue: 172/255), clockwise: false).frame(width: 100, height: 100)
+                
+                ArcProgress(progress: CGFloat(self.progress), foregroundColor: Color(red: 5/255, green: 102/255, blue: 141/255), clockwise: false).frame(width: 100, height: 50)
                     .overlay(Text("\(Int(progress*100))%"))
             }
             
