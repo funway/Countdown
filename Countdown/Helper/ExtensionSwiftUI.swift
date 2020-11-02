@@ -367,7 +367,10 @@ struct CustomNSDatePicker: NSViewRepresentable {
         datePicker.locale = locale
         datePicker.minDate = minDate
         datePicker.maxDate = maxDate
-                
+
+        // 取消输入框默认的白底边框
+        datePicker.isBezeled = false
+        
         // 设置 datePicker 的事件处理
         // 将事件发送目标指向协同器
         datePicker.target = context.coordinator
