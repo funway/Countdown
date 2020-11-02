@@ -8,10 +8,6 @@ It a imitation of the [Moment](https://fireball.studio/moment) and [‎Countdown
 
 ![Screenshot](Screenshot.jpg)
 
-<div>
-<img src="https://i.ibb.co/p0NjVNv/Nov-02-2020-18-30-10.gif" alt="Nov-02-2020-18-30-10" border="0" />
-</div>
-
 # Installation
 
 Visit the [releases page](https://github.com/funway/Countdown/releases) to download the latest version.
