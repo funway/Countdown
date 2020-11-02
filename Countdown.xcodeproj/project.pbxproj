@@ -163,6 +163,7 @@
 		88AE8F5B25484248001934CA /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		88B3806E24DD865E000C048A /* UITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITest.swift; sourceTree = "<group>"; };
 		88B3807024DE4022000C048A /* ProgressTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTest.swift; sourceTree = "<group>"; };
+		88B3F216254FF264003A4DF1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		88B5C2F224EF751E00AC2195 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		88B5C2F424F0B37E00AC2195 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		88B5C2F624F101A500AC2195 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -327,6 +328,7 @@
 		88F5EDC324CE6C2500212DCC = {
 			isa = PBXGroup;
 			children = (
+				88B3F216254FF264003A4DF1 /* README.md */,
 				88F5EDCE24CE6C2500212DCC /* Countdown */,
 				886D1B8225401DC500326C5A /* LaunchHelper */,
 				88F5EDCD24CE6C2500212DCC /* Products */,
