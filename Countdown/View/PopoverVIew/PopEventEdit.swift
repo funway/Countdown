@@ -238,14 +238,14 @@ struct PopEventEdit: View {
             }
         })
         .overlyingAlert(showAlert: $showDeleteAlert,
-            title: "确认删除?",
-            message: "删除倒计时【\(cdEvent.title)】",
-            confirmButton: Button("删除"){
+            title: "Confirm delete?",
+            message: "Delete countdown [\(cdEvent.title)]",
+            confirmButton: Button("Delete"){
                 log.verbose("在 Alert 中点击确认按钮")
                 self.deleteCountdownEvent()
                 self.showDeleteAlert = false
             },
-            cancelButton: Button("取消"){
+            cancelButton: Button("Cancel"){
                 log.verbose("在 Alert 中点击取消按钮")
                 self.showDeleteAlert = false
             })

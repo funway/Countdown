@@ -143,27 +143,32 @@ fileprivate struct AlertView: SwiftUI.View {
                     NSSound.beep()
                 }
             
-            VStack(alignment: .leading) {
-                Text(title)
-                    .font(.headline)
-                    .padding(.bottom, 5)
-                
-                if message != nil {
-                    Text(message!)
-                }
-                
-                HStack {
-                    if cancelButton != nil {
-                        cancelButton?.padding(.horizontal)
+            VStack {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(title)
+                        .font(Font.system(size: 15, weight: .semibold))
+                    
+                    if message != nil {
+                        Text(message!)
+                            .font(Font.system(size: 13, weight: .light))
+                            .padding(.bottom, 5)
                     }
                     
-                    confirmButton.padding(.horizontal)
+                    HStack {
+                        Spacer()
+                        
+                        if cancelButton != nil {
+                            cancelButton!.padding(.horizontal)
+                        }
+                        
+                        confirmButton
+                    }
                 }
-            }
-            .padding()
-            .background(Color(NSColor.textBackgroundColor))
-            .cornerRadius(5)
-            .shadow(radius: 5)
+                .padding()
+                .background(Color(NSColor.textBackgroundColor))
+                .cornerRadius(5)
+                .shadow(radius: 5)
+            }.padding(.horizontal, 30.0)
         }
     }
 }
