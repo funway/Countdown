@@ -11,6 +11,7 @@ import DynamicColorMacOS
 
 struct StickyNoteView: View {
     @ObservedObject var cdEvent: CountdownEvent
+    weak var window: NSWindow?
     
     @State var progress: Double
     @State var relativeTimeString: String
@@ -21,8 +22,9 @@ struct StickyNoteView: View {
     private let deallocPrinter = DeallocPrinter(forType: String(describing: Self.self))
     #endif
     
-    init(cdEvent: CountdownEvent) {
+    init(cdEvent: CountdownEvent, window: NSWindow? = nil) {
         self.cdEvent = cdEvent
+        self.window = window
         
         // 在构造器中对 @State 值进行初始化的正确方式
         self._progress = State(initialValue: cdEvent.progress)
@@ -50,19 +52,38 @@ struct StickyNoteView: View {
                 // 按钮层
                 VStack(spacing: 0.0) {
                     HStack() {
-                        Spacer()
-                        
                         if (hovered) {
                             Button(action: {
                                 self.cdEvent.showStickyNote = false
                                 self.cdEvent.save(at: db)
                                 StickyNoteController.shared.remove(for: self.cdEvent)
                             }) {
-                                cdEvent.color.isLight() ? Image("CloseIcon").resizable().colorScheme(.light) : Image("CloseIcon").resizable().colorScheme(.dark)
-                            }.buttonStyle(PlainButtonStyle())
-                            .frame(width: 20, height: 20)
+                                Image("CloseIcon").resizable().frame(width: 18, height: 18)
+                            }.buttonStyle(BorderlessButtonStyle())
+                            .colorScheme(self.cdEvent.color.isLight() ? .light : .dark)
                         }
-                    }
+                        
+                        Spacer()
+                        
+                        if (hovered) {
+                            Button(action: {
+                                log.verbose("click pin button")
+                                self.cdEvent.stickyNoteIsFloating.toggle()
+                                self.cdEvent.save(at: db)
+                                
+                                if self.cdEvent.stickyNoteIsFloating {
+                                    log.verbose("StickyNote[\(self.cdEvent.title)] 设置为 floating")
+                                    self.window?.level = .floating
+                                } else {
+                                    log.verbose("StickyNote[\(self.cdEvent.title)] 设置为 normal")
+                                    self.window?.level = .normal
+                                }
+                            }) {
+                                Image("PinIcon").resizable().frame(width: 15, height: 15).offset(x: 0, y: self.cdEvent.stickyNoteIsFloating ? 5 : 0)
+                            }.buttonStyle(BorderlessButtonStyle())
+                            .colorScheme(self.cdEvent.color.isLight() ? .light : .dark)
+                        }
+                    }.padding(3)
                     Spacer()
                 }
                 

@@ -11,6 +11,16 @@ import AppKit
 import SQLite
 
 
+extension SQLite.Connection {
+    
+    /// 获取与设置数据库的数据结构版本号
+    public var userVersion: Int32 {
+        get { return Int32(try! scalar("PRAGMA user_version") as! Int64)}
+        set { try! run("PRAGMA user_version = \(newValue)") }
+    }
+}
+
+
 /**
 * 使得 SQLite.swift 可以实现 UUID 类型到 String 的自动转换
 */

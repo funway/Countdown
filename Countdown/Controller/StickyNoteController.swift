@@ -37,17 +37,20 @@ final class StickyNoteController {
             self.stickyNotes[cdEvent.uuid]?.orderFront(nil)
         } else {
 
-            let contentView = StickyNoteView(cdEvent: cdEvent)
             let window = StickyNoteWindow(
                 contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
                 styleMask: [],
                 backing: .buffered, defer: false)
             
+            let contentView = StickyNoteView(cdEvent: cdEvent, window: window)
+            
             window.setFrameAutosaveName("StickyNote | \(cdEvent.uuid.uuidString)")
             
             window.isMovableByWindowBackground = true
             
-            window.level = .floating
+            if cdEvent.stickyNoteIsFloating {
+                window.level = .floating
+            }
             
             window.hasShadow = true
             

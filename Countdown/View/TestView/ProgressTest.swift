@@ -48,6 +48,7 @@ struct ProgressTest: View {
             Divider()
             
             Button(">>>") {
+                log.debug("click >>>")
                 self.progress += 0.15
             }
             

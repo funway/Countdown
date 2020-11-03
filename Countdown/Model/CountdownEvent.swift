@@ -38,6 +38,9 @@ class CountdownEvent: ObservableObject {
     @Published var showStickyNote: Bool
     static let showStickyNote = Expression<Bool>("showStickyNote")
     
+    @Published var stickyNoteIsFloating: Bool
+    static let stickyNoteIsFloating = Expression<Bool>("stickyNoteIsFloating")
+    
     @Published var color: NSColor
     static let color = Expression<NSColor>("color")
     
@@ -47,15 +50,14 @@ class CountdownEvent: ObservableObject {
         return (p >= 0 && p <= 1) ? p : 1
     }
     
-    @Published var displayedProgress: Double
-    
     init(title: String,
          uuid: UUID = UUID(),
          endAt: Date = Date(timeIntervalSinceNow: 60*60),
          createAt: Date = Date(),
          color: NSColor = .red,
          remindMe: Bool = false,
-         showStickyNote: Bool = false) {
+         showStickyNote: Bool = false,
+         stickyNoteIsFloating: Bool = false) {
 
         self.title = title
         self.uuid = uuid
@@ -66,9 +68,7 @@ class CountdownEvent: ObservableObject {
         self.listOrder = 0
         self.remindMe = remindMe
         self.showStickyNote = showStickyNote
-        
-        self.displayedProgress = (Date().timeIntervalSince1970 - createAt.timeIntervalSince1970)
-                                / (endAt.timeIntervalSince1970 - createAt.timeIntervalSince1970)
+        self.stickyNoteIsFloating = stickyNoteIsFloating
         
         log.verbose("构造 CountdownEvent 对象: \(self)")
     }
@@ -84,10 +84,8 @@ class CountdownEvent: ObservableObject {
         self.listOrder = row[CountdownEvent.listOrder]
         self.remindMe = row[CountdownEvent.remindMe]
         self.showStickyNote = row[CountdownEvent.showStickyNote]
+        self.stickyNoteIsFloating = row[CountdownEvent.stickyNoteIsFloating]
         self.color = row[CountdownEvent.color]
-
-        self.displayedProgress = (Date().timeIntervalSince1970 - row[CountdownEvent.createAt].timeIntervalSince1970)
-            / (row[CountdownEvent.endAt].timeIntervalSince1970 - row[CountdownEvent.createAt].timeIntervalSince1970)
         
         log.verbose("构造 CountdownEvent 对象: \(self)")
     }
@@ -97,37 +95,55 @@ class CountdownEvent: ObservableObject {
     }
     
     
-    /// 创建表结构
+    /// 创建表结构。如果表结构已存在但落后于当前版本，则升级表结构。
     /// - Parameters:
     ///   - db: 数据库连接
     ///   - tableName: 表名，默认用本类型名字
-    ///   - ifNotExists:
     /// - Throws:
-    ///     如果表结构已存在且 ifNotExists 为 false，则抛出错误
+    ///     可能抛出错误
     static func createTable(at db: Connection,
-                            tableName: String = CountdownEvent.typeName,
-                            ifNotExists: Bool = true) throws {
+                            tableName: String = CountdownEvent.typeName) throws {
+        
         let table = Table(tableName)
         
+        // 1. 新建表结构
         do {
-            try db.run(table.create(ifNotExists: ifNotExists) { t in
-                t.column(self.id, primaryKey: true)    // id 为整形主键，非自增（默认会用 SQLite 的 rowid 进行赋值）
-                t.column(self.title)
-                t.column(self.uuid, unique: true)
-                t.column(self.endAt)
-                t.column(self.createAt)
-                t.column(self.deleteAt)
-                t.column(self.listOrder, defaultValue: 0)
-                t.column(self.remindMe, defaultValue: false)
-                t.column(self.showStickyNote, defaultValue: false)
-                t.column(self.color, defaultValue: NSColor.red)
+            log.verbose("准备创建表结构")
+            try db.run(table.create() { t in
+                t.column(Self.id, primaryKey: true)    // id 为整形主键，非自增（默认会用 SQLite 的 rowid 进行赋值）
+                t.column(Self.title)
+                t.column(Self.uuid, unique: true)
+                t.column(Self.endAt)
+                t.column(Self.createAt)
+                t.column(Self.deleteAt)
+                t.column(Self.listOrder, defaultValue: 0)
+                t.column(Self.remindMe, defaultValue: false)
+                t.column(Self.showStickyNote, defaultValue: false)
+                t.column(Self.stickyNoteIsFloating, defaultValue: false)
+                t.column(Self.color, defaultValue: NSColor.red)
             })
-        } catch {
-            log.severe("Create table [\(tableName)] failed!")
+            
+            // 新建成功，才写入版本号
+            db.userVersion = dbVersion
+            
+        } catch let Result.error(message, _, _) where message.contains("already exists") {
+            log.verbose("表结构已存在: \(message)")
+        } catch let error {
+            log.severe("Create table [\(tableName)] failed! error: \(error)")
             throw error
         }
+        
+        if 0 == db.userVersion {
+            log.verbose("升级表结构: 0 ==> 1")
+            do {
+                try db.run(table.addColumn(Self.stickyNoteIsFloating, defaultValue: false))
+                db.userVersion = 1
+            } catch {
+                log.severe("升级表结构 [\(tableName)] 失败! error: \(error)")
+                throw error
+            }
+        }
     }
-    
     
     
     /// 将数据保存到数据库
@@ -150,6 +166,7 @@ class CountdownEvent: ObservableObject {
                                                     CountdownEvent.listOrder <- self.listOrder,
                                                     CountdownEvent.remindMe <- self.remindMe,
                                                     CountdownEvent.showStickyNote <- self.showStickyNote,
+                                                    CountdownEvent.stickyNoteIsFloating <- self.stickyNoteIsFloating,
                                                     CountdownEvent.color <- self.color))
                 self.id = Int(rowid)
                 log.debug("Inserted id: \(rowid)")
@@ -167,6 +184,7 @@ class CountdownEvent: ObservableObject {
                                                     CountdownEvent.listOrder <- self.listOrder,
                                                     CountdownEvent.remindMe <- self.remindMe,
                                                     CountdownEvent.showStickyNote <- self.showStickyNote,
+                                                    CountdownEvent.stickyNoteIsFloating <- self.stickyNoteIsFloating,
                                                     CountdownEvent.color <- self.color))
                 if count > 0 {
                     log.debug("Update succeeded, affected \(count) rows")
@@ -209,7 +227,7 @@ class CountdownEvent: ObservableObject {
                     log.error("Hard delete failed: id [\(self.id!)] not found")
                 }
             } catch {
-                print("Hard delete failed: \(error)")
+                log.error("Hard delete failed: \(error)")
             }
         }
     }
@@ -218,7 +236,7 @@ class CountdownEvent: ObservableObject {
 
 extension CountdownEvent: CustomStringConvertible {
     var description: String {
-        return "[uuid: \(self.uuid), title: \(self.title), endAt: \(self.endAt)], listOrder: \(self.listOrder), remind: \(self.remindMe), sticky: \(self.showStickyNote)"
+        return "[uuid: \(self.uuid), title: \(self.title), endAt: \(self.endAt)], listOrder: \(self.listOrder), remind: \(self.remindMe), sticky: \(self.showStickyNote), floating: \(self.stickyNoteIsFloating)"
     }
 }
 

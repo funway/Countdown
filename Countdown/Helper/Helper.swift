@@ -36,7 +36,7 @@ class Helper {
         // 1. 创建一个“通知实体” UNMutableNotificationContent
         let content = UNMutableNotificationContent()
         content.title = cdEvent.title
-        content.body = "倒计时结束！"
+        content.body = "Time's up！"
         content.sound = .default
         
         // 注意：

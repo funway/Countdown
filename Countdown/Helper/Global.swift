@@ -24,3 +24,8 @@ let log = XCGLogger(identifier: "advancedLogger", includeDefaultDestinations: fa
 
 /// 全局的 SQLite 数据库连接
 var db: SQLite.Connection!
+
+
+/// 当前 App 所用到的 SQLite 数据库表结构的版本号（ PRAGMA user_version; ）
+/// 根据该版本号对数据库的表结构进行升级
+let dbVersion: Int32 = 1
