@@ -25,10 +25,12 @@ struct EventRow: View {
     init(cdEvent: CountdownEvent) {
         self.cdEvent = cdEvent
         
-        if (cdEvent.endAt.component(.hour) == 0 && cdEvent.endAt.component(.minute) == 0) {
-            self.timeFormat = "yyyy/M/d"
+        if (cdEvent.endAt.compare(.isToday)) {
+            self.timeFormat = "HH:mm"
+        } else if (cdEvent.endAt.compare(.isTomorrow)) {
+            self.timeFormat = "HH:mm"
         } else {
-            self.timeFormat = "yyyy/M/d H:mm"
+            self.timeFormat = "yyyy/M/d"
         }
         
         // 在构造器中对 @State 值进行初始化的正确方式
@@ -101,8 +103,12 @@ struct EventRow: View {
 
 struct EventRow_Previews: PreviewProvider {
     static var previews: some View {
-        EventRow(cdEvent: loadCountdownEvent()[1])
-            .frame(width: 360)
-            .padding(.horizontal, 10)
+        let cdEvents = loadCountdownEvent()
+        return VStack {
+            ForEach(cdEvents, id: \.self.uuid) { cdEvent in
+                EventRow(cdEvent: cdEvent)
+            }
+        }.frame(width: 360)
+        .padding(.horizontal, 10)
     }
 }

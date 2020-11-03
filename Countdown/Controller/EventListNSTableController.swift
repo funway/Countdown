@@ -168,7 +168,7 @@ extension EventListNSTableController: NSTableViewDataSource {
         
         // 修改每个 CountdownEvent 对象的 listOrder 属性，并写入数据库
         for i in 0 ..< self.userData.countdownEvents.count {
-            self.userData.countdownEvents[i].listOrder = index
+            self.userData.countdownEvents[i].listOrder = i
             self.userData.countdownEvents[i].save(at: db)
         }
 

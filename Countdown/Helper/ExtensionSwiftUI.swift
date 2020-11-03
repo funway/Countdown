@@ -183,7 +183,7 @@ struct HyperLinkText: View {
         }, label: {
             Text(text)
                 .foregroundColor(Color.blue)
-        }).buttonStyle(PlainButtonStyle())
+        }).buttonStyle(BorderlessButtonStyle())
         .onHoverAware({ hovered in
             if hovered {
                 NSCursor.pointingHand.push()
