@@ -10,7 +10,7 @@ import Foundation
 import XCGLogger
 import SQLite
 
-let _appVerion = "1.0.3"
+let _appVerion = "1.0.4"
 #if DEBUG
 let appVersion = _appVerion + " (Debug)"
 #else
