@@ -37,13 +37,14 @@ struct StickyNoteView: View {
                 CircularProgress(progress: CGFloat(progress), foregroundColor: Color(cdEvent.color.isLight() ? cdEvent.color.darkened() : cdEvent.color.tinted()), lineWidth: 8, clockwise: false).padding(6.0)
                 
                 // 内容层
-                VStack(spacing: 5.0){
+                VStack(spacing: 10) {
                     Text(cdEvent.title)
                         .font(Font.system(size: 20, weight: .medium).monospacedDigit())
                     
                     Text(relativeTimeString)
                         .font(Font.system(size: 13, weight: .regular).monospacedDigit())
-                }.padding(20)
+                }.minimumScaleFactor(0.5)
+                .padding(35)
                 .foregroundColor(cdEvent.color.isLight() ? .black : .white)
                 
                 // 按钮层
