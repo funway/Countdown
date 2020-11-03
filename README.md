@@ -4,19 +4,27 @@ A countdown task App on macOS. You could manage your countdown task on macOS men
 
 It a imitation of the [Moment](https://fireball.studio/moment) and [‎Countdown Timer Plus](https://apps.apple.com/us/app/countdown-timer-plus/id1150771803?mt=12).
 
+
+
 # Screenshot
 
 ![Screenshot](Screenshot.jpg)
 
+
+
 # Installation
 
-Visit the [releases page](https://github.com/funway/Countdown/releases) to download the latest version.
+Visit the [releases page](https://github.com/funway/Countdown/releases) to download the latest version of **Countdown.app.zip**.
+
+
 
 # Dev Environment
 
 macOS 10.15.5
 
 Xcode 11.7
+
+
 
 # Libraries
 
@@ -49,3 +57,4 @@ Managed by Carthage.
   https://github.com/aerobounce/HoverAwareView
   
   Just copy the HoverAwareView.swift file to Hepler/ directory.
+
