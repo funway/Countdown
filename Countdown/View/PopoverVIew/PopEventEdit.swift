@@ -139,7 +139,7 @@ struct PopEventEdit: View {
                                             .padding()
                                     })
                                     
-                                    CustomNSDatePicker(date: self.$cdEvent.endAt, elements: .yearMonthDay, minDate: Date()).frame(width: 90)
+                                    CustomNSDatePicker(date: self.$cdEvent.endAt, elements: .yearMonthDay).frame(width: 90)
                                         
                                     Spacer()
                                 }
@@ -167,7 +167,7 @@ struct PopEventEdit: View {
                                             .padding()
                                     })
                                     
-                                    CustomNSDatePicker(date: self.$cdEvent.endAt, elements: .hourMinute, minDate: Date()).frame(width: 80)
+                                    CustomNSDatePicker(date: self.$cdEvent.endAt, elements: .hourMinute).frame(width: 80)
                                     
                                     Spacer()
                                 }
