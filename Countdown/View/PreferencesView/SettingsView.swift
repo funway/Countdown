@@ -12,10 +12,10 @@ import ServiceManagement
 struct SettingsView: View {
     @State var launchAtLogin = false
     @ObservedObject var preference = Preference.shared
-    private let rowHeight = CGFloat(21)
+    private let rowHeight = CGFloat(25)
     
     var body: some View {
-        VStack(spacing: 10.0) {
+        VStack(spacing: 10) {
             HStack {
                 VStack {
                     Divider()
@@ -48,7 +48,20 @@ struct SettingsView: View {
                 }
             }.frame(height: rowHeight)
             
-            Spacer().frame(height: 20)
+            GeometryReader { geometry in
+                HStack {
+                    VStack {
+                        Text("Display 24 hour:")
+                    }.frame(width: geometry.size.width/2, height: nil, alignment: .trailing)
+                    
+                    VStack {
+                        PerformableSwitch(isOn: self.$preference.display24hour, perform: { _ in
+                        })
+                    }.frame(width: geometry.size.width/2, height: nil, alignment: .leading)
+                }
+            }.frame(height: rowHeight)
+            
+            Spacer().frame(height: 10)
             
             HStack {
                 VStack {

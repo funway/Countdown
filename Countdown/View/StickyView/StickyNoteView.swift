@@ -79,8 +79,11 @@ struct StickyNoteView: View {
                                     self.window?.level = .normal
                                 }
                             }) {
-                                Image("PinIcon").resizable().frame(width: 15, height: 15).offset(x: 0, y: self.cdEvent.stickyNoteIsFloating ? 5 : 0)
+                                Image("PinIcon").resizable().frame(width: 14, height: 14)
+                                    .offset(x: 0, y: self.cdEvent.stickyNoteIsFloating ? 4 : 0)
                             }.buttonStyle(BorderlessButtonStyle())
+                                .padding(.bottom, self.cdEvent.stickyNoteIsFloating ? 4 : 0)
+                                .frame(width:18, height: 18)
                             .colorScheme(self.cdEvent.color.isLight() ? .light : .dark)
                         }
                     }.padding(3)

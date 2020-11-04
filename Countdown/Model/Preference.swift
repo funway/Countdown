@@ -20,7 +20,15 @@ class Preference: ObservableObject {
         
         remindMe = UserDefaults.standard.bool(forKey: keyForRemindMe)
         showStickyNote = UserDefaults.standard.bool(forKey: keyForShowStickyNote)
+        display24hour = UserDefaults.standard.bool(forKey: keyForDisplay24hour)
+        lastRestore = UserDefaults.standard.double(forKey: keyForLastRestore)
         testString = UserDefaults.standard.string(forKey: keyForTestString) ?? "空空"
+        
+        // 如果程序是第一次启动，还没有首选项时,lastRestore 值应该为0.0
+        if lastRestore <= 0 {
+            log.debug("不存在首选项 preference，使用默认值")
+            restoreDefault()
+        }
     }
     
     
@@ -42,6 +50,31 @@ class Preference: ObservableObject {
         }
     }
     let keyForShowStickyNote = "Countdown | New Event | showStickyNote"
+    
+    @Published var display24hour: Bool {
+        didSet {
+            log.debug("设置时间显示为24小时制")
+            UserDefaults.standard.set(display24hour, forKey: keyForDisplay24hour)
+        }
+    }
+    let keyForDisplay24hour = "Countdown | Display | 24hour"
+    
+    private var lastRestore: Double {
+        didSet {
+            UserDefaults.standard.set(lastRestore, forKey: keyForLastRestore)
+        }
+    }
+    private let keyForLastRestore = "Countdown | General | lastRestore"
+    
+    
+    /// 将配置还原回默认值
+    func restoreDefault() {
+        remindMe = true
+        showStickyNote = true
+        display24hour = true
+        
+        lastRestore = Date().timeIntervalSince1970
+    }
     
     
     @Published var testString: String {
