@@ -28,7 +28,7 @@ struct StickyNoteView: View {
         
         // 在构造器中对 @State 值进行初始化的正确方式
         self._progress = State(initialValue: cdEvent.progress)
-        self._relativeTimeString = State(initialValue: cdEvent.endAt.toStringWithRelativeTime())
+        self._relativeTimeString = State(initialValue: cdEvent.endAt.toStringWithRelativeTimeEx())
     }
     
     var body: some View {
@@ -109,7 +109,7 @@ struct StickyNoteView: View {
     
     func refresh() {
         progress = cdEvent.progress
-        relativeTimeString = cdEvent.endAt.toStringWithRelativeTime()
+        relativeTimeString = cdEvent.endAt.toStringWithRelativeTimeEx()
     }
 }
 
