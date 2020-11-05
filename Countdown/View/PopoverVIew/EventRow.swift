@@ -11,7 +11,6 @@ import Combine
 
 struct EventRow: View {
     let cdEvent: CountdownEvent
-    let timeFormat: String
     
     #if DEBUG
     private let deallocPrinter: DeallocPrinter!
@@ -19,19 +18,12 @@ struct EventRow: View {
     
     @State var hovered = false
     @State var progress: Double
+    @State var endTimeString: String = ""
     @State var relativeTimeString: String
     
     
     init(cdEvent: CountdownEvent) {
         self.cdEvent = cdEvent
-        
-        if (cdEvent.endAt.compare(.isToday)) {
-            self.timeFormat = "HH:mm"
-        } else if (cdEvent.endAt.compare(.isTomorrow)) {
-            self.timeFormat = "HH:mm"
-        } else {
-            self.timeFormat = "yyyy/M/d"
-        }
         
         // 在构造器中对 @State 值进行初始化的正确方式
         self._progress = State(initialValue: cdEvent.progress)
@@ -51,7 +43,7 @@ struct EventRow: View {
                 VStack(alignment: .leading, spacing: 5.0) {
                     Text(cdEvent.title)
                         .font(Font.system(size: 13, weight: .medium).monospacedDigit())
-                    Text(cdEvent.endAt.toString(format: .custom(timeFormat)))
+                    Text(endTimeString)
                         .font(Font.system(size: 12, weight: .light).monospacedDigit())
                 }
                 
@@ -97,6 +89,17 @@ struct EventRow: View {
     
     func refresh() {
         progress = cdEvent.progress
+        
+        if (cdEvent.endAt.compare(.isToday) || cdEvent.endAt.compare(.isTomorrow)) {
+            if Preference.shared.display24hour {
+                self.endTimeString = cdEvent.endAt.toString(format: .custom("HH:mm"))
+            } else {
+                self.endTimeString = cdEvent.endAt.toString(format: .custom(DateFormatter.dateFormat(fromTemplate: "jm", options: 0, locale: Locale.current)!))
+            }
+        }else {
+            self.endTimeString = cdEvent.endAt.toString(format: .custom("yyyy/M/d"))
+        }
+        
         relativeTimeString = cdEvent.endAt.toStringWithRelativeTime()
     }
 }

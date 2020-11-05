@@ -41,12 +41,15 @@ struct PopRootView: View {
                 log.verbose("Print Debug =========")
                 
                 for i in 0...self.userData.countdownEvents.count / 2 {
-                    self.userData.countdownEvents[i].createAt = Date().adjust(.second, offset: -10)
-                    self.userData.countdownEvents[i].endAt = Date().adjust(.second, offset: 30)
+                    self.userData.countdownEvents[i].createAt = Date().adjust(hour: nil, minute: nil, second: 0)
+                    self.userData.countdownEvents[i].endAt = Date().adjust(.minute, offset: 1).adjust(hour: nil, minute: nil, second: 0)
                 }
                 
                 let appDelegate = NSApplication.shared.delegate as! AppDelegate
                 log.debug("\(appDelegate.eventListController.tableView.hiddenRowIndexes)")
+                
+                log.debug(Locale.current)
+                log.debug(Locale.current.languageCode!)
 
                 log.verbose("========= Print Debug")
             }.padding()

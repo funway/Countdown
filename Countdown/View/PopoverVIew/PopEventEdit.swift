@@ -24,7 +24,7 @@ struct PopEventEdit: View {
         log.verbose("初始化 PopEventEdit 视图")
         
         self.cdEvent = cdEvent ?? CountdownEvent(title: "Untitled",
-                                                 endAt: Date().dateFor(.tomorrow).dateFor(.startOfDay),
+                                                 endAt: Date().dateFor(.tomorrow).adjust(hour: 9, minute: 0, second: 0),
                                                  color: Theme.colors[Int.random(in: 0..<Theme.colors.count)],
                                                  remindMe: Preference.shared.remindMe,
                                                  showStickyNote: Preference.shared.showStickyNote)
@@ -139,8 +139,7 @@ struct PopEventEdit: View {
                                             .padding()
                                     })
                                     
-                                    CustomNSDatePicker(date: self.$cdEvent.endAt, elements: .yearMonthDay).frame(width: 90)
-                                        
+                                    CustomNSDatePicker(date: self.$cdEvent.endAt, elements: .yearMonthDay, locale: Locale(identifier: "en_CN")).frame(width: 95)
                                     Spacer()
                                 }
                             }.frame(width: geometry.size.width/2)
@@ -167,8 +166,7 @@ struct PopEventEdit: View {
                                             .padding()
                                     })
                                     
-                                    CustomNSDatePicker(date: self.$cdEvent.endAt, elements: .hourMinute).frame(width: 80)
-                                    
+                                    CustomNSDatePicker(date: self.$cdEvent.endAt, elements: .hourMinute, locale: Locale(identifier: "en_GB")).frame(width: 60)
                                     Spacer()
                                 }
                             }.frame(width: geometry.size.width/2)

@@ -12,10 +12,14 @@ struct TestDatePicker: View {
     @State var date = Date()
     @State var calenderBtnClicked = false
     @State var clockBtnClicked = false
+    let dateFormat = DateFormatter.dateFormat (fromTemplate: "jm",options:0, locale: Locale.current)
+    let dateFormat2 = DateFormatter.dateFormat (fromTemplate: "jm",options:0, locale: Locale(identifier: "zh_hans_CN"))
+
     
     var body: some View {
         VStack {
-            Text(date.toString())
+            Text("\(dateFormat!)   VS   \(dateFormat2!)")
+            Text(date.toString(dateStyle: .none, timeStyle: .short))
             Divider()
             
             // 妈的 datepicker 有 BUG 啊！！！
@@ -95,12 +99,12 @@ struct TestDatePicker: View {
             Divider()
             HStack {
                 TestCustomNSDatePicker(date: $date, style: .textField, elements: .yearMonthDay)
-                    .frame(width: 90)
+//                    .frame(width: 90)
                 
                 Spacer()
                 
-                TestCustomNSDatePicker(date: $date, elements: .hourMinute)
-                    .frame(width: 90)
+                TestCustomNSDatePicker(date: $date, elements: .hourMinute, locale: Locale(identifier: "en_GB"))
+//                    .frame(width: 90)
             }
             
         }.padding()
@@ -146,7 +150,7 @@ struct TestCustomNSDatePicker: NSViewRepresentable {
         datePicker.dateValue = date
         
         datePicker.datePickerStyle = style
-        datePicker.datePickerElements = elements
+        datePicker.datePickerElements = [.yearMonthDay, .hourMinuteSecond]
         datePicker.locale = locale
         datePicker.minDate = minDate
         datePicker.maxDate = maxDate
