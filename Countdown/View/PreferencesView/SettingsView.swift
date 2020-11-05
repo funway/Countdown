@@ -20,7 +20,7 @@ struct SettingsView: View {
                 VStack {
                     Divider()
                 }
-                Text("General").fontWeight(.light)
+                Text(NSLocalizedString("Settings.General", comment: "")).fontWeight(.light)
                 VStack {
                     Divider()
                 }
@@ -29,7 +29,7 @@ struct SettingsView: View {
             GeometryReader { geometry in
                 HStack {
                     VStack {
-                        Text("Launch at login:")
+                        Text(NSLocalizedString("Settings.Launch at login", comment: ""))
                     }.frame(width: geometry.size.width/2, height: nil, alignment: .trailing)
                     
                     VStack {
@@ -51,7 +51,7 @@ struct SettingsView: View {
             GeometryReader { geometry in
                 HStack {
                     VStack {
-                        Text("Display 24 hour:")
+                        Text(NSLocalizedString("Settings.Display 24 hour", comment: ""))
                     }.frame(width: geometry.size.width/2, height: nil, alignment: .trailing)
                     
                     VStack {
@@ -67,7 +67,7 @@ struct SettingsView: View {
                 VStack {
                     Divider()
                 }
-                Text("New Countdown").fontWeight(.light)
+                Text(NSLocalizedString("Settings.New Countdown", comment: "")).fontWeight(.light)
                 VStack {
                     Divider()
                 }
@@ -76,7 +76,7 @@ struct SettingsView: View {
             GeometryReader { geometry in
                 HStack {
                     VStack {
-                        Text("Remind me:")
+                        Text(NSLocalizedString("Settings.Remind me", comment: ""))
                     }.frame(width: geometry.size.width/2, height: nil, alignment: .trailing)
                     
                     VStack {
@@ -88,7 +88,7 @@ struct SettingsView: View {
             GeometryReader { geometry in
                 HStack {
                     VStack {
-                        Text("Sticky note:")
+                        Text(NSLocalizedString("Settings.Sticky note", comment: ""))
                     }.frame(width: geometry.size.width/2, height: nil, alignment: .trailing)
                     
                     VStack {

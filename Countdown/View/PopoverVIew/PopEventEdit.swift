@@ -23,7 +23,7 @@ struct PopEventEdit: View {
     init(cdEvent: CountdownEvent? = nil) {
         log.verbose("初始化 PopEventEdit 视图")
         
-        self.cdEvent = cdEvent ?? CountdownEvent(title: "Untitled",
+        self.cdEvent = cdEvent ?? CountdownEvent(title: NSLocalizedString("Edit.Untitled", comment: ""),
                                                  endAt: Date().dateFor(.tomorrow).adjust(hour: 9, minute: 0, second: 0),
                                                  color: Theme.colors[Int.random(in: 0..<Theme.colors.count)],
                                                  remindMe: Preference.shared.remindMe,
@@ -60,7 +60,7 @@ struct PopEventEdit: View {
                     Image("BackIcon")
                     .resizable()
                     .frame(width: Theme.popViewHeaderIconWidth, height: Theme.popViewHeaderIconWidth)
-                    .toolTip("Save & Back")
+                    .toolTip(NSLocalizedString("Edit.Save & Back", comment: ""))
                 }
                 .buttonStyle(BorderlessButtonStyle())
                 .padding(.horizontal)
@@ -68,9 +68,9 @@ struct PopEventEdit: View {
                 Spacer()
                 
                 if PopContainedViewType.add == userData.currentPopContainedViewType {
-                    Text("Add").font(.headline)
+                    Text(NSLocalizedString("Add", comment: "")).font(.headline)
                 } else if PopContainedViewType.edit == userData.currentPopContainedViewType {
-                    Text("Edit").font(.headline)
+                    Text(NSLocalizedString("Edit", comment: "")).font(.headline)
                 }
                 
                 Spacer()
@@ -80,7 +80,7 @@ struct PopEventEdit: View {
                     log.verbose("点击删除按钮")
                     
                     if PopContainedViewType.add == self.userData.currentPopContainedViewType {
-                        // 如果是在“新增”页面
+                        // 如果是在“新增”页面，直接删除
                         self.deleteCountdownEvent()
                     } else {
                         // 如果是在“编辑”页面，先弹出“确认删除”的提示
@@ -90,7 +90,7 @@ struct PopEventEdit: View {
                     Image("TrashIcon")
                     .resizable()
                     .frame(width: Theme.popViewHeaderIconWidth, height: Theme.popViewHeaderIconWidth)
-                    .toolTip("Delete")
+                    .toolTip(NSLocalizedString("Delete", comment: ""))
                 }
                 .buttonStyle(BorderlessButtonStyle())
                 .padding(.horizontal)
@@ -104,7 +104,7 @@ struct PopEventEdit: View {
                 
                 // 标题 section
                 VStack(alignment: .leading, spacing: Theme.popViewContentSectionSpacingV) {
-                    Text("Title")
+                    Text(NSLocalizedString("Edit.Title", comment: ""))
                         .font(.caption)
                     
                     TextField("Untitled", text: $cdEvent.title)
@@ -118,7 +118,7 @@ struct PopEventEdit: View {
                     GeometryReader { geometry in
                         HStack {
                             VStack(alignment: .leading, spacing: Theme.popViewContentSectionSpacingV) {
-                                Text("Date")
+                                Text(NSLocalizedString("Edit.Date", comment: ""))
                                     .font(.caption)
                                 
                                 HStack() {
@@ -145,7 +145,7 @@ struct PopEventEdit: View {
                             }.frame(width: geometry.size.width/2)
                             
                             VStack(alignment: .leading, spacing: Theme.popViewContentSectionSpacingV) {
-                                Text("Time").font(.caption)
+                                Text(NSLocalizedString("Edit.Time", comment: "")).font(.caption)
                                 
                                 HStack {
                                     Button(action: {
@@ -179,7 +179,7 @@ struct PopEventEdit: View {
                 // 勾选项 section
                 VStack(alignment: .leading, spacing: Theme.popViewContentSectionSpacingV) {
                     HStack {
-                        Text("Remind Me").font(.callout)
+                        Text(NSLocalizedString("Edit.Remind Me", comment: "")).font(.callout)
                         Spacer()
                         PerformableSwitch(isOn: $cdEvent.remindMe, perform: { isOn in
                             log.verbose("change remindMe to \(isOn)")
@@ -195,7 +195,7 @@ struct PopEventEdit: View {
                     Divider()
                     
                     HStack {
-                        Text("Show Sticky Note").font(.callout)
+                        Text(NSLocalizedString("Edit.Show Sticky Note", comment: "")).font(.callout)
                         Spacer()
                         PerformableSwitch(isOn: $cdEvent.showStickyNote, perform: { isOn in
                             log.verbose("change showStickyNote to \(isOn)")
@@ -210,7 +210,7 @@ struct PopEventEdit: View {
                     Divider()
                     
                     HStack {
-                        Text("Color").font(.callout)
+                        Text(NSLocalizedString("Edit.Color", comment: "")).font(.callout)
                         Spacer()
                         
                         Circle()
@@ -236,14 +236,14 @@ struct PopEventEdit: View {
             }
         })
         .overlyingAlert(showAlert: $showDeleteAlert,
-            title: "Confirm delete?",
-            message: "Delete countdown [\(cdEvent.title)]",
-            confirmButton: Button("Delete"){
+            title: NSLocalizedString("Edit.Delete.title", comment: ""),
+            message: String.init(format: NSLocalizedString("Edit.Delete.message", comment: ""), cdEvent.title),
+            confirmButton: Button(NSLocalizedString("Delete", comment: "")){
                 log.verbose("在 Alert 中点击确认按钮")
                 self.deleteCountdownEvent()
                 self.showDeleteAlert = false
             },
-            cancelButton: Button("Cancel"){
+            cancelButton: Button(NSLocalizedString("Cancel", comment: "")){
                 log.verbose("在 Alert 中点击取消按钮")
                 self.showDeleteAlert = false
             })
@@ -254,6 +254,8 @@ struct PopEventEdit: View {
     private func deleteCountdownEvent() {
         // 从便利贴视图控制器中删除 cdEvent 的便利贴
         StickyNoteController.shared.remove(for: self.cdEvent)
+        // 删除存储在 UserDefaults 中对应便利贴视图的窗口信息
+        UserDefaults.standard.removeObject(forKey: "NSWindow Frame StickyNote | \(cdEvent.uuid.uuidString)")
 
         // 如果是编辑已存在的倒计时事件
         if self.userData.currentPopContainedViewType == PopContainedViewType.edit {

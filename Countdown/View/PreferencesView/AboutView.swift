@@ -18,12 +18,12 @@ struct AboutView: View {
                 
                 VStack(alignment: .leading) {
                     Text("Countdown").font(Font.system(size: 20, weight: .medium).monospacedDigit())
-                    Text("version \(appVersion)").font(Font.system(size: 13, weight: .regular).monospacedDigit())
+                    Text(NSLocalizedString("About.version", comment: "") + " \(appVersion)").font(Font.system(size: 13, weight: .regular).monospacedDigit())
                 }
             }
             
             HStack {
-                Text("Author:")
+                Text(NSLocalizedString("About.Author", comment: ""))
                 
                 HyperLinkButton(destination: URL(string: "https://github.com/funway")!, label: {
                     Image("GithubIcon").resizable().frame(width: 16, height: 16)
@@ -35,13 +35,20 @@ struct AboutView: View {
             }
             
             HStack {
-                Text("Donate me with")
+                Text(NSLocalizedString("About.Donate me with", comment: ""))
                 HyperLinkText(text: "Paypal", destination: URL(string: "https://paypal.me/wangfengwei")!)
-                Text("or")
-                Button("AliPay"){
+                Text(NSLocalizedString("About.or", comment: ""))
+                Button(NSLocalizedString("AliPay", comment: "")){
                     self.showAlipayQRCode.toggle()
                 }.popover(isPresented: self.$showAlipayQRCode, content: {
                     Image("AlipayQRCode").resizable().frame(width: 247.5, height: 371.5)
+                }).buttonStyle(LinkButtonStyle())
+                .onHoverAware({ hovered in
+                    if hovered {
+                        NSCursor.pointingHand.push()
+                    } else {
+                        NSCursor.pop()
+                    }
                 })
                 Text("😜")
             }

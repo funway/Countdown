@@ -27,7 +27,7 @@ struct EventRow: View {
         
         // 在构造器中对 @State 值进行初始化的正确方式
         self._progress = State(initialValue: cdEvent.progress)
-        self._relativeTimeString = State(initialValue: cdEvent.endAt.toStringWithRelativeTime())
+        self._relativeTimeString = State(initialValue: cdEvent.endAt.toStringWithRelativeTimeEx())
         
         #if DEBUG
         self.deallocPrinter = DeallocPrinter(forType: String(describing: Self.self) + "[\(cdEvent.title)]")
@@ -100,7 +100,7 @@ struct EventRow: View {
             self.endTimeString = cdEvent.endAt.toString(format: .custom("yyyy/M/d"))
         }
         
-        relativeTimeString = cdEvent.endAt.toStringWithRelativeTime()
+        relativeTimeString = cdEvent.endAt.toStringWithRelativeTimeEx()
     }
 }
 

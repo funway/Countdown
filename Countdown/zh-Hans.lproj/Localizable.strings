@@ -1,0 +1,69 @@
+/* 
+  Localizable.strings
+  Countdown
+
+  Created by funway on 2020/11/5.
+  Copyright © 2020 funwaywang. All rights reserved.
+*/
+
+"Preferences" = "偏好设置";
+"Quit" = "退出";
+
+"Settings" = "⚙️ 设置";
+"About" = "😄 关于";
+"AliPay" = "支付宝";
+
+"Settings.General" = "通用";
+"Settings.Launch at login" = "登录时启动:";
+"Settings.Display 24 hour" = "显示24小时:";
+"Settings.New Countdown" = "新建倒计时";
+"Settings.Remind me" = "到期提醒:";
+"Settings.Sticky note" = "桌面便签:";
+
+"About.version" = "版本";
+"About.Author" = "作者:";
+"About.Donate me with" = "打赏作者:";
+"About.or" = "或";
+
+"Add" = "新建";
+"Edit" = "编辑";
+"Delete" = "删除";
+"Cancel" = "取消";
+"Edit.Untitled" = "未命名";
+"Edit.Save & Back" = "保存并返回";
+"Edit.Title" = "事件";
+"Edit.Date" = "日期";
+"Edit.Time" = "时间";
+"Edit.Remind Me" = "到期提醒";
+"Edit.Show Sticky Note" = "桌面便签";
+"Edit.Color" = "颜色";
+"Edit.Delete.title" = "确定删除?";
+"Edit.Delete.message" = "删除倒计时 [%@]。";
+
+"just now" = "现在";
+"in %.f seconds" = "还有 %.f 秒";
+"%.f seconds ago" = "%.f 秒前";
+"1 minute ago" = "1 分钟前";
+"in 1 minute" = "还有 1 分钟";
+"%.f minutes ago" = "%.f 分钟前";
+"in %.f minutes" = "还有 %.f 分钟";
+"last hour" = "上一小时";
+"next hour" = "下一小时";
+"%.f hours ago" = "%.f 小时前";
+"in %.f hours" = "还有 %.f 小时";
+"yesterday" = "昨天";
+"tomorrow" = "明天";
+"%.f days ago" = "%.f 天前";
+"in %.f days" = "还有 %.f 天";
+"last week" = "上周";
+"next week" = "下周";
+"%.f weeks ago" = "%.f 周前";
+"in %.f weeks" = "%.f 周后";
+"last month" = "上个月";
+"next month" = "下个月";
+"%.f months ago" = "%.f 个月前";
+"in %.f months" = "%.f 个月后";
+"last year" = "去年";
+"next year" = "明年";
+"%.f years ago" = "%.f 年前";
+"in %.f years" = "%.f 年后";

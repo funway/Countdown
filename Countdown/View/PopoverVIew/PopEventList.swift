@@ -25,7 +25,7 @@ struct PopEventList: View {
                 
                 // 这里 label 不直接用 Image 而要用 Button 包裹一下的原因是，为了保持与右边的按钮颜色一致
                 MenuButton(label: settingsButton) {
-                    Button("Preferences") {
+                    Button(NSLocalizedString("Preferences", comment: "")) {
                         PreferencesWindowController.shared.show()
                         
                         let appDelegate = NSApplication.shared.delegate as! AppDelegate

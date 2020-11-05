@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PreferencesView: View {
-    private let tabItemsName = ["⚙️ Settings", "😃 About"]
+    private let tabItemsName = [NSLocalizedString("Settings", comment: ""), NSLocalizedString("About", comment: "")]
     @State private var selectedTabIndex = 0
     
     let deallocPrinter = DeallocPrinter(forType: String(describing: Self.self))
@@ -27,6 +27,7 @@ struct PreferencesView: View {
                 AboutView()
                     .frame(height: 320)
                     .padding(.horizontal)
+                    .padding(.bottom, 20)
             }
         }.frame(width: 350)
     }

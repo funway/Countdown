@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  Countdown
+
+  Created by funway on 2020/11/5.
+  Copyright © 2020 funwaywang. All rights reserved.
+*/
+
+"Preferences" = "Preferences";
+"Quit" = "Quit";
+
+"Settings" = "⚙️ Settings";
+"About" = "😄 About";
+"AliPay" = "AliPay";
+
+"Settings.General" = "General";
+"Settings.Launch at login" = "Launch at login:";
+"Settings.Display 24 hour" = "Display 24 hour:";
+"Settings.New Countdown" = "New Countdown";
+"Settings.Remind me" = "Remind me:";
+"Settings.Sticky note" = "Sticky note:";
+
+"About.version" = "version";
+"About.Author" = "Author:";
+"About.Donate me with" = "Donate me with";
+"About.or" = "or";
+
+"Add" = "Add";
+"Edit" = "Edit";
+"Delete" = "Delete";
+"Cancel" = "Cancel";
+"Edit.Untitled" = "Untitled";
+"Edit.Save & Back" = "Save & Back";
+"Edit.Title" = "Title";
+"Edit.Date" = "Date";
+"Edit.Time" = "Time";
+"Edit.Remind Me" = "Remind Me";
+"Edit.Show Sticky Note" = "Show Sticky Note";
+"Edit.Color" = "Color";
+"Edit.Delete.title" = "Confirm delete?";
+"Edit.Delete.message" = "Delete countdown [%@].";
