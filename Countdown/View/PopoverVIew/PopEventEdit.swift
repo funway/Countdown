@@ -17,6 +17,7 @@ struct PopEventEdit: View {
     @State private var calenderBtnClicked = false
     @State private var clockBtnClicked = false
     @State private var showDeleteAlert = false
+    @State private var showColorPalette = false
     
     private let deallocPrinter = DeallocPrinter(forType: String(describing: Self.self))
     
@@ -219,12 +220,43 @@ struct PopEventEdit: View {
                     }
                     .contentShape(Rectangle()) // 为了让整个区域都可点击
                     .onTapGesture {
-                        // 点击换下一个颜色
-                        let colorIndex = Theme.colors.firstIndex(where: {$0 == self.cdEvent.color}) ?? 0
-                        self.cdEvent.color = Theme.colors[(colorIndex + 1) % Theme.colors.count]
+                        self.showColorPalette.toggle()
+//                        // 点击换下一个颜色
+//                        let colorIndex = Theme.colors.firstIndex(where: {$0 == self.cdEvent.color}) ?? 0
+//                        self.cdEvent.color = Theme.colors[(colorIndex + 1) % Theme.colors.count]
                     }.frame(height: 30)
                     
                     Divider()
+                    
+                    if showColorPalette {
+                        HStack(spacing: 10.0) {
+                            Spacer()
+                            
+                            ForEach(Theme.colors, id: \.self) { color in
+                                Circle()
+                                    .fill(Color(color))
+                                    .frame(width: 28, height: 28)
+                                    .onTapGesture {
+                                        log.verbose("点击[\(color)]颜色")
+                                        self.cdEvent.color = color
+                                    }
+                            }
+                            
+                            Button(action: {
+                                log.verbose("点击调色盘")
+                                let cp = NSColorPanel.shared
+                                cp.color = self.cdEvent.color
+                                cp.hidesOnDeactivate = false
+                                cp.animationBehavior = .none
+                                cp.center()
+                                cp.orderFront(nil)
+                            }){
+                                Image("PaletteIcon").resizable().frame(width: 28, height: 28)
+                            }.buttonStyle(BorderlessButtonStyle())
+                        }.frame(height: 30)
+                            .transition(AnyTransition.opacity.combined(with: AnyTransition.scale(scale: 0.1)).animation(.default))
+                        Divider()
+                    }
                 }
             }
             .padding(.horizontal, Theme.popViewContentPaddingH)
@@ -234,6 +266,15 @@ struct PopEventEdit: View {
             if self.userData.currentPopContainedViewType == PopContainedViewType.add && self.cdEvent.showStickyNote {
                 StickyNoteController.shared.add(for: self.cdEvent)
             }
+        })
+        .onDisappear(perform: {
+            log.verbose("PopEventEdit view onDisappear")
+            NSColorPanel.shared.orderOut(nil)
+        })
+        .onReceive(NotificationCenter.default.publisher(for: NSColorPanel.colorDidChangeNotification, object: NSColorPanel.shared), perform: { message in
+            log.verbose("PopEventEdit[\(self.cdEvent.title)] 接收到 NSColorPanel.shared 的消息: \(message)")
+
+            self.cdEvent.color = NSColorPanel.shared.color
         })
         .overlyingAlert(showAlert: $showDeleteAlert,
             title: NSLocalizedString("Edit.Delete.title", comment: ""),
@@ -251,6 +292,13 @@ struct PopEventEdit: View {
     
     
     /// 删除当前编辑的 CountdownEvent
+    /// 1. 如果是新建的 Countdown
+    ///     a. 从 StickyNoteController 中删除便签视图
+    ///     b. 从 UserDefaults 中删除保存的便签窗口信息
+    /// 2. 如果是已存在的 Countdown
+    ///     a. 从 UserData 全局数组中删除该事件
+    ///     b. 从 EventListController 列表中删除该行
+    ///     c. 从数据库中删除该事件
     private func deleteCountdownEvent() {
         // 从便利贴视图控制器中删除 cdEvent 的便利贴
         StickyNoteController.shared.remove(for: self.cdEvent)

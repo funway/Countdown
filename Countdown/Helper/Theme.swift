@@ -50,10 +50,7 @@ struct Theme {
     /// 状态栏弹出框 倒计时列表 每行高度
     static let popViewEventRowHeight = CGFloat(50)
     
-    static let colors = [NSColor(hex: 0xf4f1de), NSColor(hex: 0xf0f3bd), NSColor(hex: 0x81b29a),
-                         NSColor(hex: 0x02c39a), NSColor(hex: 0x00a896), NSColor(hex: 0x028090),
-                         NSColor(hex: 0x05668d), NSColor(hex: 0x264653), NSColor(hex: 0x3d405b),
-                         NSColor(hex: 0xe07a5f), NSColor(hex: 0xf2cc8f), NSColor(hex: 0xe76f51),
-                         NSColor(hex: 0xf4a261), NSColor(hex: 0xe9c46a)]
+    static let colors = [NSColor(hex: 0xE9C46A), NSColor(hex: 0xE76F51), NSColor(hex: 0x55B1A5),
+                        NSColor(hex: 0x4E6E5D), NSColor(hex: 0x264653), NSColor(hex: 0xB5838D)]
     
 }

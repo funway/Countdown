@@ -9,26 +9,45 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var currentTime: Date = Date()
+    @State var show = false
 
     var body: some View {
         VStack {
-            Button("start"){
-                AppTimer.shared.start()
+            Button("show/hide"){
+                self.show.toggle()
             }
-            Button("stop"){
-                AppTimer.shared.stop()
-            }
-            
+
             Divider()
-            
-            Text("\(currentTime)")
-        }.onReceive(AppTimer.shared.$ticktock, perform: { currentTime in
-            self.currentTime = currentTime
-            log.verbose("contentview receie timer")
-        })
+
+            if show {
+                Text("hello")
+                    .transition(.move(edge: .top))
+                    .animation(.default)
+            }
+        }.padding()
     }
 }
+
+//struct ContentView: View {
+//    @State var show = false
+//
+//    var body: some View {
+//        VStack {
+//            Button("show/hide"){
+//                withAnimation {
+//                    self.show.toggle()
+//                }
+//            }
+//
+//            Divider()
+//
+//            if show {
+//                Text("hello")
+//                    .transition(.move(edge: .top))
+//            }
+//        }.padding()
+//    }
+//}
 
 
 struct ContentView_Previews: PreviewProvider {

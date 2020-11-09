@@ -22,6 +22,7 @@ class PopRootViewController: NSViewController
     override func viewDidDisappear() {
         super.viewDidDisappear()
         AppTimer.shared.stop()
+        NSColorPanel.shared.orderOut(nil)
         log.verbose("PopRootView did disappear")
     }
 }

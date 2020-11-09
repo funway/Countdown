@@ -115,7 +115,7 @@ struct UITest_Previews: PreviewProvider {
 }
 
 
-struct EmbeddedColorWell: NSViewRepresentable {
+fileprivate struct EmbeddedColorWell: NSViewRepresentable {
     @Binding var selectedColor: NSColor
     
     class Coordinator: NSObject {
