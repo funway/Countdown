@@ -43,6 +43,7 @@ struct AboutView: View {
                 }.popover(isPresented: self.$showAlipayQRCode, content: {
                     Image("AlipayQRCode").resizable().frame(width: 247.5, height: 371.5)
                 }).buttonStyle(LinkButtonStyle())
+                .foregroundColor(Color.blue)
                 .onHoverAware({ hovered in
                     if hovered {
                         NSCursor.pointingHand.push()
