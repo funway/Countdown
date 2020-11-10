@@ -58,7 +58,7 @@ struct StickyNoteView: View {
                                 self.cdEvent.save(at: db)
                                 StickyNoteController.shared.remove(for: self.cdEvent)
                             }) {
-                                Image("CloseIcon").resizable().frame(width: 18, height: 18)
+                                Image("CloseIcon").resizable().frame(width: 20, height: 20)
                             }.buttonStyle(BorderlessButtonStyle())
                             .colorScheme(self.cdEvent.color.isLight() ? .light : .dark)
                         }
@@ -83,7 +83,7 @@ struct StickyNoteView: View {
                                     .offset(x: 0, y: self.cdEvent.stickyNoteIsFloating ? 5 : 0)
                             }.buttonStyle(BorderlessButtonStyle())
                                 .padding(.bottom, self.cdEvent.stickyNoteIsFloating ? 6 : 0)
-                                .frame(width:18, height: 18)
+                                .frame(width:20, height: 20)
                             .colorScheme(self.cdEvent.color.isLight() ? .light : .dark)
                         }
                     }.padding(3)
