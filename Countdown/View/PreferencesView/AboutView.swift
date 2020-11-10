@@ -13,12 +13,19 @@ struct AboutView: View {
     
     var body: some View {
         VStack(spacing: 10.0) {
-            HStack(spacing: 10.0) {
-                Image(nsImage: NSApplication.shared.applicationIconImage).resizable().frame(width: 48, height: 48)
+            HStack(spacing: 15.0) {
+                Image(nsImage: NSApplication.shared.applicationIconImage).resizable().frame(width: 64, height: 64)
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 3.0) {
                     Text("Countdown").font(Font.system(size: 20, weight: .medium).monospacedDigit())
-                    Text(NSLocalizedString("About.version", comment: "") + " \(appVersion)").font(Font.system(size: 13, weight: .regular).monospacedDigit())
+                    
+                    HStack {
+                        Text(NSLocalizedString("About.Version", comment: "") + " \(appVersion)").font(Font.system(size: 13, weight: .regular).monospacedDigit())
+                        
+                        HyperLinkButton(destination: URL(string: "https://github.com/funway/Countdown/releases")!, label: {
+                            Text(NSLocalizedString("About.Check", comment: "")).font(Font.system(size: 13, weight: .regular).monospacedDigit())
+                        })
+                    }
                 }
             }
             
@@ -54,7 +61,7 @@ struct AboutView: View {
                 Text("😜")
             }
             
-            Divider()
+            Divider().padding(.vertical, 5)
             
             ScrollView {
                 VStack(spacing: 5.0) {
@@ -81,6 +88,6 @@ struct AboutView: View {
 
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutView()
+        AboutView().frame(width: 350)
     }
 }

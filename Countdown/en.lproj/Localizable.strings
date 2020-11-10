@@ -20,7 +20,8 @@
 "Settings.Remind me" = "Remind me:";
 "Settings.Sticky note" = "Sticky note:";
 
-"About.version" = "version";
+"About.Version" = "Version";
+"About.Check" = "Check";
 "About.Author" = "Author:";
 "About.Donate me with" = "Donate me with";
 "About.or" = "or";

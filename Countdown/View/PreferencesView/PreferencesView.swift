@@ -25,7 +25,7 @@ struct PreferencesView: View {
                     .padding(.horizontal)
             } else if (selectedTabIndex == 1) {
                 AboutView()
-                    .frame(height: 320)
+                    .frame(height: 330)
                     .padding(.horizontal)
                     .padding(.bottom, 20)
             }

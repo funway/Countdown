@@ -20,7 +20,8 @@
 "Settings.Remind me" = "到期提醒:";
 "Settings.Sticky note" = "桌面便签:";
 
-"About.version" = "版本";
+"About.Version" = "版本";
+"About.Check" = "检查";
 "About.Author" = "作者:";
 "About.Donate me with" = "打赏作者:";
 "About.or" = "或";
