@@ -51,6 +51,11 @@ struct PopRootView: View {
                     
                     log.debug(Locale.current)
                     log.debug(Locale.current.languageCode!)
+                    
+                    let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+                    let build = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as! String
+                    log.debug("version: \(version)")
+                    log.debug("build: \(build)")
 
                     log.verbose("========= Print Debug")
                 }  

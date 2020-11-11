@@ -10,7 +10,7 @@ import Foundation
 import XCGLogger
 import SQLite
 
-let _appVerion = "1.1.6"
+let _appVerion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
 #if DEBUG
 let appVersion = _appVerion + " (Debug)"
 #else
