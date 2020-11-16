@@ -22,7 +22,7 @@ Visit the [releases page](https://github.com/funway/Countdown/releases) to downl
 
 macOS 10.15.5
 
-Xcode 11.7
+Xcode 12.2
 
 
 
