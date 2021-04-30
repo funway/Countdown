@@ -23,21 +23,47 @@ struct PopEventList: View {
         VStack(spacing: Theme.popViewSpacingV) {
             HStack() {
                 
-                // 这里 label 不直接用 Image 而要用 Button 包裹一下的原因是，为了保持与右边的按钮颜色一致
-                MenuButton(label: settingsButton) {
-                    Button(NSLocalizedString("Preferences", comment: "")) {
-                        PreferencesWindowController.shared.show()
+                if #available(macOS 11.0, *) {
+                    // macOS 11 版本不支持 MenuButton 了，所以用 Menu 叠加 Image 来实现图标菜单
+                    ZStack {
+                        Image("SettingsIcon")
+                            .resizable()
+                            .frame(width: Theme.popViewHeaderIconWidth, height: Theme.popViewHeaderIconWidth)
                         
-                        let appDelegate = NSApplication.shared.delegate as! AppDelegate
-                        appDelegate.statusBarController.hidePopover(nil)
+                        Menu {
+                            Button(NSLocalizedString("Preferences", comment: "")) {
+                                PreferencesWindowController.shared.show()
+                                
+                                let appDelegate = NSApplication.shared.delegate as! AppDelegate
+                                appDelegate.statusBarController.hidePopover(nil)
+                            }
+                            Button("Quit") {
+                                NSApplication.shared.terminate(self)
+                            }
+                        } label: {
+                        }
+                        .frame(width: Theme.popViewHeaderIconWidth, height: Theme.popViewHeaderIconWidth)
+                        .menuStyle(BorderlessButtonMenuStyle(showsMenuIndicator: false))
+                    }.padding(.horizontal)
+                } else {
+                    // Fallback on earlier versions
+                    MenuButton(label: settingsButton) {
+                        // 这里 label 不直接用 Image 而要用 Button 包裹一下的原因是，为了保持与右边的按钮颜色一致
+                        
+                        Button(NSLocalizedString("Preferences", comment: "")) {
+                            PreferencesWindowController.shared.show()
+                            
+                            let appDelegate = NSApplication.shared.delegate as! AppDelegate
+                            appDelegate.statusBarController.hidePopover(nil)
+                        }
+                        Button("Quit") {
+                            NSApplication.shared.terminate(self)
+                        }
                     }
-                    Button("Quit") {
-                        NSApplication.shared.terminate(self)
-                    }
+                    .frame(width: Theme.popViewHeaderIconWidth)
+                    .menuButtonStyle(BorderlessButtonMenuButtonStyle())
+                    .padding(.horizontal)
                 }
-                .frame(width: Theme.popViewHeaderIconWidth)
-                .menuButtonStyle(BorderlessButtonMenuButtonStyle())
-                .padding(.horizontal)
                 
                 Spacer()
                 
